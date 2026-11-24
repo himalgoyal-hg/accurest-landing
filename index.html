@@ -1,0 +1,1669 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Accurest catches the supply chain errors that cost US ecommerce brands money: stockouts, phantom stock, late containers and cash surprises. Accurest Technologies (software) and Accurest Consulting (managed operations).">
+<meta property="og:title" content="Accurest · Spot the error">
+<meta property="og:description" content="Five documents. Five costly mistakes. Can you spot them? Supply chain software and managed operations for ecommerce brands.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/accurest-logo.png">
+<meta name="theme-color" content="#001535">
+<link rel="icon" type="image/png" href="assets/accurest-logo.png">
+<title>Accurest — Spot the error</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=DM+Serif+Display&amp;family=JetBrains+Mono:wght@400;700;800&amp;family=Montserrat:wght@400;500;700;800&amp;display=swap" rel="stylesheet">
+<style>
+:root{--blue:#004AB4;--bright:#036FDA;--navy:#001535;--ink:#0B1220;--paper:#FAF8F3;--red:#D92D20;--mint:#12B76A;--hl:#FFE66D;--line:#D9DEE8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Montserrat,system-ui,sans-serif}
+a{color:inherit}
+.hk-wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+.hk-mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+.hk-serif{font-family:'DM Serif Display',Georgia,serif;font-weight:400}
+.hk-pen{font-family:Caveat,'Segoe Print',cursive;font-weight:700;color:var(--bright)}
+.hk-eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.hk-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;font-weight:700;font-size:15px;text-decoration:none;border:2px solid var(--navy);cursor:pointer;font-family:inherit;transition:transform .15s,box-shadow .15s}
+.hk-btn:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--navy)}
+.hk-btn.pri{background:var(--blue);border-color:var(--blue);color:#fff}
+.hk-btn.pri:hover{box-shadow:4px 4px 0 var(--navy)}
+.hk-btn.ghost{background:transparent;color:var(--navy)}
+.hk-btn:focus-visible,.hk-line:focus-visible,.hk-tab:focus-visible{outline:3px solid var(--bright);outline-offset:3px}
+/* top bar */
+.hk-top{position:sticky;top:0;z-index:20;background:rgba(250,248,243,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.hk-top .hk-wrap{display:flex;align-items:center;gap:20px;height:72px}
+.hk-co{display:flex;gap:8px;margin-left:auto}
+.hk-chip{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:700;padding:8px 12px;border:1.5px solid var(--navy);text-decoration:none;color:var(--navy);white-space:nowrap}
+.hk-chip i{width:9px;height:9px;display:inline-block}
+.hk-chip.t i{background:var(--blue)} .hk-chip.c i{border:1.8px solid var(--navy)}
+.hk-chip:hover{background:var(--navy);color:#fff}.hk-chip.c:hover i{border-color:#fff}
+/* hero */
+.hk-hero{padding:64px 0 80px}
+.hk-hero .hk-wrap{display:grid;grid-template-columns:1fr 1.02fr;gap:56px;align-items:center}
+.hk-h1{font-size:60px;line-height:1.02;margin:16px 0 20px;letter-spacing:-.01em;color:var(--navy)}
+.hk-h1 mark{background:linear-gradient(transparent 58%,var(--hl) 58%);color:inherit;padding:0 2px}
+.hk-lead{font-size:18px;line-height:1.6;color:#2B3445;max-width:520px;margin:0 0 26px}
+.hk-hint{display:flex;align-items:center;gap:10px;font-size:15px;color:var(--navy);margin-bottom:24px}
+.hk-hint b{font-weight:800}
+.hk-ctas{display:flex;flex-wrap:wrap;gap:12px}
+.hk-tries{margin-top:16px;font-size:13px;color:#5A6577}
+/* invoice */
+.hk-doc{display:none;position:relative;background:#fff;border:1px solid #CBD2DE;box-shadow:0 1px 0 #CBD2DE,0 24px 60px -24px rgba(0,21,53,.35);padding:26px 28px 22px;transform:rotate(1.2deg)}
+.hk-doc:before{content:"";position:absolute;inset:auto 12px -9px 12px;height:9px;background:#fff;border:1px solid #CBD2DE;border-top:0;transform:rotate(-.6deg);z-index:-1}
+.hk-dh{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:2px solid var(--ink);padding-bottom:14px;margin-bottom:6px}
+.hk-dh h3{margin:0;font-family:'JetBrains Mono',monospace;font-size:20px;letter-spacing:.06em}
+.hk-dh small{display:block;font-size:11.5px;color:#5A6577;line-height:1.6;font-family:'JetBrains Mono',monospace}
+.hk-cols{display:grid;grid-template-columns:1.6fr .9fr .9fr 1fr;gap:8px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;color:#5A6577;padding:8px 10px}
+.hk-line{position:relative;display:grid;grid-template-columns:1.6fr .9fr .9fr 1fr;gap:8px;align-items:center;width:100%;padding:11px 10px;border:0;border-top:1px dashed var(--line);background:transparent;font-family:'JetBrains Mono',monospace;font-size:13.5px;color:var(--ink);text-align:left;cursor:pointer;transition:background .15s}
+.hk-line:hover{background:#F1F5FC}
+.hk-line span:nth-child(n+2){text-align:right}
+.hk-line .ok{position:absolute;left:-24px;top:50%;transform:translate(0,-50%);font-family:Caveat,cursive;font-size:24px;font-weight:700;color:var(--mint);opacity:0;transition:opacity .2s;white-space:nowrap;pointer-events:none}
+.hk-line.checked .ok{opacity:1}
+.hk-line.checked{color:#8A93A3}
+.hk-ring{position:absolute;left:-16px;top:-7px;width:calc(100% + 32px);height:calc(100% + 14px);pointer-events:none;overflow:visible}
+.hk-ring path{fill:none;stroke:var(--bright);stroke-width:2.6;vector-effect:non-scaling-stroke;stroke-linecap:round;stroke-dasharray:2000;stroke-dashoffset:2000;transition:stroke-dashoffset .9s cubic-bezier(.6,.1,.3,1)}
+.hk-doc.found .hk-bad .hk-ring path{stroke-dashoffset:0}
+.hk-doc.found .hk-bad{background:rgba(217,45,32,.06);color:var(--red)}
+.hk-tot{display:flex;gap:10px;justify-content:space-between;border-top:2px solid var(--ink);margin-top:6px;padding:12px 10px 0;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:15px}
+.hk-note{position:absolute;right:-14px;top:-44px;white-space:nowrap;transform:rotate(-5deg);font-size:27px;line-height:1.05;opacity:0;transition:opacity .4s .7s;text-align:right;pointer-events:none}
+.hk-doc.found .hk-note{opacity:1}
+.hk-contract{margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#5A6577;border:1px dashed #B8C2D3;padding:8px 10px;background:#FBFCFE}
+.hk-contract b{color:var(--ink)}
+.hk-result{margin-top:18px;display:none;gap:14px;align-items:flex-start;background:var(--navy);color:#fff;padding:18px 20px;transform:rotate(-.4deg)}
+.hk-result.show{display:flex}
+.hk-result .st{flex:0 0 auto;border:2px solid #5BF0A8;color:#5BF0A8;font-family:'JetBrains Mono',monospace;font-weight:800;font-size:12px;letter-spacing:.12em;padding:6px 8px;transform:rotate(-6deg)}
+.hk-result p{margin:0;font-size:15px;line-height:1.55}
+.hk-result a{color:#9CC7FF;font-weight:700}
+/* sections */
+.hk-sec{padding:96px 0;border-top:1px solid var(--line)}
+.hk-h2{font-size:46px;line-height:1.05;margin:12px 0 14px;color:var(--navy)}
+.hk-sub{font-size:17px;line-height:1.6;color:#2B3445;max-width:640px;margin:0}
+/* two doors */
+.hk-doors{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:44px}
+.hk-door{position:relative;padding:34px 32px 30px;border:2px solid var(--navy);display:flex;flex-direction:column;gap:16px;text-decoration:none;transition:transform .18s,box-shadow .18s}
+.hk-door:hover{transform:translate(-3px,-3px);box-shadow:7px 7px 0 var(--navy)}
+.hk-door .tab{position:absolute;top:-2px;left:28px;transform:translateY(-100%);padding:7px 14px;font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:800;letter-spacing:.12em;border:2px solid var(--navy);border-bottom:0}
+.hk-door.t{background:var(--blue);color:#fff;border-color:var(--blue)}
+.hk-door.t .tab{background:var(--blue);color:#fff;border-color:var(--blue)}
+.hk-door.t:hover{box-shadow:7px 7px 0 var(--navy)}
+.hk-door.c{background:#fff;color:var(--navy)}
+.hk-door.c .tab{background:#fff}
+.hk-door h3{margin:0;font-size:34px;line-height:1.05}
+.hk-door .who{font-size:16px;line-height:1.55;margin:0;opacity:.92}
+.hk-door ul{list-style:none;margin:4px 0 0;padding:0;display:grid;gap:9px}
+.hk-door li{display:flex;gap:10px;font-size:15px;line-height:1.45}
+.hk-door li b{font-weight:800;min-width:128px}
+.hk-door .go{margin-top:auto;padding-top:14px;font-weight:800;font-size:16px;display:flex;justify-content:space-between;border-top:1px solid currentColor}
+.hk-door.t .go{border-color:rgba(255,255,255,.4)}
+.hk-door.c .go{border-color:var(--line)}
+.hk-door .mk{width:12px;height:12px;display:inline-block;margin-right:8px;vertical-align:1px}
+.hk-door.t .mk{background:#fff}.hk-door.c .mk{border:2px solid var(--navy)}
+/* tabs */
+.hk-tabs{display:flex;gap:0;margin:40px 0 0;border-bottom:2px solid var(--navy);overflow-x:auto}
+.hk-tab{flex:0 0 auto;padding:14px 22px;border:2px solid transparent;border-bottom:0;background:transparent;font-family:inherit;font-weight:800;font-size:15px;color:#5A6577;cursor:pointer;margin-bottom:-2px}
+.hk-tab.on{background:#fff;color:var(--navy);border-color:var(--navy)}
+.hk-panel{display:none;background:#fff;border:2px solid var(--navy);border-top:0;padding:36px}
+.hk-panel.on{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+.hk-pane h4{margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em}
+.hk-pane .hd{font-size:28px;line-height:1.1;margin:0 0 18px;color:var(--navy)}
+.hk-bars{display:grid;gap:16px;margin:8px 0 18px}
+.hk-bar small{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:12px;color:#5A6577;margin-bottom:6px}
+.hk-bar small b{color:var(--ink)}
+.hk-bar div{height:18px;background:var(--navy);position:relative}
+.hk-bar div i{position:absolute;top:0;bottom:0;background:repeating-linear-gradient(45deg,var(--red) 0 2px,transparent 2px 6px);border:1.5px dashed var(--red)}
+.hk-gap{font-family:'JetBrains Mono',monospace;font-weight:800;color:var(--red);font-size:15px}
+.hk-after{background:var(--blue);color:#fff;padding:26px 26px 22px;position:relative}
+.hk-after .hd{color:#fff}
+.hk-after h4{color:#7CF0B6}
+.hk-after .hk-bar small{color:#D6E4FA}.hk-after .hk-bar small b{color:#fff}
+.hk-after .hk-bar div{background:#fff}
+.hk-after .zero{font-family:'JetBrains Mono',monospace;font-weight:800;color:#7CF0B6;font-size:15px}
+.hk-incl{margin:20px 0 0;padding:16px 0 0;border-top:1px solid rgba(255,255,255,.3);font-size:14px;line-height:1.55}
+.hk-incl b{display:block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:#BFD6FF;margin-bottom:4px}
+.hk-bundle{margin-top:28px;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;border:2px dashed var(--blue);padding:20px 24px;background:#F3F7FE}
+.hk-bundle .eq{font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.7}
+.hk-bundle .eq b{color:var(--blue)}
+.hk-price{font-size:14px;color:#2B3445;line-height:1.6}
+/* consulting */
+.hk-svc{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:44px;border:2px solid var(--navy)}
+.hk-s{padding:26px 22px;border-right:1px solid var(--line);background:#fff;display:flex;flex-direction:column;gap:12px}
+.hk-s:last-child{border-right:0}
+.hk-s .n{font-family:'JetBrains Mono',monospace;font-size:12px;color:#5A6577;letter-spacing:.1em}
+.hk-s h3{margin:0;font-size:21px;color:var(--navy);font-family:'DM Serif Display',Georgia,serif;font-weight:400}
+.hk-s p{margin:0;font-size:14.5px;line-height:1.55;color:#2B3445}
+.hk-s .caught{margin-top:auto;font-family:Caveat,cursive;font-weight:700;font-size:21px;color:var(--bright);line-height:1.1;border-top:1px dashed var(--line);padding-top:12px}
+.hk-s .caught s{color:var(--red);text-decoration-thickness:2px}
+/* steps */
+.hk-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px;counter-reset:s}
+.hk-step{border-top:3px solid var(--navy);padding-top:18px}
+.hk-step .k{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:800;color:var(--blue)}
+.hk-step h3{margin:8px 0 8px;font-size:22px;color:var(--navy)}
+.hk-step p{margin:0;font-size:15px;line-height:1.55;color:#2B3445}
+/* clients */
+.hk-logos{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:32px;align-items:center;justify-items:center;margin-top:30px}
+.hk-logos img{max-width:min(140px,100%);width:auto;height:auto;display:block}
+.hk-marq{position:relative;overflow:hidden;margin-top:28px;padding:26px 0 34px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
+.hk-marq-in{display:flex;gap:28px;width:max-content;animation:hk-marq 38s linear infinite}
+.hk-marq:hover .hk-marq-in{animation-play-state:paused}
+@keyframes hk-marq{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 14px))}}
+.hk-lg{flex:0 0 auto;width:200px;height:104px;display:grid;place-items:center;background:#fff;border:1px solid var(--line);box-shadow:0 14px 30px -18px rgba(0,21,53,.35);animation:hk-float 4.2s ease-in-out infinite;animation-delay:calc(var(--d) * -1);transition:transform .25s,box-shadow .25s,border-color .25s}
+.hk-lg img{max-width:150px;width:auto;height:auto;display:block}
+.hk-lg:hover{animation-play-state:paused;transform:translateY(-10px) scale(1.06);box-shadow:0 22px 40px -18px rgba(0,74,180,.45);border-color:var(--bright)}
+@keyframes hk-float{0%,100%{transform:translateY(0) rotate(-.6deg)}50%{transform:translateY(-12px) rotate(.6deg)}}
+/* contact */
+.hk-contact{background:var(--navy);color:#fff;border-top:0}
+.hk-contact .hk-wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.hk-contact .hk-h2{color:#fff}
+.hk-contact .hk-sub{color:#C9D6EC}
+.hk-me{margin-top:30px;display:flex;gap:16px;align-items:center;border-top:1px solid rgba(255,255,255,.2);padding-top:22px}
+.hk-who{display:flex;align-items:center;gap:12px}
+.hk-av{width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid #fff;box-shadow:0 0 0 2px var(--red)}
+.hk-pol{flex:0 0 auto;margin:0;width:150px;background:#fff;padding:8px 8px 34px;transform:rotate(-3deg);box-shadow:0 18px 40px -16px rgba(0,0,0,.6);position:relative}
+.hk-pol img{display:block;width:100%;height:auto}
+.hk-pol figcaption{position:absolute;left:0;right:0;bottom:6px;text-align:center;font-size:17px;color:var(--blue)}
+.hk-me{align-items:center !important;gap:0 !important;border-top:0 !important;padding-top:10px !important;margin-top:36px !important}
+.hk-pol{z-index:2}
+.hk-bc{position:relative;z-index:1;flex:1;min-width:0;margin-left:-22px;background:#fff;color:var(--ink);padding:18px 18px 12px 34px;transform:rotate(1.5deg);box-shadow:0 22px 44px -18px rgba(0,0,0,.7);border-top:4px solid var(--bright)}
+.hk-bc-top{display:flex;justify-content:space-between;align-items:center}
+.hk-bc-top img{display:block;height:24px;width:auto}
+.hk-bc-top span{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:800;letter-spacing:.14em;color:var(--blue)}
+.hk-bc-name{display:flex;align-items:baseline;gap:12px;margin:10px 0 6px}
+.hk-bc-name b{font-family:'DM Serif Display',serif;font-weight:400;font-size:28px;line-height:1;color:var(--navy)}
+.hk-bc-name .hk-pen{font-size:22px;transform:rotate(-6deg);display:inline-block}
+.hk-bc-co{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;font-weight:800;color:var(--navy);padding-bottom:10px;border-bottom:1.5px solid var(--navy)}
+.hk-bc-co i.mk.c{border-color:var(--navy)}
+.hk-bc-rows .row{text-decoration:none;color:inherit;cursor:pointer;transition:background .15s,padding .15s;display:grid;grid-template-columns:62px minmax(0,1fr) auto;align-items:center;gap:8px;padding:8px 0;border-bottom:1px dashed #C9D2E0}
+.hk-bc-rows .row:last-child{border-bottom:0}
+.hk-bc-rows .k{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:800;letter-spacing:.12em;color:#5A6577}
+.hk-bc-rows .v{color:var(--ink);text-decoration:none;font-weight:700;font-size:13.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hk-bc-rows .row:hover{background:#EEF4FD;padding-left:6px;padding-right:6px}
+.hk-bc-rows .row:hover .v{color:var(--blue)}
+.hk-bc-rows .row:hover .go{background:var(--navy);color:#fff}
+.hk-bc-rows .go{white-space:nowrap;font:inherit;font-size:12px;font-weight:800;border:1.5px solid var(--navy);background:#fff;color:var(--navy);padding:4px 9px;cursor:pointer;text-decoration:none;line-height:1.2;transition:background .15s,color .15s}
+
+.hk-me .av{width:56px;height:56px;border-radius:50%;background:var(--blue);display:grid;place-items:center;font-family:'DM Serif Display',serif;font-size:22px}
+.hk-form{background:#fff;color:var(--ink);padding:30px;display:grid;gap:16px;transform:rotate(-.6deg);box-shadow:10px 10px 0 var(--blue)}
+.hk-form label{display:grid;gap:6px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#2B3445}
+.hk-form input,.hk-form textarea{font:inherit;font-size:15px;text-transform:none;letter-spacing:0;font-weight:500;border:0;border-bottom:1.5px solid #9AA4B5;padding:8px 2px;background:transparent;color:var(--ink);outline:none}
+.hk-form input:focus,.hk-form textarea:focus{border-color:var(--blue)}
+.hk-form textarea{min-height:84px;resize:vertical;border:1.5px solid #9AA4B5;padding:10px}
+.hk-pick{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.hk-pick label{display:flex;align-items:center;gap:8px;border:1.5px solid #9AA4B5;padding:10px;font-size:13px;letter-spacing:0;text-transform:none;font-weight:700;cursor:pointer}
+.hk-pick input{accent-color:var(--blue)}
+.hk-pick label:has(input:checked){border-color:var(--blue);background:#EEF4FD;color:var(--blue)}
+.hk-form .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.hk-sent{display:none;font-family:Caveat,cursive;font-size:24px;font-weight:700;color:var(--mint)}
+.hk-form.sent .hk-sent{display:block}
+/* footer */
+.hk-foot{background:#000D22;color:#9FB0CC;padding:34px 0;font-size:13px}
+.hk-foot .hk-wrap{display:flex;flex-wrap:wrap;gap:18px 34px;align-items:center}
+.hk-foot b{color:#fff}
+
+/* motion */
+@keyframes hk-grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes hk-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes hk-nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(6px)}}
+@keyframes hk-pop{0%{transform:scale(.6) rotate(-6deg);opacity:0}60%{transform:scale(1.12) rotate(-6deg);opacity:1}100%{transform:scale(1) rotate(-6deg)}}
+@keyframes hk-wiggle{0%,100%{transform:rotate(1.2deg)}25%{transform:rotate(.4deg) translateX(-3px)}75%{transform:rotate(2deg) translateX(3px)}}
+.hk-hero{background-image:radial-gradient(#D5DCE8 1px,transparent 1px);background-size:22px 22px;background-position:right top}
+.hk-hint .hk-pen{display:inline-block;animation:hk-nudge 1.4s ease-in-out infinite}
+.hk-line{animation:hk-in .5s both}
+.hk-line:nth-of-type(1){animation-delay:.15s}.hk-line:nth-of-type(2){animation-delay:.25s}.hk-line:nth-of-type(3){animation-delay:.35s}.hk-line:nth-of-type(4){animation-delay:.45s}.hk-line:nth-of-type(5){animation-delay:.55s}.hk-line:nth-of-type(6){animation-delay:.65s}
+.hk-doc.miss{animation:hk-wiggle .35s}
+.hk-result.show .st{animation:hk-pop .5s .2s both}
+.hk-score{display:flex;gap:18px;margin-top:16px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#5A6577}
+.hk-score b{color:var(--navy);font-size:15px}
+.hk-hero.done .hk-score .tm b{color:var(--mint)}
+.hk-panel.on .hk-bar div{transform-origin:left center;animation:hk-grow .9s cubic-bezier(.2,.8,.2,1) both}
+.hk-panel.on .hk-bar:nth-child(2) div{animation-delay:.15s}
+.hk-panel.on .hk-after .hk-bar div{animation-delay:.45s}
+.hk-panel.on .hk-after .hk-bar:nth-child(2) div{animation-delay:.6s}
+.hk-panel.on .hk-gap,.hk-panel.on .zero{animation:hk-in .5s 1s both}
+.hk-js .hk-rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.hk-js .hk-rv.in{opacity:1;transform:none}
+.hk-js .hk-rv.d1{transition-delay:.1s}.hk-js .hk-rv.d2{transition-delay:.2s}.hk-js .hk-rv.d3{transition-delay:.3s}
+
+.hk-doc.on{display:block}
+.hk-stage{position:relative}
+.hk-levels{display:flex;gap:8px;margin-bottom:54px;flex-wrap:wrap}
+.hk-chip2{display:inline-flex;align-items:center;gap:6px;padding:6px 9px;border:1.5px solid #B8C2D3;font-size:12px;font-weight:700;color:#8A93A3;background:#fff}
+.hk-chip2 b{font-family:'JetBrains Mono',monospace;font-size:11px}
+.hk-chip2 i{font-style:normal;color:var(--mint);display:none}
+.hk-chip2.cur{border-color:var(--navy);color:var(--navy);box-shadow:3px 3px 0 var(--navy)}
+.hk-chip2.done{border-color:var(--mint);color:var(--navy)}
+.hk-chip2.done i{display:inline}
+.hk-result p{margin:0 0 10px}
+.hk-rfoot{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.18);padding-top:10px}
+.hk-rfoot .who{font-size:13px;color:#C9D6EC}
+.hk-next{font:inherit;font-weight:800;font-size:14px;background:#5BF0A8;color:var(--navy);border:0;padding:9px 14px;cursor:pointer}
+.hk-next:hover{background:#fff}
+i.mk{display:inline-block;width:9px;height:9px;margin-right:6px;vertical-align:0}
+i.mk.t{background:var(--bright)} i.mk.c{border:1.8px solid currentColor}
+.hk-doc.enter{animation:hk-deal .55s cubic-bezier(.2,.8,.2,1) both}
+@keyframes hk-deal{from{opacity:0;transform:translateX(60px) rotate(6deg)}to{opacity:1;transform:rotate(1.2deg)}}
+/* lens */
+.hk-lens{position:absolute;width:170px;height:170px;border-radius:50%;border:3px solid var(--navy);box-shadow:0 0 0 6px rgba(255,255,255,.7),0 18px 40px -12px rgba(0,21,53,.55);overflow:hidden;pointer-events:none;opacity:0;transform:scale(.6);transition:opacity .15s,transform .15s;z-index:5;background:#fff}
+.hk-lens.on{opacity:1;transform:scale(1)}
+.hk-lens:after{content:"";position:absolute;inset:0;background:linear-gradient(var(--bright),var(--bright)) center/1px 16px no-repeat,linear-gradient(var(--bright),var(--bright)) center/16px 1px no-repeat;opacity:.6}
+.hk-lens-in{position:absolute;left:0;top:0;transform-origin:0 0}
+.hk-lens-in .hk-doc{position:absolute;margin:0;animation:none!important}
+.hk-lens-in .hk-line{animation:none!important}
+/* score card */
+.hk-card{display:none;background:#fff;border:2px solid var(--navy);box-shadow:10px 10px 0 var(--blue);padding:28px 28px 24px;transform:rotate(-1deg)}
+.hk-card.show{display:block;animation:hk-deal .6s cubic-bezier(.2,.8,.2,1) both}
+.hk-card-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+.hk-card .stamp{border:2.5px solid var(--mint);color:var(--mint);font-family:'JetBrains Mono',monospace;font-weight:800;letter-spacing:.14em;padding:7px 10px;transform:rotate(-5deg);font-size:14px}
+.hk-card-big{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;border-top:2px solid var(--navy);border-bottom:1px solid var(--line);padding:16px 0;margin-bottom:16px}
+.hk-card-big b{display:block;font-family:'DM Serif Display',serif;font-weight:400;font-size:40px;line-height:1;color:var(--navy)}
+.hk-card-big small{font-size:12px;color:#5A6577}
+.hk-card p{font-size:15px;line-height:1.55;margin:0 0 18px;color:#2B3445}
+.hk-hero.done .hk-doc.on{display:none}
+/* route */
+.hk-route{background:var(--navy);color:#fff;padding:96px 0 84px;overflow:hidden}
+.hk-route-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
+.hk-replay{font:inherit;font-weight:800;font-size:14px;color:#fff;background:transparent;border:1.5px solid rgba(255,255,255,.5);padding:10px 14px;cursor:pointer;white-space:nowrap}
+.hk-replay:hover{background:#fff;color:var(--navy)}
+.hk-track{position:relative;height:290px;margin:56px 80px 0;--p:1}
+.hk-line2{position:absolute;left:0;right:0;top:58px;height:2px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.35) 0 8px,transparent 8px 14px)}
+.hk-line2 i{position:absolute;left:0;top:0;bottom:0;width:calc(var(--p)*100%);background:#5BF0A8;transition:width .9s cubic-bezier(.4,0,.2,1)}
+.hk-ship{position:absolute;top:22px;left:calc(var(--p)*100%);transform:translateX(-50%);transition:left .9s cubic-bezier(.4,0,.2,1);animation:hk-bob 2.4s ease-in-out infinite}
+@keyframes hk-bob{0%,100%{margin-top:0}50%{margin-top:-4px}}
+.hk-stop{position:absolute;left:var(--x);top:52px;transform:translateX(-50%);width:160px;text-align:center}
+.hk-stop .dot{display:block;width:14px;height:14px;border-radius:50%;background:var(--navy);border:2px solid rgba(255,255,255,.6);margin:0 auto 12px;transition:all .3s}
+.hk-stop .n{display:block;font-family:'JetBrains Mono',monospace;font-size:11px;color:#8FA3C4}
+.hk-stop b{display:block;font-size:15px;margin-top:2px}
+.hk-stop small{display:block;font-size:12px;color:#9FB0CC;margin-top:2px}
+.hk-track.armed .hk-stop .dot{background:var(--navy);border-color:rgba(255,255,255,.6)}
+.hk-stop.reached .dot,.hk-track:not(.armed) .dot{background:#5BF0A8;border-color:#5BF0A8}
+.hk-err{position:relative;margin-top:14px;height:96px;text-align:left}
+.hk-err>div{position:absolute;inset:0;padding:10px 11px;font-size:13px;line-height:1.35;transition:opacity .35s,transform .45s cubic-bezier(.2,.8,.2,1)}
+.hk-err .tag{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:800;letter-spacing:.14em;margin-bottom:4px}
+.hk-err .b{background:#2A0E12;border:1.5px solid var(--red);color:#FFD9D5}
+.hk-err .b .tag{color:#FF7A6E}
+.hk-err .f{background:#0B2F28;border:1.5px solid #5BF0A8;color:#E3FFF2}
+.hk-err .f .tag{color:#5BF0A8}
+.hk-err .f em{display:block;font-style:normal;font-weight:800;margin-top:5px;font-size:12.5px}
+.hk-err .f i.mk.t{background:#5BF0A8}
+.hk-track.armed .hk-err>div{opacity:0;transform:translateY(8px)}
+.hk-track.armed .hk-stop.err .hk-err .b{opacity:1;transform:none}
+.hk-track.armed .hk-stop.fixed .hk-err .b{opacity:0;transform:translateY(-8px) rotateX(60deg)}
+.hk-track.armed .hk-stop.fixed .hk-err .f{opacity:1;transform:none}
+.hk-track:not(.armed) .hk-err .b{opacity:0}
+.hk-stop.err .dot{background:var(--red)!important;border-color:var(--red)!important;box-shadow:0 0 0 6px rgba(217,45,32,.25)}
+.hk-done{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin:8px 0 0;padding-top:20px;border-top:1px solid rgba(255,255,255,.15);font-size:15px}
+.hk-done>span:first-child{font-family:'DM Serif Display',serif;font-size:26px;color:#5BF0A8;opacity:1;transition:opacity .5s}
+.hk-route.playing .hk-done>span:first-child{opacity:0}
+.hk-legend{color:#C9D6EC;font-size:13px}
+.hk-legend i.mk.t{background:#5BF0A8}
+
+/* tech section */
+.hk-tech{position:relative;padding:104px 0 96px;color:#fff;background:radial-gradient(1200px 500px at 85% -10%,#036FDA 0,transparent 60%),linear-gradient(160deg,#004AB4 0%,#00347F 55%,#001E4D 100%);overflow:hidden}
+.hk-tech:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:linear-gradient(180deg,#000,transparent 85%);mask-image:linear-gradient(180deg,#000,transparent 85%);pointer-events:none}
+.hk-tech .hk-wrap{position:relative}
+.hk-tech-head{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:end}
+.hk-techgrid{display:grid;grid-template-columns:340px minmax(0,1fr);gap:28px;margin-top:48px;align-items:start}
+.hk-plist{display:grid;gap:10px}
+.hk-pi{position:relative;display:grid;grid-template-columns:34px 1fr 20px;grid-template-areas:"n t ar" "n c ar" "n s ar";gap:2px 10px;text-align:left;padding:16px 16px 16px 14px;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.18);color:#fff;font:inherit;cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
+.hk-pi:hover{background:rgba(255,255,255,.12);transform:translateX(4px)}
+.hk-pi .n{grid-area:n;font-family:'JetBrains Mono',monospace;font-size:12px;color:#9CC7FF;padding-top:4px}
+.hk-pi .t{grid-area:t;display:flex;align-items:baseline;gap:8px}
+.hk-pi .t b{font-family:'DM Serif Display',serif;font-weight:400;font-size:24px;line-height:1.1}
+.hk-pi .t em{font-style:normal;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#9CC7FF}
+.hk-pi .c{grid-area:c;font-size:13.5px;font-weight:700;color:#7CF0B6}
+.hk-pi .s{grid-area:s;font-size:12.5px;color:#C9D6EC}
+.hk-pi .ar{grid-area:ar;align-self:center;font-size:18px;opacity:0;transition:opacity .2s,transform .2s}
+.hk-pi.on{background:#fff;color:var(--navy);border-color:#fff;box-shadow:8px 8px 0 #001535}
+.hk-pi.on .n,.hk-pi.on .t em{color:var(--blue)}
+.hk-pi.on .c{color:var(--red)} .hk-pi.on .s{color:#5A6577}
+.hk-pi.on .ar{opacity:1;color:var(--blue);transform:translateX(2px)}
+.hk-pstage{position:relative}
+.hk-pp{display:none;position:relative;background:none;border:0;padding:0}
+.hk-pp.on{display:block;animation:hk-in .45s both}
+.hk-wm{position:absolute;right:-10px;top:-92px;font-family:'DM Serif Display',serif;font-size:120px;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.22);pointer-events:none;white-space:nowrap}
+.hk-cmp{position:relative;height:330px;border:2px solid #fff;box-shadow:12px 12px 0 rgba(0,21,53,.55);overflow:hidden;user-select:none;touch-action:pan-y}
+.hk-cmp .lay{position:absolute;inset:0;padding:22px 26px;display:flex;flex-direction:column}
+.hk-cmp .before{background:#fff;color:var(--ink)}
+.hk-cmp .after{background:#001535;color:#fff;clip-path:inset(0 0 0 var(--cut))}
+.hk-cmp.anim .after{transition:clip-path .9s cubic-bezier(.2,.8,.2,1)}
+.hk-cmp.anim .hk-handle{transition:left .9s cubic-bezier(.2,.8,.2,1)}
+.hk-cmp .lb{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:800;letter-spacing:.14em}
+.hk-cmp .before .lb{color:var(--red)}
+.hk-cmp .after .lb{color:#5BF0A8;text-align:right}
+.hk-cmp .big{margin:14px 0 0;display:flex;flex-direction:column;gap:8px;max-width:47%}
+.hk-cmp .after .big{align-self:flex-end;align-items:flex-end;text-align:right}
+.hk-cmp .big b{font-family:'DM Serif Display',serif;font-weight:400;font-size:72px;white-space:nowrap;line-height:.9;letter-spacing:-.01em}
+.hk-cmp .before .big b{color:var(--red)}
+.hk-cmp .after .big b{color:#5BF0A8}
+.hk-cmp .big span{font-size:15px;line-height:1.35}
+.hk-cmp .bars{margin-top:auto;display:grid;gap:14px}
+.hk-cmp .cb small{display:flex;gap:8px;font-family:'JetBrains Mono',monospace;font-size:12px;opacity:.85;margin-bottom:5px}
+.hk-cmp .cb div{height:16px;position:relative;background:var(--navy)}
+.hk-cmp .after .cb div{background:#fff}
+.hk-cmp .cb i{position:absolute;top:0;bottom:0;background:repeating-linear-gradient(45deg,var(--red) 0 2px,transparent 2px 6px);border:1.5px dashed var(--red)}
+.hk-handle{position:absolute;top:0;bottom:0;left:var(--cut);width:2px;margin-left:-1px;background:#fff;box-shadow:0 0 0 1px rgba(0,21,53,.35);pointer-events:none}
+.hk-handle span{position:absolute;top:50%;left:50%;width:48px;height:48px;margin:-24px 0 0 -24px;border-radius:50%;background:#fff;color:var(--blue);display:grid;place-items:center;font-size:22px;font-weight:800;box-shadow:0 6px 18px rgba(0,21,53,.45),0 0 0 6px rgba(255,255,255,.25);animation:hk-pulse 2s ease-in-out infinite}
+@keyframes hk-pulse{0%,100%{box-shadow:0 6px 18px rgba(0,21,53,.45),0 0 0 6px rgba(255,255,255,.25)}50%{box-shadow:0 6px 18px rgba(0,21,53,.45),0 0 0 14px rgba(255,255,255,.08)}}
+.hk-cmp-range{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize;-webkit-appearance:none;appearance:none}
+.hk-ba{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
+.hk-ba p{margin:0;font-size:14.5px;line-height:1.5;color:#E3ECFA}
+.hk-ba i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:8px}
+.hk-ba i.r{background:#FF7A6E}.hk-ba i.g{background:#5BF0A8}
+.hk-get{margin-top:18px;padding:16px 18px;border:1px solid rgba(255,255,255,.22);background:rgba(0,21,53,.3);display:grid;gap:4px;font-size:14px;line-height:1.55;color:#E3ECFA}
+.hk-get b{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:#9CC7FF}
+.hk-get em{font-style:normal;color:#7CF0B6;font-weight:700;font-size:13px}
+.hk-bundle2{margin-top:44px;padding:24px 26px;border:2px dashed rgba(255,255,255,.45);display:grid;gap:14px}
+.hk-bundle2 .tag{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:800;letter-spacing:.14em;color:#9CC7FF}
+.hk-bundle2 .eq{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.hk-bundle2 .chip{padding:7px 12px;border:1.5px solid rgba(255,255,255,.6);font-weight:700;font-size:14px}
+.hk-bundle2 .chip.main{background:#fff;color:var(--blue);border-color:#fff;font-family:'DM Serif Display',serif;font-weight:400;font-size:20px;padding:4px 14px}
+.hk-bundle2 .op{font-family:'JetBrains Mono',monospace;font-size:18px;color:#9CC7FF}
+.hk-bundle2 p{margin:0;font-size:14.5px;line-height:1.6;color:#D6E4FA;max-width:900px}
+
+/* ticket form */
+.hk-tk{position:relative;background:#fff;color:var(--ink);padding:0 0 18px;gap:0 !important;transform:rotate(-.6deg);box-shadow:12px 12px 0 var(--blue);overflow:hidden}
+.hk-tk:before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:radial-gradient(circle at 6px -2px,var(--navy) 6px,transparent 6.5px) 0 0/16px 8px repeat-x}
+.tk-head{display:flex;justify-content:space-between;gap:10px;padding:18px 22px 9px;border-bottom:2px solid var(--navy);font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:800;letter-spacing:.12em}
+.tk-id{color:var(--red)} .tk-to{color:var(--navy)}
+.tk-row2{display:grid;grid-template-columns:1fr 1fr}
+.tk-f{display:grid;grid-template-columns:26px 1fr;align-items:baseline;gap:0 6px;padding:9px 22px 8px;border-bottom:1px dashed #C9D2E0;text-transform:none;letter-spacing:0}
+.tk-row2 .tk-f+.tk-f{border-left:1px dashed #C9D2E0}
+.tk-f .n{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:800;color:var(--blue)}
+.tk-f .l{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#2B3445}
+.tk-f input,.tk-f textarea{grid-column:2;font:inherit;font-size:15px;font-weight:600;color:var(--ink);border:0;border-bottom:2px solid transparent;background:transparent;padding:3px 0 2px;outline:none;transition:border-color .2s}
+.tk-f input::placeholder,.tk-f textarea::placeholder{color:#AAB3C2;font-weight:500}
+.tk-f input:focus{border-bottom-color:var(--bright)}
+.tk-f textarea{grid-column:1/-1;min-height:46px;resize:vertical;border:1.5px dashed #B8C2D3;padding:8px 10px;margin-top:8px;font-size:14px}
+.tk-f textarea.flash{animation:tk-flash .6s}
+@keyframes tk-flash{0%{background:#FFF6D6;border-color:var(--hl)}100%{background:transparent}}
+.tk-f textarea{line-height:1.5;height:62px !important;min-height:62px;max-height:62px;resize:none;overflow-y:auto;scroll-behavior:smooth}
+.tk-f textarea:focus{border-color:var(--bright);border-style:solid}
+.tk-picks{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:6px}
+.tk-pick{position:relative;cursor:pointer;text-transform:none;letter-spacing:0}
+.tk-pick input{position:absolute;opacity:0;pointer-events:none}
+.tk-pick .b{display:grid;grid-template-columns:auto 1fr;grid-template-areas:"i b" "i s";gap:0 7px;align-items:center;padding:7px 9px;border:1.5px solid #B8C2D3;transition:all .15s;height:100%}
+.tk-pick .b i{grid-area:i}
+.tk-pick .b b{grid-area:b;font-size:14px;color:var(--navy)}
+.tk-pick .b small{grid-area:s;font-size:11px;color:#5A6577;font-weight:600}
+.tk-pick .q{font-style:normal;font-weight:800;color:var(--red);width:12px;text-align:center}
+.tk-pick i.mk.c{border-color:var(--navy)}
+.tk-pick:hover .b{border-color:var(--navy)}
+.tk-pick input:checked+.b{border-color:var(--blue);background:#EEF4FD;box-shadow:3px 3px 0 var(--blue)}
+.tk-pick input:focus-visible+.b{outline:3px solid var(--bright);outline-offset:2px}
+.tk-chips{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;margin-top:8px}
+.tk-grp{display:grid;gap:4px}
+.tk-grp .cs{display:flex;flex-wrap:wrap;gap:4px;align-content:flex-start;align-items:flex-start}
+.tk-grp{align-content:start}
+.tk-grp .g{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#8A93A3}
+.tk-hint{font-style:normal;font-weight:600;letter-spacing:0;text-transform:none;color:#8A93A3;margin-left:6px}
+.tk-err{color:var(--red);font-weight:800;font-size:13.5px !important}
+.hk-tk.shake{animation:tk-shake .4s}
+@keyframes tk-shake{0%,100%{transform:rotate(-.6deg) translateX(0)}25%{transform:rotate(-.6deg) translateX(-8px)}75%{transform:rotate(-.6deg) translateX(8px)}}
+.tk-f input.bad{background:#FDECEA}
+.tk-f input.bad{border-bottom-color:var(--red)}
+.hk-reply{display:none;background:#fff;color:var(--ink);box-shadow:12px 12px 0 #5BF0A8;transform:rotate(.5deg);border-top:4px solid #5BF0A8}
+.hk-reply.show{display:block;animation:hk-deal .55s cubic-bezier(.2,.8,.2,1) both}
+.rp-head{display:flex;align-items:center;gap:12px;padding:16px 22px;border-bottom:1.5px solid var(--navy)}
+.rp-head img{width:44px;height:44px;border-radius:50%;object-fit:cover}
+.rp-head b{display:block;font-size:15px;color:var(--navy)}
+.rp-when{font-size:12px;color:#5A6577}
+.rp-when i{display:inline-block;width:5px;height:5px;margin-left:3px;border-radius:50%;background:#8A93A3;animation:rp-dot 1s infinite}
+.rp-when i:nth-child(2){animation-delay:.15s}.rp-when i:nth-child(3){animation-delay:.3s}
+@keyframes rp-dot{0%,100%{opacity:.25;transform:translateY(0)}50%{opacity:1;transform:translateY(-3px)}}
+.hk-reply.done .rp-when i{display:none}
+.rp-tag{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:800;letter-spacing:.12em;color:var(--mint)}
+.rp-body{padding:18px 22px 20px;opacity:0;transition:opacity .4s}
+.hk-reply.done .rp-body{opacity:1}
+.rp-body p{margin:0 0 10px;font-size:15px;line-height:1.55;color:#2B3445}
+.rp-hi{font-weight:700;color:var(--navy) !important}
+.rp-list{list-style:none;margin:0 0 12px;padding:0;display:grid;gap:6px}
+.rp-list li{display:grid;grid-template-columns:auto 1fr;gap:1px 8px;padding:7px 10px;border:1px solid #DCE2EC;background:#FAFBFD;opacity:0;transform:translateY(8px);transition:opacity .35s,transform .35s}
+.rp-list li.in{opacity:1;transform:none}
+.rp-list .x{grid-row:span 2;color:var(--red);font-weight:800}
+.rp-list .p{font-size:13px;color:#5A6577;text-decoration:line-through;text-decoration-color:rgba(217,45,32,.6)}
+.rp-list .f{font-size:13.5px;font-weight:700;color:var(--navy)}
+.rp-list .pr{grid-column:2;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:800;letter-spacing:.06em;color:var(--blue)}
+.rp-list .pr i.mk.c{border-color:var(--navy)}
+.rp-start{display:grid;gap:2px;padding:12px 14px;background:var(--navy);color:#fff;margin-bottom:12px}
+.rp-start span{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:800;letter-spacing:.14em;color:#5BF0A8}
+.rp-start b{font-family:'DM Serif Display',serif;font-weight:400;font-size:24px}
+.rp-start em{font-style:normal;font-size:13px;color:#C9D6EC}
+.rp-sum{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin:0 0 8px;padding-bottom:10px;border-bottom:1px dashed #C9D2E0}
+.rp-n{font-family:'DM Serif Display',serif;font-weight:400;font-size:30px;line-height:1;color:var(--red)}
+.rp-split{font-size:12.5px;font-weight:700;color:#5A6577}
+.rp-path{background:#FFF6D6;border-left:3px solid var(--hl);padding:8px 10px;font-size:13.5px !important}
+.rp-list .s{grid-column:2;font-size:12.5px;color:#2B3445;line-height:1.45}
+.rp-list .s b{color:var(--mint)}
+.hk-reply.show{animation:rp-flip .7s cubic-bezier(.2,.8,.2,1) both !important}
+@keyframes rp-flip{0%{opacity:0;transform:perspective(900px) rotateY(-80deg) rotate(.5deg)}100%{opacity:1;transform:perspective(900px) rotateY(0) rotate(.5deg)}}
+.rp-stamp{position:absolute;right:18px;top:62px;border:3px solid var(--red);color:var(--red);font-family:'JetBrains Mono',monospace;font-weight:800;font-size:15px;letter-spacing:.14em;padding:4px 10px;transform:rotate(-10deg) scale(2);opacity:0;transition:all .4s cubic-bezier(.2,1.6,.4,1) .2s;pointer-events:none}
+.hk-reply.done .rp-stamp{opacity:.85;transform:rotate(-10deg) scale(1)}
+.hk-reply{position:relative}
+
+.rp-list li{display:block !important;padding:9px 11px !important}
+.rp-list li.more{display:none !important}
+.rp-list.all li.more{display:block !important}
+.rp-list .gh{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.rp-list .gh .pr{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;color:var(--blue)}
+.rp-list .gh .cnt{font-size:11px;font-weight:800;color:var(--mint);background:#E7FBF1;padding:2px 7px;border-radius:999px}
+.rp-list .ps{display:flex;flex-wrap:wrap;gap:4px;margin:5px 0 4px}
+.rp-list .ps s{font-size:11.5px;color:#8A4B45;background:#FDECEA;padding:2px 7px;border-radius:999px;text-decoration-color:rgba(217,45,32,.7)}
+.rp-list .s{display:block;font-size:12.5px;color:#2B3445;line-height:1.45}
+.rp-quote{margin:0 0 12px;padding:10px 12px 8px;border-left:3px solid var(--navy);background:#F3F6FB}
+.rp-quote .lbl{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:800;letter-spacing:.14em;color:#5A6577;margin-bottom:3px}
+.rp-quote q{display:block;font-size:14px;font-style:italic;color:var(--ink);line-height:1.45}
+.rp-quote .rp-ans{margin:6px 0 0 !important;font-size:19px !important;line-height:1.2 !important;color:var(--blue) !important}
+
+.tk-why{grid-column:1/-1;display:none;margin:8px 0 0;font-size:12.5px;line-height:1.5;color:#2B3445;background:#F3F7FE;border-left:3px solid var(--blue);padding:7px 10px}
+.tk-why b{color:var(--navy)} .tk-why span{color:#5A6577}
+.tk-why.on{display:block;animation:hk-in .3s both}
+.tk-chip[data-co="t"]:after{content:" ■";color:var(--blue);font-size:9px;vertical-align:1px}
+.tk-chip[data-co="c"]:after{content:" □";color:var(--navy);font-size:10px;vertical-align:1px}
+.tk-chips[data-path^="Software"] .tk-chip[data-co="c"]:not(.on),.tk-chips[data-path^="Managed"] .tk-chip[data-co="t"]:not(.on){opacity:.45}
+.tk-chips[data-path^="Software"] .tk-chip[data-co="t"]:not(.on){border-color:var(--bright);background:#EEF4FD}
+.tk-chips[data-path^="Managed"] .tk-chip[data-co="c"]:not(.on){border-color:var(--navy);background:#EEF1F6}
+.tk-chip.on:after{color:#fff}
+
+/* 3D business card */
+.hk-c3{position:relative;z-index:1;flex:1;min-width:0;margin-left:-22px;perspective:1100px;cursor:pointer;outline:none;--rx:0deg;--ry:0deg;--mx:50%;--my:50%}
+.c3-in{position:relative;width:100%;display:grid;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.2,.8,.2,1);transform:rotateX(var(--rx)) rotateY(calc(var(--ry) + 1.5deg))}
+.hk-c3.flipped .c3-in{transform:rotateX(var(--rx)) rotateY(calc(180deg + var(--ry)))}
+.hk-c3.tilt .c3-in{transition:transform .12s linear}
+.c3-face{grid-area:1/1;position:relative;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;box-shadow:0 26px 50px -20px rgba(0,0,0,.75)}
+.c3-front{justify-content:space-between;background:#fff;color:var(--ink);padding:18px 18px 38px 28px;display:flex;flex-direction:column}
+.c3-strip{position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(var(--bright),var(--blue))}
+.c3-top{display:flex;justify-content:space-between;align-items:center}
+.c3-top img{height:40px;width:auto;display:block}
+.c3-top span,.c3-btop span{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:800;letter-spacing:.14em;color:var(--blue)}
+.c3-tag{margin-top:14px;font-size:11.5px;font-weight:600;color:#5A6577;letter-spacing:.02em}
+.c3-name{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.c3-name b{font-family:'DM Serif Display',serif;font-weight:400;font-size:30px;line-height:1;color:var(--navy)}
+.c3-name .hk-pen{font-size:26px;transform:rotate(-8deg);display:inline-block}
+.c3-co{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12px;font-weight:800;color:var(--navy);border-top:1.5px solid var(--navy);padding-top:8px;margin-top:10px}
+.c3-co i.mk.c{border-color:var(--navy)}
+.c3-hint{position:absolute;right:12px;bottom:8px;font-family:Caveat,cursive;font-size:17px;font-weight:700;color:var(--bright);animation:c3-nudge 2s ease-in-out infinite}
+.c3-front .c3-hint{top:auto;bottom:8px}
+@keyframes c3-nudge{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg) translateY(-2px)}}
+.c3-back{transform:rotateY(180deg);background:radial-gradient(400px 200px at 90% 0,#036FDA 0,transparent 60%),linear-gradient(150deg,#004AB4,#001E4D);color:#fff;padding:16px 20px 14px 34px;display:flex;flex-direction:column;gap:2px}
+.c3-btop{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.c3-btop img{height:36px;width:auto;display:block}
+.c3-btop span{color:#5BF0A8}
+.c3-row{display:grid;grid-template-columns:70px minmax(0,1fr) 30px;align-items:center;gap:8px;padding:9px 10px;margin:0 -10px;color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.16);transition:background .15s}
+.c3-row:last-of-type{border-bottom:0}
+.c3-row .k{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:800;letter-spacing:.12em;color:#9CC7FF}
+.c3-row .v{font-weight:700;font-size:14.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.c3-row .go{justify-self:end;width:28px;height:28px;display:grid;place-items:center;border:1.5px solid rgba(255,255,255,.6);font-size:13px;transition:all .15s}
+.c3-row:hover{background:rgba(255,255,255,.1)}
+.c3-row:hover .go{background:#5BF0A8;border-color:#5BF0A8;color:var(--navy)}
+.c3-back .c3-hint{color:#9CC7FF;bottom:8px;top:auto;right:14px}
+.c3-bco{margin-top:auto;margin-bottom:14px;display:flex;gap:14px;font-size:11.5px;font-weight:800;color:#DCE7FA;padding-top:8px;border-top:1px solid rgba(255,255,255,.25)}
+.c3-bco i.mk.t{background:#fff}.c3-bco i.mk.c{border-color:#fff}
+.c3-sheen{position:absolute;inset:0;pointer-events:none;background:radial-gradient(260px 160px at var(--mx) var(--my),rgba(255,255,255,.35),transparent 70%);mix-blend-mode:soft-light;opacity:0;transition:opacity .3s}
+.hk-c3.tilt .c3-sheen{opacity:1}
+.hk-c3:focus-visible .c3-in{outline:3px solid #5BF0A8;outline-offset:4px}
+
+.c3-two{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.c3-co2{display:grid;gap:1px;padding:8px 10px;text-decoration:none;transition:transform .15s,box-shadow .15s}
+.c3-co2 .h{font-size:12px;font-weight:800;white-space:nowrap}
+.c3-co2 .d{font-family:Caveat,cursive;font-size:17px;font-weight:700;line-height:1}
+.c3-co2 .p{font-size:10px;font-weight:600;line-height:1.35;opacity:.9}
+.c3-co2.t{background:var(--blue);color:#fff}
+.c3-co2.t i.mk.t{background:#fff}
+.c3-co2.t .d{color:#7CF0B6}
+.c3-co2.c{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.c3-co2.c i.mk.c{border-color:var(--navy)}
+.c3-co2.c .d{color:var(--bright)}
+.c3-co2:hover{transform:translateY(-2px);box-shadow:0 6px 0 rgba(0,21,53,.25)}
+.c3-front .c3-name{margin-top:10px}
+
+.c3-back{padding:16px 20px 0 30px !important;gap:0 !important}
+.c3-btop{margin-bottom:12px !important}
+.c3-btop .hk-pen{font-size:21px;color:#7CF0B6 !important;letter-spacing:0 !important;font-family:Caveat,cursive !important;font-weight:700;transform:rotate(-4deg)}
+.c3-tiles{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.c3-tile.main{grid-column:1/-1;grid-template-columns:34px 1fr;grid-template-areas:"i k" "i v";align-items:center;gap:0 12px;padding:10px 34px 10px 10px}
+.c3-tile.main .ic{grid-area:i;margin:0}.c3-tile.main .k{grid-area:k}.c3-tile.main .v{grid-area:v;font-size:15px}
+.c3-tile.main .ar{top:50%;transform:translateY(-50%)}
+.c3-tile:not(.main){grid-template-columns:28px 1fr;grid-template-areas:"i k" "i v";align-items:center;gap:0 8px;padding:8px 26px 8px 8px}
+.c3-tile:not(.main) .ic{grid-area:i;width:28px;height:28px;margin:0}
+.c3-tile:not(.main) .k{grid-area:k}.c3-tile:not(.main) .v{grid-area:v}
+.c3-tile{position:relative;display:grid;gap:2px;align-content:start;padding:10px 10px 12px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#fff;text-decoration:none;transition:transform .15s,background .15s,box-shadow .15s;min-width:0}
+.c3-tile .ic{width:34px;height:34px;display:grid;place-items:center;border-radius:50%;background:rgba(255,255,255,.15);margin-bottom:6px}
+.c3-tile .k{font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:800;letter-spacing:.12em;color:#9CC7FF}
+.c3-tile .v{font-size:12.5px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.c3-tile .ar{position:absolute;right:10px;top:10px;font-weight:800;opacity:.7;transition:transform .15s}
+.c3-tile:hover{transform:translateY(-3px);background:rgba(255,255,255,.18);box-shadow:0 8px 0 rgba(0,0,0,.25)}
+.c3-tile:hover .ar{transform:translate(3px,-3px);opacity:1}
+.c3-tile.main{background:#5BF0A8;border-color:#5BF0A8;color:var(--navy)}
+.c3-tile.main .ic{background:var(--navy);color:#5BF0A8}
+.c3-tile.main .k{color:var(--navy);opacity:.75}
+.c3-tile.main:hover{background:#7CF5BC}
+.c3-band{display:grid;grid-template-columns:1fr 1fr;margin:12px -20px 0 -30px}
+.c3-note{margin-top:auto;padding-top:10px;text-align:center}
+.c3-note .hk-pen{font-size:19px;color:#FFE66D !important}
+.c3-band a{display:grid;grid-template-columns:auto 1fr;grid-template-areas:"i b" "i e";gap:0 8px;align-items:center;padding:10px 14px 24px 30px;text-decoration:none}
+.c3-band a i{grid-area:i}
+.c3-band a b{grid-area:b;font-size:11.5px;white-space:nowrap}
+.c3-band i.mk{width:10px !important;height:10px !important;min-width:0;max-width:10px;margin-right:0 !important;justify-self:start;box-sizing:border-box}
+.c3-band a em{grid-area:e;font-style:normal;font-family:Caveat,cursive;font-size:16px;font-weight:700;line-height:1}
+.c3-band .t{background:#fff;color:var(--blue)}
+.c3-band .t em{color:var(--bright)}
+.c3-band .c{background:var(--navy);color:#fff;padding-left:16px}
+.c3-band .c i.mk.c{border-color:#fff}
+.c3-band .c em{color:#5BF0A8}
+.c3-back .c3-hint{bottom:4px !important;right:12px !important;color:#9CC7FF !important;font-size:15px}
+
+.hk-contact{position:relative;overflow:hidden;background:radial-gradient(700px 420px at 85% 10%,rgba(3,111,218,.35),transparent 70%),radial-gradient(500px 360px at 0% 100%,rgba(91,240,168,.08),transparent 70%),var(--navy) !important}
+.hk-contact:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:44px 44px;pointer-events:none}
+.hk-contact .hk-wrap{position:relative;align-items:start}
+.hk-contact .hk-h2{margin-bottom:12px}
+.ct-next{margin-top:34px;padding:18px 20px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.04)}
+.ct-lbl{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:800;letter-spacing:.14em;color:#5BF0A8}
+.ct-next ol{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:0;counter-reset:n}
+.ct-next li{position:relative;display:grid;gap:1px;padding:0 0 14px 34px;counter-increment:n}
+.ct-next li:before{content:counter(n);position:absolute;left:0;top:0;width:22px;height:22px;border-radius:50%;background:#fff;color:var(--navy);font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:800;display:grid;place-items:center}
+.ct-next li:after{content:"";position:absolute;left:10.5px;top:24px;bottom:2px;width:1px;background:rgba(255,255,255,.25)}
+.ct-next li:last-child{padding-bottom:0}.ct-next li:last-child:after{display:none}
+.ct-next li b{font-size:14px;color:#fff}
+.ct-next li span{font-size:13px;color:#C9D6EC;line-height:1.45}
+.ct-meet{margin-top:14px;padding-top:12px;border-top:1px dashed rgba(255,255,255,.2);font-family:Caveat,cursive;font-size:20px;color:#9CC7FF;line-height:1.2}
+.ct-meet b{color:#5BF0A8;font-weight:700}
+.hk-me{margin-top:26px !important}
+
+/* tech v2 */
+.hk-tech{background:radial-gradient(900px 520px at 78% 8%,color-mix(in srgb,var(--pc) 38%,transparent),transparent 65%),radial-gradient(700px 500px at 0% 100%,rgba(61,139,255,.18),transparent 70%),linear-gradient(180deg,#050C24 0%,#071636 100%) !important;transition:background .6s}
+.hk-tech:before{background-image:radial-gradient(rgba(255,255,255,.13) 1px,transparent 1.2px) !important;background-size:22px 22px !important}
+.hk-tech .hk-h2{background:linear-gradient(90deg,#fff 0%,#fff 55%,var(--pc) 100%);-webkit-background-clip:text;background-clip:text;color:transparent !important}
+.hk-tech .hk-eyebrow{color:var(--pc) !important;transition:color .4s}
+.hk-pi{background:rgba(255,255,255,.04) !important;border:1px solid rgba(255,255,255,.12) !important;border-radius:10px;grid-template-columns:52px 1fr 20px !important;padding:14px 14px 14px 12px !important;overflow:hidden}
+.hk-pi .n{padding-top:0 !important}
+.hk-pi .el{position:relative;display:grid;place-items:center;width:44px;height:44px;border-radius:9px;border:1.5px solid var(--c);color:var(--c);font-family:'DM Serif Display',serif;font-size:18px;letter-spacing:-.02em;background:color-mix(in srgb,var(--c) 12%,transparent)}
+.hk-pi .el i{position:absolute;left:4px;top:2px;font-style:normal;font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--c);opacity:.8}
+.hk-pi .c{color:var(--c) !important}
+.hk-pi:hover{background:rgba(255,255,255,.08) !important;transform:translateX(4px)}
+.hk-pi.on{background:linear-gradient(100deg,color-mix(in srgb,var(--c) 22%,#0A1838) 0%,#0A1838 70%) !important;color:#fff !important;border-color:var(--c) !important;box-shadow:0 0 0 1px var(--c),0 14px 34px -14px var(--c) !important}
+.hk-pi.on .el{background:var(--c);color:#06102A}
+.hk-pi.on .el i{color:#06102A}
+.hk-pi.on .t em,.hk-pi.on .ar{color:var(--c) !important}
+.hk-pi.on .s{color:#C9D6EC !important}
+.hk-pi.on:before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--c)}
+.hk-win{border-radius:12px;overflow:hidden;border:1px solid color-mix(in srgb,var(--c) 60%,transparent);box-shadow:0 0 0 1px rgba(255,255,255,.06),0 30px 70px -24px color-mix(in srgb,var(--c) 70%,transparent),0 20px 40px -20px rgba(0,0,0,.8)}
+.hk-win .wb{display:flex;align-items:center;gap:6px;padding:9px 12px;background:#0B1531;border-bottom:1px solid rgba(255,255,255,.08)}
+.hk-win .wb>i{width:10px;height:10px;border-radius:50%;background:#FF5F57}
+.hk-win .wb>i:nth-child(2){background:#FEBC2E}.hk-win .wb>i:nth-child(3){background:#28C840}
+.hk-win .url{margin-left:10px;flex:1;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#8FA3C4;background:rgba(255,255,255,.05);border-radius:6px;padding:4px 10px}
+.hk-win .url b{color:var(--c)}
+.hk-win .live{display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:800;letter-spacing:.12em;color:#5BF0A8}
+.hk-win .live em{width:7px;height:7px;border-radius:50%;background:#5BF0A8;animation:hk-live 1.4s ease-in-out infinite}
+@keyframes hk-live{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(91,240,168,.6)}50%{opacity:.5;box-shadow:0 0 0 5px rgba(91,240,168,0)}}
+.hk-win .hk-cmp{border:0 !important;box-shadow:none !important}
+.hk-pp .hk-cmp .after{background:linear-gradient(160deg,#0A1838,#050C24) !important}
+.hk-pp .hk-cmp .after .lb{color:var(--c) !important}
+.hk-pp .hk-handle span{color:#06102A !important;background:var(--c) !important}
+.hk-pp .hk-get{border-radius:10px;border-color:color-mix(in srgb,var(--c) 40%,transparent) !important;background:rgba(255,255,255,.03) !important}
+.hk-pp .hk-get b{color:var(--c) !important}
+.hk-bundle2{border-radius:12px;border:1px solid rgba(255,255,255,.18) !important;background:linear-gradient(120deg,rgba(61,139,255,.12),rgba(167,139,250,.08),rgba(45,212,191,.08)) !important}
+.hk-bundle2 .chip{border-radius:8px;border:1px solid rgba(255,255,255,.2) !important;border-left:4px solid var(--c,#fff) !important;background:rgba(255,255,255,.05)}
+.hk-bundle2 .chip.main{background:linear-gradient(90deg,#3D8BFF,#2DD4BF) !important;color:#fff !important;border:0 !important}
+
+/* run demo */
+.hk-run{position:relative;min-height:330px;padding:20px 24px 22px;background:#fff;color:var(--ink);overflow:hidden;transition:background .9s,color .9s}
+.hk-run.done{background:linear-gradient(160deg,#0A1838,#050C24);color:#fff}
+.rn-top{display:flex;justify-content:space-between;align-items:center}
+.rn-top .lb{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:800;letter-spacing:.14em;color:var(--red);transition:color .5s}
+.hk-run.done .rn-top .lb{color:var(--c)}
+.rn-stamp{font-family:'JetBrains Mono',monospace;font-weight:800;font-size:15px;letter-spacing:.14em;color:#5BF0A8;border:2.5px solid #5BF0A8;padding:3px 10px;transform:rotate(-8deg) scale(2.2);opacity:0;transition:all .45s cubic-bezier(.2,1.6,.4,1)}
+.hk-run.done .rn-stamp{opacity:1;transform:rotate(-8deg) scale(1)}
+.rn-main{display:grid;grid-template-columns:1.1fr 1fr;gap:20px;align-items:center;margin-top:10px}
+.rn-num{display:block;font-family:'DM Serif Display',serif;font-weight:400;font-size:84px;line-height:.95;color:var(--red);white-space:nowrap;font-variant-numeric:tabular-nums;transition:color .6s}
+.hk-run.counting .rn-num,.hk-run.done .rn-num{color:#5BF0A8}
+.rn-cap{display:block;margin-top:6px;font-size:15px;line-height:1.4;color:#2B3445;transition:color .6s}
+.hk-run.done .rn-cap{color:#DCE7FA}
+.rn-btn{font:inherit;font-weight:800;font-size:17px;color:#06102A;background:var(--c);border:0;border-radius:999px;padding:14px 22px;cursor:pointer;display:inline-flex;align-items:center;gap:10px;box-shadow:0 0 0 0 var(--c);animation:rn-pulse 1.8s ease-out infinite;transition:transform .15s}
+.rn-btn .pl{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#06102A;color:var(--c);font-size:11px}
+.rn-btn:hover{transform:scale(1.04)}
+@keyframes rn-pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--c) 70%,transparent)}100%{box-shadow:0 0 0 18px transparent}}
+.hk-run.running .rn-btn{animation:none;opacity:.5;pointer-events:none}
+.hk-run.done .rn-btn{animation:none;background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4)}
+.hk-run.done .rn-btn .pl{background:rgba(255,255,255,.15);color:#fff}
+.rn-log{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:5px;font-family:'JetBrains Mono',monospace;font-size:11.5px}
+.rn-log li{opacity:0;transform:translateX(-6px);transition:opacity .3s,transform .3s;color:#5A6577}
+.rn-log li:before{content:"› ";color:var(--c)}
+.rn-log li.on{opacity:1;transform:none}
+.rn-log li.ok:after{content:"  ✓";color:#12B76A;font-weight:800}
+.hk-run.done .rn-log li{color:#9FB0CC}
+.rn-bars{display:grid;gap:12px;margin-top:20px}
+.rb small{display:flex;gap:8px;font-family:'JetBrains Mono',monospace;font-size:12px;margin-bottom:5px;opacity:.85}
+.rb .tr{height:16px}
+.rb .fl{position:relative;height:100%;background:var(--navy);transition:width 1.3s cubic-bezier(.3,.8,.2,1),background .8s}
+.hk-run.done .rb .fl,.hk-run.counting .rb .fl{background:#fff}
+.rb .hx{position:absolute;top:0;bottom:0;background:repeating-linear-gradient(45deg,var(--red) 0 2px,transparent 2px 6px);border:1.5px dashed var(--red);transition:opacity .5s}
+.hk-run.counting .hx,.hk-run.done .hx{opacity:0}
+.rn-scan{position:absolute;left:0;right:0;top:-40%;height:40%;background:linear-gradient(180deg,transparent,color-mix(in srgb,var(--c) 25%,transparent),transparent);pointer-events:none;opacity:0}
+.hk-run.running .rn-scan{opacity:1;animation:rn-scan 1.2s linear infinite}
+@keyframes rn-scan{to{top:100%}}
+
+/* consulting v2 */
+.hk-cons{background:#F4F1EA !important;position:relative;overflow:hidden}
+.hk-cons:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(0,21,53,.05) 1px,transparent 1px);background-size:100% 32px;pointer-events:none}
+.hk-cons .hk-wrap{position:relative}
+.cs-head{display:grid;grid-template-columns:1.25fr 1fr;gap:40px;align-items:end}
+.cs-eb{display:flex;align-items:center;gap:8px;color:var(--navy) !important}
+.cs-eb i.mk.c{border-color:var(--navy);width:11px;height:11px}
+.cs-u{background:linear-gradient(transparent 62%,#FFE66D 62%);padding:0 2px}
+.cs-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:28px;margin-top:44px;align-items:start}
+.cs-team{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cs-m{display:grid;grid-template-columns:48px 1fr;gap:12px;padding:16px;background:#fff;border:1.5px solid var(--navy);box-shadow:5px 5px 0 var(--navy);transition:transform .15s,box-shadow .15s}
+.cs-m:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--m)}
+.cs-m .av,.cw-list .av{display:grid;place-items:center;border-radius:50%;background:var(--m);color:#fff;font-family:'JetBrains Mono',monospace;font-weight:800}
+.cs-m .av{width:48px;height:48px;font-size:14px;box-shadow:0 0 0 3px #fff,0 0 0 4.5px var(--m)}
+.cs-m b{display:block;font-family:'DM Serif Display',serif;font-weight:400;font-size:20px;color:var(--navy);line-height:1.1}
+.cs-m em{display:block;font-style:normal;font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:800;letter-spacing:.06em;color:var(--m);margin:3px 0 6px;text-transform:uppercase}
+.cs-m p{margin:0;font-size:13px;line-height:1.45;color:#2B3445}
+.cs-week{background:var(--navy);color:#fff;border-radius:12px;overflow:hidden;box-shadow:0 30px 60px -28px rgba(0,21,53,.7)}
+.cw-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 18px;border-bottom:1px solid rgba(255,255,255,.12)}
+.cw-head b{display:block;font-family:'DM Serif Display',serif;font-weight:400;font-size:21px}
+.cw-head span{font-size:12px;color:#9FB0CC}
+.cw-play{font:inherit;font-weight:800;font-size:13px;color:var(--navy);background:#FFE66D;border:0;border-radius:999px;padding:9px 14px;cursor:pointer;white-space:nowrap;animation:cw-pulse 1.8s ease-out infinite}
+@keyframes cw-pulse{0%{box-shadow:0 0 0 0 rgba(255,230,109,.6)}100%{box-shadow:0 0 0 14px transparent}}
+.cs-week.playing .cw-play{animation:none;opacity:.5;pointer-events:none}
+.cs-week.done .cw-play{animation:none;background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4)}
+.cw-list{list-style:none;margin:0;padding:6px 0}
+.cw-list li{display:grid;grid-template-columns:42px 30px 1fr auto;align-items:center;gap:10px;padding:10px 18px;border-bottom:1px dashed rgba(255,255,255,.1);transition:background .4s}
+.cw-list li:last-child{border-bottom:0}
+.cw-list .d{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:800;letter-spacing:.1em;color:#8FA3C4}
+.cw-list .av{width:30px;height:30px;font-size:10px}
+.cw-list .t{font-size:13.5px;line-height:1.35;color:#DCE7FA}
+.cw-list .r{font-size:12px;font-weight:800;white-space:nowrap;padding:4px 9px;border-radius:999px;background:rgba(255,255,255,.08);color:#8FA3C4;transition:all .35s}
+.cw-list .r:before{content:"…  "}
+.cw-list li.ok .r{background:#5BF0A8;color:var(--navy)}
+.cw-list li.ok .r:before{content:"✓  "}
+.cw-list li.now{background:rgba(255,230,109,.1)}
+.cs-week.armed .cw-list li:not(.ok) .r{color:transparent;background:rgba(255,255,255,.06)}
+.cs-week.armed .cw-list li:not(.ok) .r:before{color:#8FA3C4}
+.cw-foot{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.12)}
+.cw-foot>div{padding:14px 18px;border-right:1px solid rgba(255,255,255,.12)}
+.cw-foot>div:last-child{border-right:0}
+.cw-foot b{display:block;font-family:'DM Serif Display',serif;font-weight:400;font-size:30px;line-height:1;color:#5BF0A8;font-variant-numeric:tabular-nums}
+.cw-foot span{font-size:11.5px;color:#9FB0CC}
+
+/* segmented company switch */
+.hk-seg{position:relative;align-items:center;gap:4px !important;padding:4px;border-radius:999px;background:#fff;border:1.5px solid var(--navy);box-shadow:3px 3px 0 var(--navy)}
+.hk-seg .seg{position:relative;z-index:1;display:flex;align-items:center;gap:9px;padding:6px 14px 6px 8px;border:0 !important;border-radius:999px;background:transparent;color:var(--navy);text-decoration:none;transition:color .3s,background .2s}
+.hk-seg .seg:hover{background:#EEF2F8;color:var(--navy)}
+.hk-seg .seg .ic{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;flex:0 0 auto;transition:all .3s}
+.hk-seg .t .ic{background:var(--blue);grid-template-columns:repeat(2,6px);grid-auto-rows:6px;gap:2px;place-content:center}
+.hk-seg .t .ic i{width:6px !important;height:6px !important;border:0 !important;border-radius:1.5px;background:#fff}
+.hk-seg .t .ic i:nth-child(2){background:#5BF0A8}.hk-seg .t .ic i:nth-child(3){background:#9CC7FF}
+.hk-seg .c .ic{border:2px solid var(--navy);background:#fff}
+.hk-seg .c .ic i{width:10px !important;height:10px !important;border:2px solid var(--navy) !important;background:transparent}
+.hk-seg .tx{display:grid;line-height:1.15}
+.hk-seg .tx b{font-size:12.5px;font-weight:800;white-space:nowrap}
+.hk-seg .tx em{font-style:normal;font-family:Caveat,cursive;font-size:15px;font-weight:700;color:var(--bright);white-space:nowrap}
+.seg-or{font-family:Caveat,cursive;font-size:16px;font-weight:700;color:#8A93A3;position:relative;z-index:1}
+.seg-ind{position:absolute;z-index:0;top:4px;bottom:4px;left:4px;width:0;border-radius:999px;background:var(--navy);opacity:0;transition:left .45s cubic-bezier(.2,.8,.2,1),width .45s cubic-bezier(.2,.8,.2,1),opacity .3s,background .3s}
+.hk-seg.has .seg-ind{opacity:1}
+.hk-seg.on-tech .seg-ind{background:var(--blue)}
+.hk-seg .seg.act{color:#fff}
+.hk-seg .seg.act:hover{background:transparent;color:#fff}
+.hk-seg .seg.act .tx em{color:#5BF0A8}
+.hk-seg .c.act .ic{border-color:#fff;background:transparent}.hk-seg .c.act .ic i{border-color:#fff !important}
+.hk-seg .t.act .ic{background:#fff}.hk-seg .t.act .ic i:nth-child(1),.hk-seg .t.act .ic i:nth-child(4){background:var(--blue)}
+
+.hk-talk{display:flex;align-items:center;gap:10px;padding:4px 16px 4px 4px;border-radius:999px;background:var(--blue);color:#fff;text-decoration:none;border:1.5px solid var(--navy);box-shadow:3px 3px 0 var(--navy);transition:transform .15s,box-shadow .15s,background .2s;white-space:nowrap}
+.hk-talk:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--navy);background:var(--bright)}
+.hk-talk .tv{position:relative;flex:0 0 auto}
+.hk-talk .tv img{display:block;width:38px;height:38px;border-radius:50%;object-fit:cover;border:2px solid #fff}
+.hk-talk .tv i{position:absolute;right:-1px;bottom:1px;width:11px;height:11px;border-radius:50%;background:#5BF0A8;border:2px solid var(--blue);animation:hk-live 1.6s ease-in-out infinite}
+.hk-talk .tx{display:grid;line-height:1.15}
+.hk-talk .tx b{font-size:14px;font-weight:800}
+.hk-talk .tx em{font-style:normal;font-family:Caveat,cursive;font-size:15px;font-weight:700;color:#BFE0FF}
+.hk-talk .ar{font-weight:800;transition:transform .15s}
+.hk-talk:hover .ar{transform:translateX(4px)}
+
+/* hero v2 */
+.hk-hero{position:relative;overflow:hidden}
+.hk-hero:after{content:"";position:absolute;right:-120px;top:40px;width:720px;height:620px;background:radial-gradient(closest-side,rgba(3,111,218,.16),transparent);pointer-events:none}
+.hk-hero .hk-wrap{position:relative;z-index:1}
+.hk-hi{display:flex;align-items:center;gap:12px;margin-bottom:4px}
+.hk-hi .av{position:relative;flex:0 0 auto}
+.hk-hi .av img{display:block;width:48px;height:48px;border-radius:50%;object-fit:cover;border:2.5px solid #fff;box-shadow:0 0 0 2px var(--navy)}
+.hk-hi .av i{position:absolute;right:0;bottom:2px;width:12px;height:12px;border-radius:50%;background:#12B76A;border:2px solid #fff}
+.hk-hi .bub{position:relative;background:#fff;border:1.5px solid var(--navy);border-radius:14px 14px 14px 4px;padding:9px 14px;font-size:14px;color:#2B3445;box-shadow:3px 3px 0 var(--navy)}
+.hk-hi .bub b{color:var(--navy)}
+.hk-hi .bub .hk-pen{font-size:20px;margin-left:2px;display:inline-block;animation:hk-bob2 1.4s ease-in-out infinite}
+@keyframes hk-bob2{0%,100%{transform:translateY(0)}50%{transform:translateY(3px)}}
+.hk-h1{font-size:56px !important;margin:18px 0 18px !important}
+.hk-lead{font-size:17px !important}
+.hk-ctas .hk-btn{border-radius:999px}
+.hk-score{display:grid !important;grid-template-columns:repeat(3,auto) 1fr;align-items:end;gap:0 22px !important;margin-top:22px !important;padding:12px 16px 14px;background:#fff;border:1.5px solid var(--navy);border-radius:12px;max-width:480px;position:relative}
+.hk-score .sc{display:grid;gap:2px}
+.hk-score .sc span{font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:800;letter-spacing:.12em;color:#8A93A3}
+.hk-score .sc>b{font-family:'DM Serif Display',serif;font-weight:400;font-size:26px;line-height:1;color:var(--navy)}
+.hk-score .sc>b b{font-weight:400}
+.hk-prog{grid-column:1/-1;height:6px;border-radius:99px;background:#E6EBF3;margin-top:12px;overflow:hidden}
+.hk-prog i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--blue),#5BF0A8);transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.hk-levels{display:grid !important;grid-template-columns:repeat(5,1fr);gap:0 !important;margin-bottom:34px !important;position:relative}
+.hk-levels:before{content:"";position:absolute;left:10%;right:10%;top:15px;height:2px;background:#C9D2E0}
+.hk-chip2{position:relative;flex-direction:column;gap:5px !important;padding:0 !important;border:0 !important;background:transparent !important;box-shadow:none !important;text-align:center;color:#8A93A3 !important}
+.hk-chip2>b{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#fff;border:2px solid #C9D2E0;font-family:'JetBrains Mono',monospace;font-size:12px;color:#8A93A3;position:relative;z-index:1;transition:all .3s}
+.hk-chip2 .lb{font-size:11.5px;font-weight:700;white-space:nowrap}
+.hk-chip2>i{position:absolute;top:-4px;left:calc(50% + 8px);z-index:2;width:16px;height:16px;border-radius:50%;background:#12B76A;color:#fff;font-size:10px;display:none;place-items:center}
+.hk-chip2.cur{color:var(--navy) !important}
+.hk-chip2.cur>b{background:var(--navy);border-color:var(--navy);color:#fff;box-shadow:0 0 0 5px rgba(0,74,180,.15)}
+.hk-chip2.done{color:var(--navy) !important}
+.hk-chip2.done>b{background:#12B76A;border-color:#12B76A;color:#fff}
+.hk-chip2.done>i{display:grid !important}
+
+/* card v3 */
+.hk-c3{margin-left:0 !important;max-width:560px}
+.hk-c3:before{content:"";position:absolute;inset:8px -8px -10px 10px;background:var(--blue);border-radius:14px;transform:rotate(3deg);box-shadow:0 20px 40px -20px rgba(0,0,0,.8);z-index:-1}
+.hk-c3:after{content:"";position:absolute;inset:4px -4px -6px 6px;background:#E9EEF6;border-radius:14px;transform:rotate(1.5deg);z-index:-1}
+.c3-face{border-radius:14px}
+.c3-front{background:linear-gradient(160deg,#FFFFFF 0%,#F6F8FC 100%) !important;padding:20px 22px 16px 32px !important;justify-content:flex-start !important}
+.c3-front:before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(0,21,53,.06) 1px,transparent 1.2px);background-size:12px 12px;pointer-events:none;-webkit-mask-image:linear-gradient(120deg,transparent 40%,#000);mask-image:linear-gradient(120deg,transparent 40%,#000)}
+.c3-strip{width:7px !important;border-radius:14px 0 0 14px}
+.c3-crop{position:absolute;width:12px;height:12px;border-color:rgba(0,74,180,.45);border-style:solid;border-width:0}
+.c3-crop.tl{left:16px;top:8px;border-left-width:1.5px;border-top-width:1.5px}
+.c3-crop.tr{right:8px;top:8px;border-right-width:1.5px;border-top-width:1.5px}
+.c3-crop.bl{left:16px;bottom:8px;border-left-width:1.5px;border-bottom-width:1.5px}
+.c3-crop.br{right:8px;bottom:8px;border-right-width:1.5px;border-bottom-width:1.5px}
+.c3-id{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:800;letter-spacing:.14em;color:#8A93A3 !important}
+.c3-who{position:relative;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;margin:16px 0 4px}
+.c3-av{position:relative;display:block}
+.c3-av img{display:block;width:74px;height:74px;border-radius:50%;object-fit:cover;object-position:50% 20%;border:3px solid #fff;box-shadow:0 0 0 2px var(--blue),0 8px 18px -8px rgba(0,21,53,.6)}
+.c3-av i{position:absolute;right:2px;bottom:4px;width:14px;height:14px;border-radius:50%;background:#12B76A;border:2.5px solid #fff}
+.c3-who .c3-name{margin:0 !important;gap:10px !important}
+.c3-who .c3-name b{font-size:30px !important}
+.c3-who .c3-name .hk-pen{font-size:22px !important}
+.c3-role{font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:800;letter-spacing:.14em;color:var(--blue);margin-top:4px}
+.c3-tag{font-size:11.5px;color:#5A6577;margin-top:4px;font-weight:600;line-height:1.35}
+.c3-two{position:relative;margin-top:14px !important}
+.c3-quick{position:relative;display:flex;align-items:center;gap:8px;margin-top:14px;padding-top:12px;border-top:1px dashed #C9D2E0}
+.c3-quick a{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;border:1.5px solid var(--navy);color:var(--navy);background:#fff;transition:all .15s}
+.c3-quick a:hover{background:var(--navy);color:#fff;transform:translateY(-2px)}
+.c3-quick .c3-hint{position:static !important;margin-left:auto;animation:c3-nudge 2s ease-in-out infinite}
+.c3-back{border-radius:14px}
+.hk-me{display:block !important}
+.rp-more{font:inherit;font-size:12.5px;font-weight:800;color:var(--blue);background:none;border:1.5px dashed var(--blue);padding:6px 10px;cursor:pointer;margin:-4px 0 12px}
+.rp-sign{font-size:24px;margin:4px 0 14px !important}
+.rp-btns{display:flex;flex-wrap:wrap;gap:10px}
+.tk-chip{font:inherit;font-size:11.5px;font-weight:700;color:var(--navy);background:#F3F6FB;border:1px solid #C9D2E0;border-radius:999px;padding:4px 9px;cursor:pointer}
+.tk-chip:before{content:"+ ";color:var(--red);font-weight:800}
+.tk-chip:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.tk-chip.on{background:var(--red);color:#fff;border-color:var(--red)}
+.tk-chip.on:before{content:"✓ ";color:#fff}
+.tk-foot{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;padding:14px 22px 0}
+.tk-send{font:inherit;font-weight:800;font-size:15px;color:#fff;background:var(--blue);border:2px solid var(--navy);padding:11px 20px;cursor:pointer;box-shadow:4px 4px 0 var(--navy);transition:transform .12s,box-shadow .12s}
+.tk-send span{display:inline-block;transition:transform .2s}
+.tk-send:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--navy)}
+.tk-send:hover span{transform:translateX(5px)}
+.tk-send:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--navy)}
+.tk-foot small{font-size:12px;color:#5A6577}
+.tk-stamp{position:absolute;right:28px;top:84px;border:4px solid var(--mint);color:var(--mint);font-family:'JetBrains Mono',monospace;font-weight:800;font-size:28px;letter-spacing:.12em;padding:6px 14px;transform:rotate(-12deg) scale(2);opacity:0;pointer-events:none;transition:all .35s cubic-bezier(.2,1.6,.4,1)}
+.hk-tk.sent .tk-stamp{opacity:.9;transform:rotate(-12deg) scale(1)}
+.hk-tk.sent{display:none}
+@media (max-width:860px){
+ .hk-wrap{padding:0 20px}
+ .hk-top .hk-wrap{height:62px}
+ .hk-co .hk-chip span{display:none}
+ .hk-co{gap:6px}
+ .hk-hero{padding:36px 0 56px}
+ .hk-hero .hk-wrap,.hk-doors,.hk-panel.on,.hk-contact .hk-wrap{grid-template-columns:1fr}
+ .hk-h1{font-size:40px}
+ .hk-h2{font-size:34px}
+ .hk-doc{transform:none;padding:18px 14px}
+ .hk-cols,.hk-line{grid-template-columns:1.5fr .8fr .9fr 1fr;font-size:11.5px;gap:4px}
+ .hk-cols{font-size:9px}
+ .hk-line .ok{left:-13px;font-size:17px}
+ .hk-dh h3{font-size:15px}
+ .hk-co{display:none}
+ .hk-top .hk-btn{margin-left:auto}
+ .hk-talk{margin-left:auto;padding:3px 12px 3px 3px}
+ .hk-talk .tv img{width:32px;height:32px}
+ .hk-talk .tx em{display:none}
+ .hk-talk .tx b{font-size:13px}
+ .hk-note{right:0;top:-36px;font-size:22px}
+ .hk-sec{padding:64px 0}
+ .hk-door{padding:28px 22px 24px}
+ .hk-door h3{font-size:28px}
+ .hk-door li{flex-direction:column;gap:0}
+ .hk-panel{padding:22px 18px}
+ .hk-svc{grid-template-columns:1fr}
+ .cs-head,.cs-grid,.cs-team{grid-template-columns:1fr}
+ .cs-grid{gap:20px;margin-top:28px}
+ .cw-list li{grid-template-columns:34px 26px 1fr;padding:10px 14px}
+ .cw-list .r{grid-column:3;justify-self:start}
+ .cw-head{flex-direction:column;align-items:flex-start}
+ .cw-foot b{font-size:22px}
+ .cw-foot>div{padding:12px}
+ .hk-s{border-right:0;border-bottom:1px solid var(--line)}
+ .hk-steps{grid-template-columns:1fr}
+ .hk-logos{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+ .hk-lg{width:150px;height:84px}
+ .hk-lg img{max-width:112px}
+ .hk-marq-in{gap:18px;animation-duration:28s}
+ @keyframes hk-marq{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 9px))}}
+ .hk-form{transform:none;padding:22px}
+ .hk-form .row,.hk-pick{grid-template-columns:1fr}
+ .hk-bundle{grid-template-columns:1fr}
+ .tk-row2,.tk-picks{grid-template-columns:1fr}
+ .tk-chips{grid-template-columns:1fr}
+ .tk-row2 .tk-f+.tk-f{border-left:0}
+ .tk-f,.tk-head,.tk-foot{padding-left:16px;padding-right:16px}
+ .hk-tk{transform:none;box-shadow:8px 8px 0 var(--blue)}
+ .hk-tech{padding:64px 0}
+ .hk-tech-head,.hk-techgrid,.hk-ba{grid-template-columns:1fr}
+ .hk-techgrid{gap:18px;margin-top:28px}
+ .hk-plist{grid-auto-flow:column;grid-auto-columns:78%;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px}
+ .hk-pi{scroll-snap-align:start}
+ .hk-wm{display:none}
+ .hk-cmp{height:300px}
+ .hk-cmp .lay{padding:16px}
+ .hk-cmp .big b{font-size:32px}
+ .rn-main{grid-template-columns:1fr;gap:12px}
+ .rn-num{font-size:56px}
+ .hk-run{padding:16px;min-height:0}
+ .rn-btn{font-size:15px;padding:12px 18px}
+ .hk-cmp .big{max-width:48%}
+ .hk-cmp .big span{font-size:13px;max-width:200px}
+ .hk-card-big{grid-template-columns:1fr 1fr}
+ .hk-lead{display:none}
+ .hk-levels{gap:6px;margin-bottom:16px;flex-wrap:nowrap}
+ .hk-chip2 .lb{font-size:9.5px;white-space:normal;line-height:1.15}
+ .hk-h1{font-size:38px !important}
+ .hk-hi .bub{font-size:12.5px;padding:7px 10px}
+ .hk-score{max-width:none;gap:0 14px !important}
+ .hk-score .sc>b{font-size:21px}
+ .hk-levels{flex-wrap:wrap;margin-bottom:44px}
+ .hk-chip2 b{font-size:10px}
+ .hk-ship{display:none}
+ .hk-card-big b{font-size:30px}
+ .hk-route{padding:64px 0}
+ .hk-route-head{flex-direction:column;align-items:flex-start}
+ .hk-track{height:auto;margin:36px 0 0 6px;padding-left:44px}
+ .hk-line2{left:7px;right:auto;top:0;bottom:0;width:2px;height:auto;background:repeating-linear-gradient(180deg,rgba(255,255,255,.35) 0 8px,transparent 8px 14px)}
+ .hk-line2 i{width:auto;right:0;height:calc(var(--p)*100%);transition:height .9s cubic-bezier(.4,0,.2,1)}
+ .hk-ship{left:-14px;top:calc(var(--p)*100% - 30px);transform:rotate(90deg) scale(.7);transition:top .9s cubic-bezier(.4,0,.2,1)}
+ .hk-stop{position:relative;left:auto;top:auto;transform:none;width:auto;text-align:left;margin-bottom:26px}
+ .hk-stop .dot{position:absolute;left:-44px;top:2px;margin:0}
+ .hk-err{height:84px;max-width:300px}
+ .hk-done{margin:8px 0 0}
+ .hk-lens{display:none}
+ .hk-pol{width:130px;padding:6px 6px 28px}
+ .hk-pol figcaption{font-size:14px}
+ .hk-me{flex-direction:column;align-items:flex-start !important}
+ .hk-c3{margin:-14px 0 0 0;width:calc(100% - 6px)}
+ .c3-name b{font-size:24px}
+ .c3-two{grid-template-columns:1fr;gap:6px}
+ .c3-av img{width:58px;height:58px}
+ .c3-who{gap:12px}
+ .c3-who .c3-name b{font-size:24px !important}
+ .c3-tag{display:none}
+ .hk-c3:before{inset:6px -4px -8px 6px}
+ .c3-co2 .p{display:none}
+ .c3-top img{height:32px}
+ .c3-btop img{height:28px}
+ .c3-tiles{grid-template-columns:1fr;gap:6px}
+ .c3-tile.main .v{font-size:13px}
+ .c3-band a b{white-space:normal}
+ .c3-tile{grid-template-columns:30px 1fr;grid-template-areas:"i k" "i v";align-items:center;padding:8px 30px 8px 8px;gap:0 10px}
+ .c3-tile .ic{grid-area:i;width:30px;height:30px;margin:0}
+ .c3-tile .k{grid-area:k}.c3-tile .v{grid-area:v}
+ .c3-tile .ar{top:50%;transform:translateY(-50%)}
+ .c3-back{padding:14px 14px 0 20px !important}
+ .c3-band{margin:12px -14px 0 -20px}
+ .c3-band a{padding:8px 10px 22px 20px}
+ .c3-band a b{font-size:11px}
+ .c3-btop .hk-pen{font-size:17px}
+ .c3-front{padding:16px 16px 36px 24px}
+ .c3-row{grid-template-columns:58px minmax(0,1fr) 26px;padding:7px 10px}
+ .c3-row .v{font-size:12.5px}
+ .hk-bc-rows .row{grid-template-columns:52px minmax(0,1fr) auto;gap:6px}
+ .hk-bc-rows .v{font-size:12.5px}
+ .hk-bc-rows .k{font-size:9px}
+ .hk-bc-rows .go{padding:4px 7px;font-size:11px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.hk-js .hk-rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div id="hk-root" onMouseMove="{{onMove}}" onInput="{{onInput}}">
+<header class="hk-top"><div class="hk-wrap">
+<img src="assets/accurest-logo.png" alt="Accurest — Precision Delivered" width="132" height="42" style="display:block;height:42px;width:auto">
+<nav class="hk-co hk-seg" aria-label="Choose a company">
+<span class="seg-ind" aria-hidden="true"></span>
+<a class="hk-chip seg t" href="#tech" data-sec="tech"><span class="ic"><i></i><i></i><i></i><i></i></span><span class="tx"><b>Accurest Technologies</b><em>Software you run</em></span></a>
+<span class="seg-or">or</span>
+<a class="hk-chip seg c" href="#consult" data-sec="consult"><span class="ic"><i></i></span><span class="tx"><b>Accurest Consulting</b><em>We run it for you</em></span></a>
+</nav>
+<a class="hk-talk" href="#talk"><span class="tv"><img src="assets/himal-face.jpg" alt="" width="34" height="34"><i></i></span><span class="tx"><b>Talk to Himal</b><em>Founder · replies in 1 day</em></span><span class="ar">→</span></a>
+</div></header>
+
+<section class="hk-hero" id="game"><div class="hk-wrap">
+<div>
+<div class="hk-hi"><span class="av"><img src="assets/himal-face.jpg" alt="Himal Goyal" width="44" height="44"><i></i></span><div class="bub"><b>Hi, I'm Himal.</b> You scanned my card. Now let's play a game. <span class="hk-pen">↓</span></div></div>
+<h1 class="hk-serif hk-h1">Five documents. <mark>Five costly mistakes.</mark> Can you spot them?</h1>
+<p class="hk-lead">US e-commerce brands lose money in reorder plans, invoices, stock counts, shipment trackers and cash plans that nobody checks line by line. We check every line, for you or with our software.</p>
+<div class="hk-hint"><span class="hk-pen" style="font-size:26px">→</span><span><b>Tap the line</b> you think is wrong.</span></div>
+<div class="hk-ctas"><button type="button" class="hk-btn pri" data-act="reveal">Show me the error</button><a class="hk-btn ghost" href="#journey">Skip, show me how ↓</a></div>
+<div class="hk-score" aria-live="polite"><div class="sc"><span>LEVEL</span><b><b class="hk-lvl">1</b>/5</b></div><div class="sc"><span>LINES CHECKED</span><b class="hk-count">0</b></div><div class="sc tm"><span>TIME</span><b class="hk-time">0s</b></div><div class="hk-prog"><i style="width:0%"></i></div></div>
+</div>
+<div class="hk-game">
+<div class="hk-levels"><span class="hk-chip2 cur" data-chip="1"><b>1</b><span class="lb">Reorder plan</span><i>✓</i></span><span class="hk-chip2" data-chip="2"><b>2</b><span class="lb">Invoice</span><i>✓</i></span><span class="hk-chip2" data-chip="3"><b>3</b><span class="lb">Stock count</span><i>✓</i></span><span class="hk-chip2" data-chip="4"><b>4</b><span class="lb">Shipments</span><i>✓</i></span><span class="hk-chip2" data-chip="5"><b>5</b><span class="lb">Cash plan</span><i>✓</i></span></div>
+<div class="hk-stage" id="hk-stage">
+<div class="hk-doc on" data-level="1"><div class="hk-note hk-pen">Sold out for 12 days!</div><div class="hk-dh"><div><h3>REORDER PLAN</h3><small>Week 14 · Amazon + Shopify<br>Warehouse: NJ-02</small></div><small style="text-align:right">Order when cover<br>≤ lead time + 7 days</small></div><div class="hk-cols"><span>SKU</span><span>STOCK COVER</span><span>LEAD TIME</span><span>PLAN</span></div><button type="button" class="hk-line" data-line="ok"><span>BT-32 Bottle</span><span>64 days</span><span>30 days</span><span>In 4 weeks</span><em class="ok" aria-hidden="true">✓</em></button><button type="button" class="hk-line" data-line="ok"><span>LB-01 Lunch box</span><span>45 days</span><span>35 days</span><span>This week</span><em class="ok" aria-hidden="true">✓</em></button><button type="button" class="hk-line hk-bad" data-line="bad"><span>TM-16 Travel mug</span><span>18 days</span><span>30 days</span><span>None needed</span><svg class="hk-ring" viewBox="0 0 400 60" preserveAspectRatio="none" aria-hidden="true"><path d="M70 5 C 30 5, 5 15, 5 30 C 5 46, 50 56, 200 56 C 350 56, 396 47, 396 30 C 396 13, 350 4, 200 4 C 150 4, 105 4, 52 9"/></svg><em class="ok" aria-hidden="true"></em></button><button type="button" class="hk-line" data-line="ok"><span>ST-04 Straw set</span><span>90 days</span><span>25 days</span><span>None needed</span><em class="ok" aria-hidden="true">✓</em></button><button type="button" class="hk-line" data-line="ok"><span>CP-12 Coffee cup</span><span>36 days</span><span>30 days</span><span>This week</span><em class="ok" aria-hidden="true">✓</em></button><button type="button" class="hk-line" data-line="ok"><span>LD-02 Spare lid</span><span>120 days</span><span>20 days</span><span>None needed</span><em class="ok" aria-hidden="true">✓</em></button><div class="hk-tot"><span>TM-16 · BEST SELLER</span><span>69 units / day</span></div><div class="hk-contract">Stock cover = stock on hand ÷ forecast daily sales. TM-16: <b>1,240</b> units ÷ <b>69</b> a day = <b>18 days</b>. The next container takes <b>30 days</b>.</div></div><div class="hk-doc" data-level="2"><div class="hk-note hk-pen">Contract says $18!</div><div class="hk-dh"><div><h3>INVOICE #3PL-20931</h3><small>Fulfilment · October 2026<br>Bill to: Your Brand, Inc.</small></div><small style="text-align:right">Due: Net 15<br>Warehouse: NJ-02</small></div><div class="hk-cols"><span>SERVICE</span><span>QTY</span><span>RATE</span><span>AMOUNT</span></div><button type="button" class="hk-line" data-line="ok"><span>Receiving</span><span>312</span><span>$0.75</span><span>$234.00</span><em class="ok" aria-hidden="true">✓</em></button><button type="button" class="hk-line" data-line="ok"><span>Pick &amp; pack</span><span>8,450</span><span>$0.45</span><span>$3,802.50</span><em class="ok" aria-hidden="true">✓</em></button><button type="button" class="hk-line" data-line="ok"><span>Packaging</span><span>8,450</span><span>$0.12</span><span>$1,014.00</span><em class="ok" aria-hidden="true">✓</em></button><button type="button" class="hk-line hk-bad" data-line="bad"><span>Storage / pallet</span><span>1,040</span><span>$24.00</span><span>$24,960.00</span><svg class="hk-ring" viewBox="0 0 400 60" preserveAspectRatio="none" aria-hidden="true"><path d="M70 5 C 30 5, 5 15, 5 30 C 5 46, 50 56, 200 56 C 350 56, 396 47, 396 30 C 396 13, 350 4, 200 4 C 150 4, 105 4, 52 9"/></svg><em class="ok" aria-hidden="true"></em></button><button type="button" class="hk-line" data-line="ok"><span>Returns</span><span>186</span><span>$2.50</span><span>$465.00</span><em class="ok" aria-hidden="true">✓</em></button><button type="button" class="hk-line" data-line="ok"><span>Account mgmt</span><span>1</span><span>$250.00</span><span>$250.00</span><em class="ok" aria-hidden="true">✓</em></button><div class="hk-tot"><span>TOTAL DUE</span><span>$30,725.50</span></div><div class="hk-contract">Your rate agreement: receiving <b>$0.75</b>/ctn · pick &amp; pack <b>$0.45</b>/order · packaging <b>$0.12</b> · storage <b>$18.00</b>/pallet · returns <b>$2.50</b> · account mgmt <b>$250</b></div></div><div class="hk-doc" data-level="3"><div class="hk-note hk-pen">200 units aren't there!</div><div class="hk-dh"><div><h3>STOCK REPORT · NJ-02</h3><small>Cycle count · Oct 31, 2026<br>Source: WMS export</small></div><small style="text-align:right">Units<br>6 SKUs</small></div><div class="hk-cols"><span>SKU</span><span>SYSTEM</span><span>LAST SCAN</span><span>VARIANCE</span></div><button type="button" class="hk-line" data-line="ok"><span>BT-32 Bottle</span><span>860</span><span>860</span><span>0</span><em class="ok" aria-hidden="true">✓</em></button><button type="button" class="hk-line" data-line="ok"><span>LB-01 Lunch box</span><span>2,300</span><span>2,296</span><span>−4</span><em class="ok" aria-hidden="true">✓</em></button><button type="button" class="hk-line hk-bad" data-line="bad"><span>TM-16 Travel mug</span><span>1,240</span><span>1,040</span><span>0</span><svg class="hk-ring" viewBox="0 0 400 60" preserveAspectRatio="none" aria-hidden="true"><path d="M70 5 C 30 5, 5 15, 5 30 C 5 46, 50 56, 200 56 C 350 56, 396 47, 396 30 C 396 13, 350 4, 200 4 C 150 4, 105 4, 52 9"/></svg><em class="ok" aria-hidden="true"></em></button><button type="button" class="hk-line" data-line="ok"><span>ST-04 Straw set</span><span>412</span><span>412</span><span>0</span><em class="ok" aria-hidden="true">✓</em></button><button type="button" class="hk-line" data-line="ok"><span>CP-12 Coffee cup</span><span>1,975</span><span>1,975</span><span>0</span><em class="ok" aria-hidden="true">✓</em></button><button type="button" class="hk-line" data-line="ok"><span>LD-02 Spare lid</span><span>640</span><span>652</span><span>+12</span><em class="ok" aria-hidden="true">✓</em></button><div class="hk-tot"><span>TM-16 REORDER POINT</span><span>1,100 units</span></div><div class="hk-contract">Variance = last scan − system. A reorder fires only when <b>system</b> stock drops below the reorder point.</div></div><div class="hk-doc" data-level="4"><div class="hk-note hk-pen">Rolled to Apr 16!</div><div class="hk-dh"><div><h3>INBOUND TRACKER</h3><small>Week 14 · ocean freight<br>Destination: NJ-02</small></div><small style="text-align:right">Updated<br>Mar 30, 09:00</small></div><div class="hk-cols"><span>PO · CONTAINER</span><span>VESSEL</span><span>ETA</span><span>STATUS</span></div><button type="button" class="hk-line" data-line="ok"><span>PO-1038 · TGHU 2041</span><span>Northwind</span><span>Mar 28</span><span>Arrived</span><em class="ok" aria-hidden="true">✓</em></button><button type="button" class="hk-line hk-bad" data-line="bad"><span>PO-1042 · TGHU 7713</span><span>Aurora</span><span>Apr 2</span><span>On schedule</span><svg class="hk-ring" viewBox="0 0 400 60" preserveAspectRatio="none" aria-hidden="true"><path d="M70 5 C 30 5, 5 15, 5 30 C 5 46, 50 56, 200 56 C 350 56, 396 47, 396 30 C 396 13, 350 4, 200 4 C 150 4, 105 4, 52 9"/></svg><em class="ok" aria-hidden="true"></em></button><button type="button" class="hk-line" data-line="ok"><span>PO-1047 · SEGU 3390</span><span>Harmony</span><span>Apr 9</span><span>On schedule</span><em class="ok" aria-hidden="true">✓</em></button><button type="button" class="hk-line" data-line="ok"><span>PO-1051 · TCNU 5518</span><span>Lyra</span><span>Apr 12</span><span>Loading</span><em class="ok" aria-hidden="true">✓</em></button><button type="button" class="hk-line" data-line="ok"><span>PO-1055 · TGHU 8802</span><span>Northwind</span><span>Apr 20</span><span>Booked</span><em class="ok" aria-hidden="true">✓</em></button><button type="button" class="hk-line" data-line="ok"><span>PO-1060 · SEGU 4127</span><span>Harmony</span><span>Apr 27</span><span>Booked</span><em class="ok" aria-hidden="true">✓</em></button><div class="hk-tot"><span>TM-16 SELLS OUT</span><span>Apr 8</span></div><div class="hk-contract">Carrier notice, Mar 30: vessel <b>Aurora</b> rolled to the next sailing. New ETA <b>Apr 16</b>.</div></div><div class="hk-doc" data-level="5"><div class="hk-note hk-pen">$140K missing!</div><div class="hk-dh"><div><h3>CASH PLAN · MAY</h3><small>Your Brand, Inc.<br>Source: AP + open POs</small></div><small style="text-align:right">Credit line<br>up to $560,000</small></div><div class="hk-cols"><span>ITEM</span><span>PLANNED</span><span>COMMITTED</span><span>GAP</span></div><button type="button" class="hk-line" data-line="ok"><span>Supplier payments</span><span>$310,000</span><span>$310,000</span><span>$0</span><em class="ok" aria-hidden="true">✓</em></button><button type="button" class="hk-line" data-line="ok"><span>3PL fees</span><span>$62,000</span><span>$62,000</span><span>$0</span><em class="ok" aria-hidden="true">✓</em></button><button type="button" class="hk-line hk-bad" data-line="bad"><span>Freight &amp; duty</span><span>$0</span><span>$140,000</span><span>$0</span><svg class="hk-ring" viewBox="0 0 400 60" preserveAspectRatio="none" aria-hidden="true"><path d="M70 5 C 30 5, 5 15, 5 30 C 5 46, 50 56, 200 56 C 350 56, 396 47, 396 30 C 396 13, 350 4, 200 4 C 150 4, 105 4, 52 9"/></svg><em class="ok" aria-hidden="true"></em></button><button type="button" class="hk-line" data-line="ok"><span>Marketing</span><span>$95,000</span><span>$95,000</span><span>$0</span><em class="ok" aria-hidden="true">✓</em></button><button type="button" class="hk-line" data-line="ok"><span>Payroll</span><span>$48,000</span><span>$48,000</span><span>$0</span><em class="ok" aria-hidden="true">✓</em></button><button type="button" class="hk-line" data-line="ok"><span>Software &amp; other</span><span>$5,000</span><span>$5,000</span><span>$0</span><em class="ok" aria-hidden="true">✓</em></button><div class="hk-tot"><span>MAY CASH OUT · PLAN</span><span>$520,000</span></div><div class="hk-contract">Gap = planned − committed. Committed = signed POs, booked freight and invoices received.</div></div>
+<div class="hk-lens" aria-hidden="true"><div class="hk-lens-in"></div></div>
+<div class="hk-card" role="status">
+<div class="hk-card-top"><span class="stamp">ERROR HUNTER</span><span class="hk-pen" style="font-size:24px">5 of 5. Sharp eyes.</span></div>
+<div class="hk-card-big"><div><b class="hk-ftime">0s</b><small>total time</small></div><div><b class="hk-fchecks">0</b><small>lines checked</small></div><div><b>12 days</b><small>of stockout avoided on your best seller</small></div></div>
+<p>You just did in seconds what most teams never do: check every line. Accurest does it on every reorder plan, invoice, stock count, shipment and cash plan, every day.</p>
+<div class="hk-ctas"><a class="hk-btn pri" href="#talk">Book a 20-min call</a><button type="button" class="hk-btn ghost" data-act="restart">Play again ↻</button></div>
+</div>
+</div>
+<div class="hk-result" data-res="1" role="status"><span class="st">CAUGHT</span><div><p><b class="hk-verdict"></b> TM-16 has 18 days of stock and a 30-day lead time, but the plan says “None needed”. Your best seller sells out 12 days before the next container lands.</p><div class="hk-rfoot"><span class="who"><i class="mk t"></i>Caught by AccuPlan · <a href="#tech">See AccuPlan</a></span><button type="button" class="hk-next" data-act="next">Next document →</button></div></div></div><div class="hk-result" data-res="2" role="status"><span class="st">CAUGHT</span><div><p><b class="hk-verdict"></b> Storage was billed at $24, not $18. That is $6,240 a month, $74,880 a year.</p><div class="hk-rfoot"><span class="who"><i class="mk c"></i>Caught by Checkmate · <a href="#consult">See Accurest Consulting</a></span><button type="button" class="hk-next" data-act="next">Next document →</button></div></div></div><div class="hk-result" data-res="3" role="status"><span class="st">CAUGHT</span><div><p><b class="hk-verdict"></b> TM-16 shows variance 0, but the scan is 200 short. The system still thinks it is above the reorder point, so the reorder never fires.</p><div class="hk-rfoot"><span class="who"><i class="mk t"></i>Caught by AccuStock · <a href="#tech">See Accurest Technologies</a></span><button type="button" class="hk-next" data-act="next">Next document →</button></div></div></div><div class="hk-result" data-res="4" role="status"><span class="st">CAUGHT</span><div><p><b class="hk-verdict"></b> PO-1042 still says “On schedule”, but the carrier rolled it to Apr 16. Your best seller sells out on Apr 8.</p><div class="hk-rfoot"><span class="who"><i class="mk t"></i>Caught by AccuShipments · <a href="#tech">See Accurest Technologies</a></span><button type="button" class="hk-next" data-act="next">Next document →</button></div></div></div><div class="hk-result" data-res="5" role="status"><span class="st">CAUGHT</span><div><p><b class="hk-verdict"></b> Freight and duty are committed at $140K but planned at $0, and the gap still shows $0. May really needs $660K, and your credit line stops at $560K.</p><div class="hk-rfoot"><span class="who"><i class="mk t"></i>Caught by AccuFinance · <a href="#tech">See AccuFinance</a></span><button type="button" class="hk-next" data-act="score">See your score →</button></div></div></div>
+</div>
+</div></section>
+
+<section class="hk-route" id="journey"><div class="hk-wrap">
+<div class="hk-route-head">
+<div><div class="hk-eyebrow" style="color:#5BF0A8">One order, factory to shelf</div>
+<h2 class="hk-serif hk-h2" style="color:#fff">Six things go wrong on the way. We catch all six.</h2></div>
+<button type="button" class="hk-replay" data-act="replay">Replay ↻</button>
+</div>
+<div class="hk-track" id="hk-track"><div class="hk-line2"><i></i></div><div class="hk-ship"><svg viewBox="0 0 64 30" width="64" height="30" aria-hidden="true"><rect x="14" y="2" width="9" height="7" fill="#036FDA"/><rect x="24" y="2" width="9" height="7" fill="#FFFFFF"/><rect x="34" y="2" width="9" height="7" fill="#5BF0A8"/><rect x="19" y="10" width="9" height="7" fill="#FFFFFF"/><rect x="29" y="10" width="9" height="7" fill="#036FDA"/><rect x="39" y="10" width="9" height="7" fill="#FFFFFF"/><rect x="50" y="6" width="6" height="11" fill="#FFFFFF"/><path d="M2 18 H62 L55 29 H9 Z" fill="#FFFFFF"/></svg></div><div class="hk-stop has-err" data-i="0" style="--x:0%"><span class="dot"></span><span class="n">01</span><b>Plan &amp; order</b><small>Factory · Shenzhen</small><div class="hk-err"><div class="b"><span class="tag">ERROR</span>Best seller ordered 12 days too late</div><div class="f"><span class="tag">CAUGHT</span>Reorder raised on day one<em><i class="mk t"></i>AccuPlan</em></div></div></div><div class="hk-stop has-err" data-i="1" style="--x:20%"><span class="dot"></span><span class="n">02</span><b>Booked</b><small>Port of Yantian</small><div class="hk-err"><div class="b"><span class="tag">ERROR</span>Rolled to the next vessel: +14 days</div><div class="f"><span class="tag">CAUGHT</span>Flagged on day one<em><i class="mk t"></i>AccuShipments</em></div></div></div><div class="hk-stop has-err" data-i="2" style="--x:40%"><span class="dot"></span><span class="n">03</span><b>At sea</b><small>Pacific crossing</small><div class="hk-err"><div class="b"><span class="tag">ERROR</span>No update from the forwarder for 9 days</div><div class="f"><span class="tag">CAUGHT</span>Chased daily, ETA confirmed<em><i class="mk c"></i>Imports team</em></div></div></div><div class="hk-stop has-err" data-i="3" style="--x:60%"><span class="dot"></span><span class="n">04</span><b>Received</b><small>Warehouse · NJ</small><div class="hk-err"><div class="b"><span class="tag">ERROR</span>Counted 1,040. System says 1,240.</div><div class="f"><span class="tag">CAUGHT</span>Every scan matched<em><i class="mk t"></i>AccuStock</em></div></div></div><div class="hk-stop has-err" data-i="4" style="--x:80%"><span class="dot"></span><span class="n">05</span><b>Invoiced</b><small>3PL bill</small><div class="hk-err"><div class="b"><span class="tag">ERROR</span>Storage billed $24, contract says $18</div><div class="f"><span class="tag">CAUGHT</span>Credit claimed<em><i class="mk c"></i>Checkmate</em></div></div></div><div class="hk-stop has-err" data-i="5" style="--x:100%"><span class="dot"></span><span class="n">06</span><b>Cash plan</b><small>Finance</small><div class="hk-err"><div class="b"><span class="tag">ERROR</span>$140K freight and duty left out</div><div class="f"><span class="tag">CAUGHT</span>Landed cost planned<em><i class="mk t"></i>AccuFinance</em></div></div></div></div>
+<div class="hk-done"><span>On the shelf. On time. On budget.</span><span class="hk-legend"><i class="mk t"></i>Accurest Technologies <i class="mk c" style="margin-left:14px"></i>Accurest Consulting</span></div>
+</div></section>
+
+<section class="hk-sec" id="choose"><div class="hk-wrap">
+<div class="hk-eyebrow" style="color:var(--blue)">Two companies. Pick the one you need.</div>
+<h2 class="hk-serif hk-h2 hk-rv">Want the software, or want us to run it?</h2>
+<p class="hk-sub">Accurest Technologies builds the planning software. Accurest Consulting is the team that runs planning and operations for you. Same people behind both, separate companies.</p>
+<div class="hk-doors hk-rv">
+<a class="hk-door t" href="#tech"><span class="tab">ACCUREST TECHNOLOGIES</span>
+<h3 class="hk-serif"><span class="mk"></span>Software you run.</h3>
+<p class="who">For planners, buyers and ops teams who want one tool for forecast, orders, shipments, stock and cash.</p>
+<ul><li><b>AccuPlan</b><span>Forecast + ordering + shipments + stock, one bundle</span></li><li><b>AccuStock</b><span>Inventory across Amazon and your 3PLs</span></li><li><b>AccuShipments</b><span>Every PO and container, milestone by milestone</span></li><li><b>AccuFinance</b><span>Cash-flow plan built on your real orders</span></li></ul>
+<span class="go">See the software <span>→</span></span></a>
+<a class="hk-door c" href="#consult"><span class="tab">ACCUREST CONSULTING</span>
+<h3 class="hk-serif"><span class="mk"></span>We run it for you.</h3>
+<p class="who">For founders and lean teams who want planning and operations handled by people who do this every day.</p>
+<ul><li><b>Checkmate</b><span>3PL and carrier invoice audit</span></li><li><b>Planning</b><span>Forecast, POs and container plans, weekly</span></li><li><b>Imports</b><span>Suppliers, forwarders and delays, handled</span></li><li><b>Reporting</b><span>Unit economics, landed cost, cash flow</span></li></ul>
+<span class="go">See the services <span>→</span></span></a>
+</div></div></section>
+
+<section class="hk-tech" id="tech" style="--pc:#3D8BFF"><div class="hk-wrap">
+<div class="hk-tech-head">
+<div><div class="hk-eyebrow" style="color:#9CC7FF">■ Accurest Technologies · software you run</div>
+<h2 class="hk-serif hk-h2 hk-rv" style="color:#fff">Four products. Each one catches a different mistake.</h2></div>
+<p class="hk-sub" style="color:#D6E4FA">Pick a product, then press <b style="color:#fff">▶ Run</b> and watch the mistake disappear.</p>
+</div>
+<div class="hk-techgrid hk-rv">
+<div class="hk-plist" role="tablist"><button type="button" class="hk-tab hk-pi on" data-tab="plan" data-col="#3D8BFF" style="--c:#3D8BFF" role="tab" aria-selected="true"><span class="n"><span class="el">AP<i>01</i></span></span><span class="t"><b>AccuPlan</b><em>Flagship bundle</em></span><span class="c">Catches: Stockouts, before they happen</span><span class="s">Forecast + ordering + shipments + stock</span><span class="ar">→</span></button><button type="button" class="hk-tab hk-pi" data-tab="stock" data-col="#A78BFA" style="--c:#A78BFA" role="tab" aria-selected="false"><span class="n"><span class="el">AS<i>02</i></span></span><span class="t"><b>AccuStock</b><em>Premium</em></span><span class="c">Catches: Phantom inventory</span><span class="s">Amazon + 3PL stock in one place</span><span class="ar">→</span></button><button type="button" class="hk-tab hk-pi" data-tab="ship" data-col="#2DD4BF" style="--c:#2DD4BF" role="tab" aria-selected="false"><span class="n"><span class="el">ASh<i>03</i></span></span><span class="t"><b>AccuShipments</b><em>Premium</em></span><span class="c">Catches: Late containers</span><span class="s">Every PO, every milestone</span><span class="ar">→</span></button><button type="button" class="hk-tab hk-pi" data-tab="fin" data-col="#FBBF24" style="--c:#FBBF24" role="tab" aria-selected="false"><span class="n"><span class="el">AF<i>04</i></span></span><span class="t"><b>AccuFinance</b><em>Add-on</em></span><span class="c">Catches: Cash-plan surprises</span><span class="s">Cash flow from your real orders</span><span class="ar">→</span></button></div>
+<div class="hk-pstage"><div class="hk-panel hk-pp on" data-panel="plan" role="tabpanel" style="--c:#3D8BFF">
+<div class="hk-win"><div class="wb"><i></i><i></i><i></i><span class="url">app.accurest.co / <b>accuplan</b></span><span class="live"><em></em>LIVE</span></div>
+<div class="hk-run" data-k="plan" data-a="-12" data-b="4" data-fmt="days" data-name="AccuPlan">
+<div class="rn-top"><span class="lb" data-a="BEFORE · WITHOUT ACCUPLAN" data-b="AFTER · WITH ACCUPLAN">BEFORE · WITHOUT ACCUPLAN</span><span class="rn-stamp">FIXED ✓</span></div>
+<div class="rn-main">
+<div class="rn-big"><b class="rn-num">−12 days</b><span class="rn-cap" data-a="your best seller is sold out before the container lands" data-b="to spare when the container lands">your best seller is sold out before the container lands</span></div>
+<div class="rn-side">
+<button type="button" class="rn-btn" data-act="run"><span class="pl">▶</span> Run AccuPlan</button>
+<ol class="rn-log"><li>Reading sales across Amazon + Shopify…</li><li>Forecast TM-16: 69 units a day</li><li>Lead time 30 days → PO raised today</li></ol>
+</div>
+</div>
+<div class="rn-bars"><div class="rb"><small><span data-a="Stock on hand" data-b="Stock cover">Stock on hand</span> <b data-a="18 days" data-b="34 days">18 days</b></small><div class="tr"><div class="fl" style="width:60%" data-wa="60" data-wb="100"></div></div></div><div class="rb"><small><span data-a="Time to restock" data-b="Time to restock">Time to restock</span> <b data-a="30 days" data-b="30 days">30 days</b></small><div class="tr"><div class="fl" style="width:60%" data-wa="60" data-wb="88"><i class="hx" style="left:100%;width:66.7%"></i></div></div></div></div>
+<div class="rn-scan" aria-hidden="true"></div>
+</div></div>
+<div class="hk-ba"><p><i class="r"></i><b>Before:</b> You run out on day 18. The container lands on day 30.</p><p><i class="g"></i><b>After:</b> Ordered on day one. Landed with 4 days to spare.</p></div>
+<div class="hk-get"><b>WHAT YOU GET</b><span>Multi-channel demand forecast (AccuForecast) · order and container planning (AccuEngine) · shipments with ETD / ETA and delay reports (AccuShipments Lite) · basic stock dashboard (AccuStock Lite)</span><em>Priced by brands × channels · quote on request</em></div>
+</div><div class="hk-panel hk-pp" data-panel="stock" role="tabpanel" style="--c:#A78BFA">
+<div class="hk-win"><div class="wb"><i></i><i></i><i></i><span class="url">app.accurest.co / <b>accustock</b></span><span class="live"><em></em>LIVE</span></div>
+<div class="hk-run" data-k="stock" data-a="200" data-b="0" data-fmt="n" data-name="AccuStock">
+<div class="rn-top"><span class="lb" data-a="BEFORE · WITHOUT ACCUSTOCK" data-b="AFTER · WITH ACCUSTOCK">BEFORE · WITHOUT ACCUSTOCK</span><span class="rn-stamp">FIXED ✓</span></div>
+<div class="rn-main">
+<div class="rn-big"><b class="rn-num">200</b><span class="rn-cap" data-a="phantom units, so the reorder never fires" data-b="variance, and the reorder fires on time">phantom units, so the reorder never fires</span></div>
+<div class="rn-side">
+<button type="button" class="rn-btn" data-act="run"><span class="pl">▶</span> Run AccuStock</button>
+<ol class="rn-log"><li>Pulling WMS + Amazon FBA stock…</li><li>Matching 1,040 scans to 1,240 in system</li><li>200 phantom units cleared → reorder fired</li></ol>
+</div>
+</div>
+<div class="rn-bars"><div class="rb"><small><span data-a="Shelf has" data-b="Shelf has">Shelf has</span> <b data-a="1,040 units" data-b="1,040 units">1,040 units</b></small><div class="tr"><div class="fl" style="width:83%" data-wa="83" data-wb="83"></div></div></div><div class="rb"><small><span data-a="System says" data-b="System says">System says</span> <b data-a="1,240 units" data-b="1,040 units">1,240 units</b></small><div class="tr"><div class="fl" style="width:83%" data-wa="83" data-wb="83"><i class="hx" style="left:100%;width:20.5%"></i></div></div></div></div>
+<div class="rn-scan" aria-hidden="true"></div>
+</div></div>
+<div class="hk-ba"><p><i class="r"></i><b>Before:</b> Your system counts 200 units you don't have.</p><p><i class="g"></i><b>After:</b> Every count matches the shelf. The reorder fires on time.</p></div>
+<div class="hk-get"><b>WHAT YOU GET</b><span>Warehouse stock from Amazon and your 3PLs in one place · basic stock dashboard · Manage stock tab for adjustments</span><em>Priced by warehouses · quote on request</em></div>
+</div><div class="hk-panel hk-pp" data-panel="ship" role="tabpanel" style="--c:#2DD4BF">
+<div class="hk-win"><div class="wb"><i></i><i></i><i></i><span class="url">app.accurest.co / <b>accushipments</b></span><span class="live"><em></em>LIVE</span></div>
+<div class="hk-run" data-k="ship" data-a="14" data-b="0" data-fmt="late" data-name="AccuShipments">
+<div class="rn-top"><span class="lb" data-a="BEFORE · WITHOUT ACCUSHIPMENTS" data-b="AFTER · WITH ACCUSHIPMENTS">BEFORE · WITHOUT ACCUSHIPMENTS</span><span class="rn-stamp">FIXED ✓</span></div>
+<div class="rn-main">
+<div class="rn-big"><b class="rn-num">+14 days</b><span class="rn-cap" data-a="late, and nobody told you" data-b="late: flagged on day one, 300 units to air">late, and nobody told you</span></div>
+<div class="rn-side">
+<button type="button" class="rn-btn" data-act="run"><span class="pl">▶</span> Run AccuShipments</button>
+<ol class="rn-log"><li>Tracking PO-1042 milestones…</li><li>Carrier notice: vessel rolled, +14 days</li><li>300 units moved to air → on shelf Apr 2</li></ol>
+</div>
+</div>
+<div class="rn-bars"><div class="rb"><small><span data-a="Planned on shelf" data-b="Planned on shelf">Planned on shelf</span> <b data-a="Apr 2" data-b="Apr 2">Apr 2</b></small><div class="tr"><div class="fl" style="width:72%" data-wa="72" data-wb="72"></div></div></div><div class="rb"><small><span data-a="Actually on shelf" data-b="Actually on shelf">Actually on shelf</span> <b data-a="Apr 16" data-b="Apr 2">Apr 16</b></small><div class="tr"><div class="fl" style="width:72%" data-wa="72" data-wb="72"><i class="hx" style="left:100%;width:38.9%"></i></div></div></div></div>
+<div class="rn-scan" aria-hidden="true"></div>
+</div></div>
+<div class="hk-ba"><p><i class="r"></i><b>Before:</b> Your container was rolled. Nobody told you for 14 days.</p><p><i class="g"></i><b>After:</b> Flagged on day one. 300 units moved to air.</p></div>
+<div class="hk-get"><b>WHAT YOU GET</b><span>PO and shipment creation · ETD / ETA · CRD and ship-date delay reports · milestone tracking · unit economics calculator · detailed accounting reports · QuickBooks sync · includes AccuStock Lite</span><em>Priced by destination warehouses · quote on request</em></div>
+</div><div class="hk-panel hk-pp" data-panel="fin" role="tabpanel" style="--c:#FBBF24">
+<div class="hk-win"><div class="wb"><i></i><i></i><i></i><span class="url">app.accurest.co / <b>accufinance</b></span><span class="live"><em></em>LIVE</span></div>
+<div class="hk-run" data-k="fin" data-a="140" data-b="0" data-fmt="k" data-name="AccuFinance">
+<div class="rn-top"><span class="lb" data-a="BEFORE · WITHOUT ACCUFINANCE" data-b="AFTER · WITH ACCUFINANCE">BEFORE · WITHOUT ACCUFINANCE</span><span class="rn-stamp">FIXED ✓</span></div>
+<div class="rn-main">
+<div class="rn-big"><b class="rn-num">$140K</b><span class="rn-cap" data-a="missing from your cash plan" data-b="in surprises, terms moved to net-60">missing from your cash plan</span></div>
+<div class="rn-side">
+<button type="button" class="rn-btn" data-act="run"><span class="pl">▶</span> Run AccuFinance</button>
+<ol class="rn-log"><li>Loading open POs, freight and duty…</li><li>Found $140K landed cost not in the plan</li><li>Cash plan updated · terms moved to net-60</li></ol>
+</div>
+</div>
+<div class="rn-bars"><div class="rb"><small><span data-a="Cash plan · May" data-b="Cash plan · May">Cash plan · May</span> <b data-a="$520K" data-b="$660K">$520K</b></small><div class="tr"><div class="fl" style="width:79%" data-wa="79" data-wb="100"></div></div></div><div class="rb"><small><span data-a="Actual out · May" data-b="Actual out · May">Actual out · May</span> <b data-a="$660K" data-b="$660K">$660K</b></small><div class="tr"><div class="fl" style="width:79%" data-wa="79" data-wb="100"><i class="hx" style="left:100%;width:26.6%"></i></div></div></div></div>
+<div class="rn-scan" aria-hidden="true"></div>
+</div></div>
+<div class="hk-ba"><p><i class="r"></i><b>Before:</b> $140K left out of your cash plan.</p><p><i class="g"></i><b>After:</b> Freight and duty in the plan. Supplier terms moved to net-60.</p></div>
+<div class="hk-get"><b>WHAT YOU GET</b><span>Cash-flow view built on your order forecast, shipment costs, payment terms and invoices · Amazon counted as a channel · works with AccuPlan and AccuShipments Premium</span><em>Priced by brands × channels · quote on request</em></div>
+</div></div>
+</div>
+<div class="hk-bundle2 hk-rv"><span class="tag">THE BUNDLE</span>
+<div class="eq"><span class="chip main">AccuPlan</span><span class="op">=</span><span class="chip" style="--c:#3D8BFF">AccuForecast</span><span class="op">+</span><span class="chip" style="--c:#3D8BFF">AccuEngine</span><span class="op">+</span><span class="chip" style="--c:#2DD4BF">AccuShipments Lite</span><span class="op">+</span><span class="chip" style="--c:#A78BFA">AccuStock Lite</span></div>
+<p>Buy AccuPlan, or any product on its own. Upgrade to AccuStock Premium or AccuShipments Premium when you need more. Pricing depends on your brands, channels and warehouses, so we send a quote, not a rate card.</p></div>
+</div></section>
+
+<section class="hk-sec hk-cons" id="consult"><div class="hk-wrap">
+<div class="cs-head">
+<div><div class="hk-eyebrow cs-eb"><i class="mk c"></i>Accurest Consulting · managed operations</div>
+<h2 class="hk-serif hk-h2 hk-rv">Your planning and ops team, <span class="cs-u">without the hiring.</span></h2></div>
+<p class="hk-sub">Planners, import specialists and auditors who work inside your tools every week and catch the errors before they reach your P&amp;L.</p>
+</div>
+<div class="cs-grid hk-rv">
+<div class="cs-team"><div class="cs-m" style="--m:#036FDA"><span class="av">PL</span><div><b>Planner</b><em>Planning &amp; ordering</em><p>Runs your forecast, POs and container plan every week.</p></div></div><div class="cs-m" style="--m:#12B76A"><span class="av">IM</span><div><b>Imports specialist</b><em>Imports &amp; shipments</em><p>Chases suppliers and forwarders, tracks every milestone.</p></div></div><div class="cs-m" style="--m:#D92D20"><span class="av">AU</span><div><b>Auditor</b><em>Checkmate · invoice audit</em><p>Checks every 3PL and carrier line against your rates.</p></div></div><div class="cs-m" style="--m:#B7791F"><span class="av">AN</span><div><b>Analyst</b><em>Reporting &amp; finance</em><p>Unit economics, landed cost and cash-flow reports.</p></div></div></div>
+<div class="cs-week" id="cs-week">
+<div class="cw-head"><div><b>This week at Your Brand</b><span>Run by Accurest Consulting</span></div><button type="button" class="cw-play" data-act="week">▶ Play the week</button></div>
+<ol class="cw-list"><li data-s="0" data-h="3"><span class="d">MON</span><span class="av" style="--m:#036FDA">PL</span><span class="t">Forecast refreshed: 3 best sellers will run out</span><span class="r">PO raised early</span></li><li data-s="6240" data-h="4"><span class="d">TUE</span><span class="av" style="--m:#D92D20">AU</span><span class="t">3PL invoice: storage billed $24, contract says $18</span><span class="r">+$6,240 credit</span></li><li data-s="0" data-h="2"><span class="d">WED</span><span class="av" style="--m:#12B76A">IM</span><span class="t">Forwarder: PO-1042 rolled to next vessel</span><span class="r">300 units to air</span></li><li data-s="0" data-h="3"><span class="d">THU</span><span class="av" style="--m:#B7791F">AN</span><span class="t">New duty rate not in landed cost</span><span class="r">Margins re-priced</span></li><li data-s="1120" data-h="2"><span class="d">FRI</span><span class="av" style="--m:#D92D20">AU</span><span class="t">Carrier bills: 14 duplicate surcharges</span><span class="r">+$1,120 credit</span></li></ol>
+<div class="cw-foot"><div><b class="cw-n">0</b><span>errors caught</span></div><div><b class="cw-s">$0</b><span>credits claimed</span></div><div><b class="cw-h">0 h</b><span>of your team's time saved</span></div></div>
+</div>
+</div>
+</div></section>
+
+<section class="hk-sec" style="background:#fff"><div class="hk-wrap">
+<div class="hk-eyebrow" style="color:var(--blue)">How it starts</div>
+<h2 class="hk-serif hk-h2 hk-rv">Send us one real document.</h2>
+<div class="hk-steps hk-rv">
+<div class="hk-step"><span class="k">STEP 1</span><h3>20-minute call</h3><p>Tell Himal how you plan, order and ship today, and where it hurts.</p></div>
+<div class="hk-step"><span class="k">STEP 2</span><h3>We find your error</h3><p>Share one invoice, PO or stock report. We come back with what is wrong and what it costs.</p></div>
+<div class="hk-step"><span class="k">STEP 3</span><h3>You pick the path</h3><p>Run it yourself on Accurest software, or let the Accurest Consulting team run it for you.</p></div>
+</div>
+<div style="margin-top:72px;text-align:center"><div class="hk-eyebrow" style="color:#5A6577">Brands we work with</div><div class="hk-marq"><div class="hk-marq-in"><span class="hk-lg" style="--d:0.00s"><img src="assets/client-miracle-made.png" alt="Miracle Made" style="max-height:36px"></span><span class="hk-lg" style="--d:0.45s"><img src="assets/client-maubrands.png" alt="MauBrands" style="max-height:44px"></span><span class="hk-lg" style="--d:0.90s"><img src="assets/client-halo-life.png" alt="Halo Life" style="max-height:56px"></span><span class="hk-lg" style="--d:1.35s"><img src="assets/client-soil.png" alt="Soil" style="max-height:60px"></span><span class="hk-lg" style="--d:1.80s"><img src="assets/client-tomo.png" alt="Tomo" style="max-height:56px"></span><span class="hk-lg" style="--d:2.25s"><img src="assets/client-european-bartender-school.png" alt="European Bartender School" style="max-height:52px"></span><span class="hk-lg" aria-hidden="true" style="--d:2.70s"><img src="assets/client-miracle-made.png" alt="" style="max-height:36px"></span><span class="hk-lg" aria-hidden="true" style="--d:3.15s"><img src="assets/client-maubrands.png" alt="" style="max-height:44px"></span><span class="hk-lg" aria-hidden="true" style="--d:3.60s"><img src="assets/client-halo-life.png" alt="" style="max-height:56px"></span><span class="hk-lg" aria-hidden="true" style="--d:4.05s"><img src="assets/client-soil.png" alt="" style="max-height:60px"></span><span class="hk-lg" aria-hidden="true" style="--d:4.50s"><img src="assets/client-tomo.png" alt="" style="max-height:56px"></span><span class="hk-lg" aria-hidden="true" style="--d:4.95s"><img src="assets/client-european-bartender-school.png" alt="" style="max-height:52px"></span></div></div></div>
+</div></section>
+
+<section class="hk-sec hk-contact" id="talk"><div class="hk-wrap">
+<div>
+<div class="hk-eyebrow" style="color:#5BF0A8">Talk to the founder</div>
+<h2 class="hk-serif hk-h2 hk-rv">Found an error of your own? Send it to Himal.</h2>
+<p class="hk-sub">Tick what looks wrong in your business. Himal reads every report himself and replies with a first read.</p>
+<div class="hk-me"><div class="hk-c3" id="hk-c3" data-act="flip" role="button" tabindex="0" aria-label="Himal's business card. Tap to flip.">
+<div class="c3-in">
+<div class="c3-face c3-front">
+<div class="c3-strip"></div>
+<i class="c3-crop tl"></i><i class="c3-crop tr"></i><i class="c3-crop bl"></i><i class="c3-crop br"></i>
+<div class="c3-top"><img src="assets/accurest-logo.png" alt="Accurest — Precision Delivered" width="126" height="40"><span class="c3-id">NO. 0001 · HG</span></div>
+<div class="c3-who">
+<span class="c3-av"><img src="assets/himal.jpg" alt="Himal Goyal" width="74" height="74"><i></i></span>
+<div><div class="c3-name"><b>Himal Goyal</b><span class="hk-pen">Himal</span></div>
+<div class="c3-role">FOUNDER / DIRECTOR</div>
+<div class="c3-tag">E-commerce Supply Chain · Operations · AI &amp; Technology</div></div>
+</div>
+<div class="c3-two">
+<a class="c3-co2 t" href="#tech"><span class="h"><i class="mk t"></i>Accurest Technologies</span><span class="d">Software you run</span><span class="p">AccuPlan · AccuStock · AccuShipments · AccuFinance</span></a>
+<a class="c3-co2 c" href="#consult"><span class="h"><i class="mk c"></i>Accurest Consulting</span><span class="d">We run it for you</span><span class="p">Planning · Imports · Checkmate audits</span></a>
+</div>
+<div class="c3-quick">
+<a href="mailto:himal.goyal@accurest.co?subject=Hello%20Himal" target="_blank" rel="noopener" aria-label="Email Himal"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg></a>
+<a href="https://www.linkedin.com/in/himalgoyal/" target="_blank" rel="noopener" aria-label="Himal on LinkedIn"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"></path></svg></a>
+<a href="https://accurest.co" target="_blank" rel="noopener" aria-label="accurest.co"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a14 14 0 0 1 0 18a14 14 0 0 1 0-18"></path></svg></a>
+<span class="c3-hint">Tap the card to flip ↻</span>
+</div>
+<i class="c3-sheen"></i>
+</div>
+<div class="c3-face c3-back">
+<div class="c3-btop"><img src="assets/accurest-logo-white.png" alt="Accurest — Precision Delivered" width="113" height="36"><span class="hk-pen">Let's find your errors.</span></div>
+<div class="c3-tiles">
+<a class="c3-tile main" href="mailto:himal.goyal@accurest.co?subject=Hello%20Himal" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg></span><span class="k">EMAIL HIMAL</span><span class="v">himal.goyal@accurest.co</span><span class="ar">→</span></a>
+<a class="c3-tile" href="https://www.linkedin.com/in/himalgoyal/" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"></path></svg></span><span class="k">LINKEDIN</span><span class="v">in/himalgoyal</span><span class="ar">↗</span></a>
+<a class="c3-tile" href="https://accurest.co" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a14 14 0 0 1 0 18a14 14 0 0 1 0-18"></path></svg></span><span class="k">WEBSITE</span><span class="v">accurest.co</span><span class="ar">↗</span></a>
+</div>
+<div class="c3-note"><span class="hk-pen">In the US this winter? Let's meet in person.</span></div>
+<div class="c3-band"><a href="#tech" class="t"><i class="mk t"></i><b>Accurest Technologies</b><em>Software you run</em></a><a href="#consult" class="c"><i class="mk c"></i><b>Accurest Consulting</b><em>We run it for you</em></a></div>
+<span class="c3-hint">↻ Flip back</span>
+<i class="c3-sheen"></i>
+</div>
+</div>
+</div></div>
+<div class="ct-next hk-rv">
+<span class="ct-lbl">WHAT HAPPENS NEXT</span>
+<ol>
+<li><b>Today</b><span>You send the report. Himal reads it himself.</span></li>
+<li><b>Within 1 business day</b><span>A reply with a first read of your errors.</span></li>
+<li><b>20-minute call</b><span>Walk through one real document together.</span></li>
+<li><b>Your pick</b><span>■ Run it on our software, or □ let our team run it.</span></li>
+</ol>
+<div class="ct-meet">Meeting Himal in the US this winter? <b>Ask for a time on the call.</b></div>
+</div>
+</div>
+<form class="hk-tk hk-rv d2" id="hk-form" novalidate>
+<div class="tk-head"><span class="tk-id">ERROR REPORT · #0001</span><span class="tk-to">TO: HIMAL GOYAL</span></div>
+<div class="tk-row2">
+<label class="tk-f"><span class="n">01</span><span class="l">Your name</span><input name="name" autocomplete="name" placeholder="Jane Doe" required></label>
+<label class="tk-f"><span class="n">02</span><span class="l">Work email</span><input name="email" type="email" autocomplete="email" placeholder="jane@yourbrand.com" required></label>
+</div>
+<label class="tk-f"><span class="n">03</span><span class="l">Company</span><input name="company" autocomplete="organization" placeholder="Your Brand, Inc."></label>
+<div class="tk-f"><span class="n">04</span><span class="l">I'm interested in</span>
+<div class="tk-picks">
+<label class="tk-pick"><input type="radio" name="path" value="Software (Accurest Technologies)" checked><span class="b"><i class="mk t"></i><b>Software</b><small>Accurest Technologies</small></span></label>
+<label class="tk-pick"><input type="radio" name="path" value="Managed operations (Accurest Consulting)"><span class="b"><i class="mk c"></i><b>Consulting</b><small>Accurest Consulting</small></span></label>
+<label class="tk-pick"><input type="radio" name="path" value="Not sure yet"><span class="b"><i class="q">?</i><b>Not sure</b><small>Help me choose</small></span></label>
+</div>
+<p class="tk-why" data-for="Software (Accurest Technologies)"><b>Software you run.</b> AccuPlan, AccuStock, AccuShipments and AccuFinance. Your team uses them every day; we set them up with you. <span>Problems the software fixes are marked ■ below.</span></p>
+<p class="tk-why" data-for="Managed operations (Accurest Consulting)"><b>We run it for you.</b> Our planners, imports team and Checkmate invoice audits work inside your tools. <span>Problems our team fixes are marked □ below.</span></p>
+<p class="tk-why" data-for="Not sure yet"><b>No problem.</b> Tick what looks wrong below and Himal will tell you which path fits, in the reply.</p>
+</div>
+<div class="tk-f"><span class="n">05</span><span class="l">What looks wrong? <em class="tk-hint">Pick all that apply</em></span>
+<div class="tk-chips" data-path="Software (Accurest Technologies)"><div class="tk-grp"><span class="g">Planning</span><div class="cs"><button type="button" class="tk-chip" data-act="chip" data-pain="Best sellers stock out" data-fix="Forecast by channel and raise the PO before the gap opens" data-step="We plug in your sales history and flag every SKU that runs out before its next PO lands." data-prod="AccuPlan" data-co="t">Best sellers stock out</button><button type="button" class="tk-chip" data-act="chip" data-pain="Too much slow stock" data-fix="Order quantities from real sell-through, not gut feel" data-step="We rank SKUs by weeks of cover and pause reorders on the slow ones." data-prod="AccuPlan" data-co="t">Too much slow stock</button><button type="button" class="tk-chip" data-act="chip" data-pain="Forecasts in spreadsheets" data-fix="One multi-channel forecast per brand and channel" data-step="We load your sheets into AccuForecast so the forecast updates itself." data-prod="AccuPlan" data-co="t">Forecasts in spreadsheets</button><button type="button" class="tk-chip" data-act="chip" data-pain="When / how much to order" data-fix="A ready order and container plan every week" data-step="AccuEngine builds your next PO and container plan from forecast and lead times." data-prod="AccuPlan" data-co="t">When / how much to order</button></div></div><div class="tk-grp"><span class="g">Stock</span><div class="cs"><button type="button" class="tk-chip" data-act="chip" data-pain="Counts don&#39;t match" data-fix="Every scan matched to the system, so reorders fire on time" data-step="We reconcile last month&#39;s scans against the system and list every gap." data-prod="AccuStock" data-co="t">Counts don&#39;t match</button><button type="button" class="tk-chip" data-act="chip" data-pain="Amazon + 3PL stock split" data-fix="Amazon and every 3PL in one stock view" data-step="We connect Amazon and each 3PL so every SKU has one stock number." data-prod="AccuStock" data-co="t">Amazon + 3PL stock split</button></div></div><div class="tk-grp"><span class="g">Shipments</span><div class="cs"><button type="button" class="tk-chip" data-act="chip" data-pain="Late containers" data-fix="Milestone tracking that flags a delay on day one" data-step="We load your open POs and track every milestone from booking to shelf." data-prod="AccuShipments" data-co="t">Late containers</button><button type="button" class="tk-chip" data-act="chip" data-pain="Landed cost unknown" data-fix="Unit economics with freight and duty per SKU" data-step="We add freight and duty to every PO so you see the true cost per unit." data-prod="AccuShipments" data-co="t">Landed cost unknown</button></div></div><div class="tk-grp"><span class="g">Cash</span><div class="cs"><button type="button" class="tk-chip" data-act="chip" data-pain="Cash plan misses costs" data-fix="A cash plan built from real orders, freight and duty" data-step="We rebuild next quarter&#39;s cash plan from open POs, freight and duty." data-prod="AccuFinance" data-co="t">Cash plan misses costs</button><button type="button" class="tk-chip" data-act="chip" data-pain="Supplier payments squeeze cash" data-fix="Payment terms planned against incoming cash" data-step="We map supplier terms against incoming cash and flag the tight weeks." data-prod="AccuFinance" data-co="t">Supplier payments squeeze cash</button></div></div><div class="tk-grp"><span class="g">Invoices</span><div class="cs"><button type="button" class="tk-chip" data-act="chip" data-pain="3PL invoices too high" data-fix="Every line checked against your rate agreement, credits claimed" data-step="Send one invoice and your rate agreement. We audit every line." data-prod="Checkmate" data-co="c">3PL invoices too high</button><button type="button" class="tk-chip" data-act="chip" data-pain="Freight bills look wrong" data-fix="Carrier invoices audited line by line" data-step="Send recent carrier bills. We check each one against your agreed rates." data-prod="Checkmate" data-co="c">Freight bills look wrong</button></div></div><div class="tk-grp"><span class="g">Team</span><div class="cs"><button type="button" class="tk-chip" data-act="chip" data-pain="No one owns planning" data-fix="Our planners run forecast, POs and containers for you" data-step="A planner from our team takes over your weekly forecast and POs." data-prod="Managed planning" data-co="c">No one owns planning</button><button type="button" class="tk-chip" data-act="chip" data-pain="Chasing suppliers / forwarders" data-fix="Our imports team chases every PO and container" data-step="Our imports team takes over supplier and forwarder follow-ups." data-prod="Imports team" data-co="c">Chasing suppliers / forwarders</button></div></div></div>
+<textarea name="msg" placeholder="Your picks appear here. Add anything else in your own words."></textarea></div>
+<div class="tk-foot"><button type="button" class="tk-send" data-act="send">Send to Himal <span>→</span></button><small class="tk-err" aria-live="polite"></small></div>
+<div class="tk-stamp" aria-hidden="true">SENT ✓</div>
+</form>
+<div class="hk-reply" id="hk-reply" aria-live="polite">
+<div class="rp-head"><img src="assets/himal-face.jpg" alt="" width="44" height="44"><div><b>Himal Goyal</b><span class="rp-when">typing<i></i><i></i><i></i></span></div><span class="rp-tag">DIAGNOSIS · #0001</span></div>
+<span class="rp-stamp">DIAGNOSED</span>
+<div class="rp-body">
+<p class="rp-hi"></p>
+<div class="rp-quote"><span class="lbl">YOU WROTE</span><q></q><p class="rp-ans hk-pen"></p></div>
+<div class="rp-sum"><b class="rp-n"></b><span class="rp-split"></span></div>
+<p class="rp-path"></p>
+<p class="rp-lead">Here is who fixes what, and what we would do in week one:</p>
+<ul class="rp-list"></ul>
+<button type="button" class="rp-more" data-act="more">+ more</button>
+<div class="rp-start"><span>WHERE I'D START</span><b class="rp-prod"></b><em class="rp-why"></em></div>
+<p class="rp-next"></p>
+<p class="rp-sign hk-pen">— Himal</p>
+<div class="rp-btns"><a class="hk-btn pri rp-mail" href="mailto:himal.goyal@accurest.co" target="_blank" rel="noopener">Email this to Himal →</a><button type="button" class="hk-btn ghost" data-act="edit">Edit report</button></div>
+</div>
+</div>
+</div></section>
+
+<footer class="hk-foot"><div class="hk-wrap">
+<img src="assets/accurest-logo-white.png" alt="Accurest — Precision Delivered" width="113" height="36">
+<span><b>■ Accurest Technologies</b> · planning software</span>
+<span><b>□ Accurest Consulting</b> · managed planning &amp; operations</span>
+<span style="margin-left:auto">© 2026 Accurest · <a href="https://accurest.co" style="color:#9FB0CC">accurest.co</a></span>
+</div></footer>
+</div>
+<script>
+class DCLogic {}
+class Component extends DCLogic {
+hkStop() {
+  if (window.__hkTimer) { clearInterval(window.__hkTimer); window.__hkTimer = null; }
+  return Math.max(1, Math.round((Date.now() - (window.__hkStart || Date.now())) / 1000));
+}
+setupHk() {
+  var d = document;
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var els = d.querySelectorAll('.hk-rv');
+  d.documentElement.classList.add('hk-js');
+  var io = new IntersectionObserver(function (en) { en.forEach(function (x) { if (x.isIntersecting || x.boundingClientRect.top < 0) { x.target.classList.add('in'); io.unobserve(x.target); } }); }, { threshold: 0.12 });
+  els.forEach(function (el) { io.observe(el); });
+  window.__hkIO = io;
+  setTimeout(function () { els.forEach(function (el) { if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('in'); }); }, 1200);
+}
+componentDidMount() { this.pathUI('Software (Accurest Technologies)'); this.setupHk(); this.resetGame(); this.setupRoute(); this.setupSweep(); this.setupCard(); this.setupWeek(); this.setupNav(); }
+setTxt(sel, v) { var el = document.querySelector(sel); if (el) el.textContent = v; }
+resetGame(full) {
+  var d = document;
+  this.g = { level: 1, checks: 0, start: Date.now(), lstart: Date.now(), done: false };
+  if (full) {
+    d.querySelectorAll('.hk-stage .hk-doc').forEach(function (x, i) { x.classList.remove('found', 'miss', 'enter'); x.classList.toggle('on', i === 0); });
+    d.querySelectorAll('.hk-line.checked').forEach(function (x) { x.classList.remove('checked'); });
+    d.querySelectorAll('.hk-result').forEach(function (x) { x.classList.remove('show'); });
+    var c = d.querySelector('.hk-card'); if (c) c.classList.remove('show');
+    var h = d.querySelector('.hk-hero'); if (h) h.classList.remove('done');
+    this.setTxt('.hk-count', 0); this.setTxt('.hk-time', '0s'); this.setTxt('.hk-lvl', 1);
+    this.chips(1);
+    var first = d.querySelector('.hk-stage .hk-doc.on'); if (first) { first.classList.add('enter'); }
+  }
+  this.startTimer();
+  this.lensDirty = true;
+  return this.g;
+}
+startTimer() {
+  var self = this;
+  if (this.timer) clearInterval(this.timer);
+  this.timer = setInterval(function () { if (self.g && !self.g.done) self.setTxt('.hk-time', Math.round((Date.now() - self.g.start) / 1000) + 's'); }, 1000);
+}
+chips(cur) {
+  var pr = document.querySelector('.hk-prog i'), tot = document.querySelectorAll('.hk-chip2').length;
+  if (pr) pr.style.width = Math.round(((cur - 1) / tot) * 100) + '%';
+  document.querySelectorAll('.hk-chip2').forEach(function (c) { var n = +c.getAttribute('data-chip'); c.classList.toggle('cur', n === cur); c.classList.toggle('done', n < cur || (n === cur && c.classList.contains('done'))); });
+}
+found(revealed) {
+  var g = this.g, d = document;
+  var doc = d.querySelector('.hk-stage .hk-doc.on');
+  if (!doc || doc.classList.contains('found')) return;
+  doc.classList.add('found');
+  var bad = doc.querySelector('.hk-bad'); if (bad) bad.classList.add('checked');
+  var secs = Math.max(1, Math.round((Date.now() - g.lstart) / 1000));
+  var r = d.querySelector('.hk-result[data-res="' + g.level + '"]');
+  if (r) { var v = r.querySelector('.hk-verdict'); if (v) v.textContent = revealed ? 'Here it is.' : 'Found in ' + secs + 's.'; r.classList.add('show'); }
+  var chip = d.querySelector('.hk-chip2[data-chip="' + g.level + '"]'); if (chip) chip.classList.add('done');
+  var pg = d.querySelector('.hk-prog i'); if (pg) pg.style.width = Math.round((g.level / d.querySelectorAll('.hk-chip2').length) * 100) + '%';
+  if (g.level === d.querySelectorAll('.hk-stage .hk-doc').length) { g.done = true; if (this.timer) clearInterval(this.timer); this.setTxt('.hk-time', Math.round((Date.now() - g.start) / 1000) + 's'); }
+  this.lensDirty = true;
+}
+goLevel(n) {
+  var g = this.g, d = document;
+  if (n > d.querySelectorAll('.hk-stage .hk-doc').length) return;
+  d.querySelectorAll('.hk-result').forEach(function (x) { x.classList.remove('show'); });
+  d.querySelectorAll('.hk-stage .hk-doc').forEach(function (x) { var on = +x.getAttribute('data-level') === n; x.classList.toggle('on', on); x.classList.remove('enter'); if (on) { void x.offsetWidth; x.classList.add('enter'); } });
+  g.level = n; g.lstart = Date.now();
+  this.setTxt('.hk-lvl', n); this.chips(n);
+  this.lensDirty = true;
+  var st = d.querySelector('.hk-game'); if (st && st.getBoundingClientRect().top < 0) st.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+showScore() {
+  var g = this.g, d = document;
+  d.querySelectorAll('.hk-result').forEach(function (x) { x.classList.remove('show'); });
+  this.setTxt('.hk-ftime', Math.round((Date.now() - g.start) / 1000) + 's');
+  if (g.done) this.setTxt('.hk-ftime', d.querySelector('.hk-time').textContent);
+  this.setTxt('.hk-fchecks', g.checks);
+  var h = d.querySelector('.hk-hero'); if (h) h.classList.add('done');
+  var c = d.querySelector('.hk-card'); if (c) c.classList.add('show');
+}
+handleMove(e) {
+  var c3 = document.getElementById('hk-c3');
+  if (c3) {
+    var rr = c3.getBoundingClientRect();
+    if (e.clientX >= rr.left && e.clientX <= rr.right && e.clientY >= rr.top && e.clientY <= rr.bottom) {
+      var px = (e.clientX - rr.left) / rr.width, py = (e.clientY - rr.top) / rr.height;
+      c3.classList.add('tilt');
+      c3.style.setProperty('--ry', ((px - .5) * 16).toFixed(1) + 'deg');
+      c3.style.setProperty('--rx', ((.5 - py) * 12).toFixed(1) + 'deg');
+      var fl = c3.classList.contains('flipped');
+      c3.style.setProperty('--mx', ((fl ? 1 - px : px) * 100).toFixed(0) + '%');
+      c3.style.setProperty('--my', (py * 100).toFixed(0) + '%');
+    } else if (c3.classList.contains('tilt')) {
+      c3.classList.remove('tilt'); c3.style.setProperty('--rx', '0deg'); c3.style.setProperty('--ry', '0deg');
+    }
+  }
+  var stage = document.getElementById('hk-stage');
+  var lens = stage && stage.querySelector('.hk-lens');
+  if (!lens) return;
+  var mq = window.matchMedia && window.matchMedia('(hover: hover) and (min-width: 861px)');
+  var doc = stage.querySelector('.hk-doc.on');
+  var hero = document.querySelector('.hk-hero');
+  if (!mq || !mq.matches || !doc || (hero && hero.classList.contains('done'))) { lens.classList.remove('on'); return; }
+  var r = doc.getBoundingClientRect();
+  if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) { lens.classList.remove('on'); return; }
+  var sr = stage.getBoundingClientRect();
+  var inner = lens.querySelector('.hk-lens-in');
+  if (this.lensDirty || !inner.firstChild || inner.getAttribute('data-l') !== doc.getAttribute('data-level')) {
+    inner.innerHTML = '';
+    var cl = doc.cloneNode(true);
+    cl.classList.remove('enter', 'miss');
+    cl.style.left = doc.offsetLeft + 'px'; cl.style.top = doc.offsetTop + 'px'; cl.style.width = doc.offsetWidth + 'px';
+    inner.style.width = stage.offsetWidth + 'px'; inner.style.height = stage.offsetHeight + 'px';
+    inner.appendChild(cl);
+    inner.setAttribute('data-l', doc.getAttribute('data-level'));
+    this.lensDirty = false;
+  }
+  var S = 1.9, R = 85;
+  var x = e.clientX - sr.left, y = e.clientY - sr.top;
+  lens.style.left = (x - R) + 'px'; lens.style.top = (y - R) + 'px';
+  inner.style.transform = 'translate(' + (R - x * S) + 'px,' + (R - y * S) + 'px) scale(' + S + ')';
+  lens.classList.add('on');
+}
+playRoute() {
+  var d = document, track = d.getElementById('hk-track'), sec = d.querySelector('.hk-route');
+  if (!track) return;
+  (this.rt || []).forEach(clearTimeout); this.rt = [];
+  var stops = track.querySelectorAll('.hk-stop');
+  var rt = this.rt, T = 0;
+  track.classList.add('armed'); sec.classList.add('playing');
+  stops.forEach(function (s) { s.classList.remove('reached', 'err', 'fixed'); });
+  track.style.setProperty('--p', 0);
+  var at = function (ms, fn) { rt.push(setTimeout(fn, ms)); };
+  stops.forEach(function (s, i) {
+    var p = i / (stops.length - 1);
+    at(T, function () { track.style.setProperty('--p', p); });
+    T += 950;
+    at(T, function () { s.classList.add('reached'); if (s.classList.contains('has-err')) s.classList.add('err'); });
+    if (s.classList.contains('has-err')) { T += 1300; at(T, function () { s.classList.remove('err'); s.classList.add('fixed'); }); T += 700; }
+    else T += 250;
+  });
+  at(T, function () { sec.classList.remove('playing'); });
+}
+setupSweep() {
+  var self = this, sec = document.querySelector('.hk-tech');
+  if (!sec || !('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function (en) { en.forEach(function (x) { if (x.isIntersecting) { var c = sec.querySelector('.hk-panel.on .hk-run'); if (c) setTimeout(function () { self.runDemo(c); }, 500); io.disconnect(); } }); }, { threshold: 0.4 });
+  io.observe(sec); this.sio = io;
+}
+setupCard() {
+  var self = this, c3 = document.getElementById('hk-c3');
+  if (!c3 || !('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function (en) { en.forEach(function (x) { if (x.isIntersecting) { io.disconnect(); setTimeout(function () { if (!self.c3touched) c3.classList.add('flipped'); }, 1200); } }); }, { threshold: 0.6 });
+  io.observe(c3); this.cio = io;
+}
+setupRoute() {
+  var self = this, sec = document.querySelector('.hk-route');
+  if (!sec || !('IntersectionObserver' in window)) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var io = new IntersectionObserver(function (en) { en.forEach(function (x) { if (x.isIntersecting) { self.playRoute(); io.disconnect(); } }); }, { threshold: 0.35 });
+  io.observe(sec); this.rio = io;
+}
+
+componentWillUnmount() { if (this.timer) clearInterval(this.timer); (this.rt || []).forEach(clearTimeout); if (this.rio) this.rio.disconnect(); if (window.__hkTimer) clearInterval(window.__hkTimer); if (window.__hkIO) window.__hkIO.disconnect(); }
+handleClick(e) {
+var t = e.target;
+var line = t.closest && t.closest('.hk-line');
+var act = t.closest && t.closest('[data-act]');
+var tab = t.closest && t.closest('.hk-tab');
+var c3 = t.closest && t.closest('#hk-c3');
+if (c3 && !(t.closest && t.closest('a'))) { c3.classList.toggle('flipped'); this.c3touched = true; return; }
+var pk = t.closest && t.closest('.tk-pick');
+if (pk) { var self2 = this; setTimeout(function () { var ip = pk.querySelector('input'); if (ip) self2.pathUI(ip.value); }, 0); }
+var g = this.g || this.resetGame();
+var doc = document.querySelector('.hk-stage .hk-doc.on');
+if (line && doc && doc.contains(line)) {
+  if (!line.classList.contains('checked')) { line.classList.add('checked'); g.checks++; }
+  this.setTxt('.hk-count', g.checks);
+  if (line.getAttribute('data-line') === 'bad') this.found(false);
+  else if (!doc.classList.contains('found')) { doc.classList.remove('miss'); void doc.offsetWidth; doc.classList.add('miss'); }
+  this.lensDirty = true;
+  return;
+}
+if (act) {
+  var a = act.getAttribute('data-act');
+  if (a === 'reveal') { this.found(true); return; }
+  if (a === 'next') { this.goLevel(g.level + 1); return; }
+  if (a === 'score') { this.showScore(); return; }
+  if (a === 'restart') { this.resetGame(true); return; }
+  if (a === 'replay') { this.playRoute(); return; }
+  if (a === 'chip') {
+    var on = act.classList.toggle('on');
+    var er = document.querySelector('.tk-err'); if (er) er.textContent = '';
+    var ta = document.querySelector('#hk-form textarea');
+    if (ta) {
+      var line = '• ' + act.getAttribute('data-pain');
+      var rows = ta.value ? ta.value.split('\n') : [];
+      if (on) { if (rows.indexOf(line) < 0) rows.push(line); }
+      else { rows = rows.filter(function (r) { return r !== line; }); }
+      ta.value = rows.join('\n');
+      if (on) { try { ta.scrollTo({ top: ta.scrollHeight, behavior: 'smooth' }); } catch (err) { ta.scrollTop = ta.scrollHeight; } }
+      ta.classList.remove('flash'); void ta.offsetWidth; ta.classList.add('flash');
+    }
+    return;
+  }
+  if (a === 'week') { this.playWeek(); return; }
+  if (a === 'run') { var rp = act.closest('.hk-run'); if (rp) this.runDemo(rp); return; }
+  if (a === 'more') { var l2 = document.querySelector('.rp-list'); if (l2) l2.classList.add('all'); act.style.display = 'none'; return; }
+  if (a === 'send') { var fm = document.getElementById('hk-form'); if (fm) this.sendReport(fm); return; }
+  if (a === 'edit') { var f0 = document.getElementById('hk-form'); var r0 = document.getElementById('hk-reply'); if (r0) r0.classList.remove('show', 'done'); if (f0) f0.classList.remove('sent'); return; }
+  if (a === 'copy') {
+    var txt = act.getAttribute('data-copy');
+    var done = function () { act.textContent = 'Copied ✓'; act.classList.add('done'); setTimeout(function () { act.textContent = 'Copy'; act.classList.remove('done'); }, 1800); };
+    try { navigator.clipboard.writeText(txt).then(done, done); } catch (err) { done(); }
+    return;
+  }
+}
+if (tab) {
+  var k = tab.getAttribute('data-tab');
+  document.querySelectorAll('.hk-tab').forEach(function (b) { var on = b === tab; b.classList.toggle('on', on); b.setAttribute('aria-selected', on ? 'true' : 'false'); });
+  document.querySelectorAll('.hk-panel').forEach(function (p) { p.classList.toggle('on', p.getAttribute('data-panel') === k); });
+  var tc = tab.getAttribute('data-col'); var ts = document.querySelector('.hk-tech'); if (tc && ts) ts.style.setProperty('--pc', tc);
+  var pr = document.querySelector('.hk-panel.on .hk-run');
+  if (pr) this.resetDemo(pr);
+}
+}
+pathUI(val) {
+  var d = document;
+  d.querySelectorAll('.tk-why').forEach(function (p) { p.classList.toggle('on', p.getAttribute('data-for') === val); });
+  var cs = d.querySelector('.tk-chips'); if (cs) cs.setAttribute('data-path', val);
+}
+playWeek() {
+  var w = document.getElementById('cs-week'); if (!w) return;
+  (w._t || []).forEach(clearTimeout); w._t = []; if (w._raf) cancelAnimationFrame(w._raf);
+  var lis = w.querySelectorAll('.cw-list li'), n = w.querySelector('.cw-n'), sv = w.querySelector('.cw-s'), hr = w.querySelector('.cw-h');
+  lis.forEach(function (l) { l.classList.remove('ok', 'now'); });
+  n.textContent = '0'; sv.textContent = '$0'; hr.textContent = '0 h';
+  w.classList.remove('done'); w.classList.add('armed', 'playing');
+  var tot = 0, hrs = 0, at = function (ms, fn) { w._t.push(setTimeout(fn, ms)); };
+  var count = function (el, from, to, fmt) { var t0 = performance.now(); var st = function (t) { var k = Math.min(1, (t - t0) / 600); el.textContent = fmt(Math.round(from + (to - from) * k)); if (k < 1) requestAnimationFrame(st); }; requestAnimationFrame(st); };
+  lis.forEach(function (l, i) {
+    at(i * 800, function () { lis.forEach(function (x) { x.classList.remove('now'); }); l.classList.add('now'); });
+    at(i * 800 + 450, function () {
+      l.classList.add('ok');
+      var a = +l.getAttribute('data-s'), h = +l.getAttribute('data-h');
+      n.textContent = String(i + 1);
+      if (a) { count(sv, tot, tot + a, function (v) { return '$' + v.toLocaleString('en-US'); }); tot += a; }
+      count(hr, hrs, hrs + h, function (v) { return v + ' h'; }); hrs += h;
+    });
+  });
+  at(lis.length * 800 + 300, function () { lis.forEach(function (x) { x.classList.remove('now'); }); w.classList.remove('playing'); w.classList.add('done'); w.querySelector('.cw-play').textContent = '↺ Play again'; sv.textContent = '$' + tot.toLocaleString('en-US'); hr.textContent = hrs + ' h'; });
+}
+setupNav() {
+  var nav = document.querySelector('.hk-seg'); if (!nav || !('IntersectionObserver' in window)) return;
+  var ind = nav.querySelector('.seg-ind'), links = nav.querySelectorAll('.seg');
+  var set = function (id) {
+    var a = null; links.forEach(function (l) { var on = l.getAttribute('data-sec') === id; l.classList.toggle('act', on); if (on) a = l; });
+    nav.classList.toggle('has', !!a); nav.classList.toggle('on-tech', id === 'tech');
+    if (a) { ind.style.left = a.offsetLeft + 'px'; ind.style.width = a.offsetWidth + 'px'; }
+  };
+  var vis = {};
+  var io = new IntersectionObserver(function (en) {
+    en.forEach(function (x) { vis[x.target.id] = x.isIntersecting ? x.intersectionRatio : 0; });
+    var best = null, bv = 0.12; Object.keys(vis).forEach(function (k) { if (vis[k] > bv) { bv = vis[k]; best = k; } });
+    set(best);
+  }, { threshold: [0, .12, .25, .5, .75] });
+  ['tech', 'consult'].forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el); });
+  this.nio = io;
+}
+setupWeek() {
+  var self = this, w = document.getElementById('cs-week');
+  if (!w || !('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function (en) { en.forEach(function (x) { if (x.isIntersecting) { io.disconnect(); setTimeout(function () { self.playWeek(); }, 400); } }); }, { threshold: 0.45 });
+  io.observe(w); this.wio = io;
+}
+fmtRun(p, n) {
+  var f = p.getAttribute('data-fmt'); n = Math.round(n);
+  if (f === 'days') return (n > 0 ? '+' : n < 0 ? '−' : '') + Math.abs(n) + ' days';
+  if (f === 'late') return n > 0 ? '+' + n + ' days' : '0 days';
+  if (f === 'k') return n > 0 ? '$' + n + 'K' : '$0';
+  return String(n);
+}
+swapAB(p, key) {
+  p.querySelectorAll('[data-a]').forEach(function (el) { if (el === p) return; if (el.tagName === 'SPAN' || el.tagName === 'B') el.textContent = el.getAttribute('data-' + key); });
+  p.querySelectorAll('.fl').forEach(function (el) { el.style.width = el.getAttribute('data-w' + key) + '%'; });
+}
+resetDemo(p) {
+  (p._t || []).forEach(clearTimeout); p._t = []; if (p._raf) cancelAnimationFrame(p._raf);
+  p.classList.remove('running', 'counting', 'done');
+  this.swapAB(p, 'a');
+  p.querySelector('.rn-num').textContent = this.fmtRun(p, +p.getAttribute('data-a'));
+  p.querySelectorAll('.rn-log li').forEach(function (li) { li.classList.remove('on', 'ok'); });
+  var bt = p.querySelector('.rn-btn'); bt.innerHTML = '<span class="pl">▶</span> Run ' + p.getAttribute('data-name');
+}
+runDemo(p) {
+  var self = this; this.resetDemo(p);
+  var at = function (ms, fn) { p._t.push(setTimeout(fn, ms)); };
+  var lis = p.querySelectorAll('.rn-log li');
+  p.classList.add('running');
+  lis.forEach(function (li, i) { at(i * 550, function () { li.classList.add('on'); if (i) lis[i - 1].classList.add('ok'); }); });
+  at(lis.length * 550, function () {
+    lis[lis.length - 1].classList.add('ok');
+    p.classList.add('counting');
+    p.querySelectorAll('.fl').forEach(function (el) { el.style.width = el.getAttribute('data-wb') + '%'; });
+    var A = +p.getAttribute('data-a'), B = +p.getAttribute('data-b'), t0 = performance.now(), D = 1300, num = p.querySelector('.rn-num');
+    var step = function (t) { var k = Math.min(1, (t - t0) / D); var e = 1 - Math.pow(1 - k, 3); num.textContent = self.fmtRun(p, A + (B - A) * e); if (k < 1) p._raf = requestAnimationFrame(step); };
+    p._raf = requestAnimationFrame(step);
+  });
+  at(lis.length * 550 + 1350, function () {
+    p.classList.remove('running', 'counting'); p.classList.add('done');
+    p.querySelector('.rn-num').textContent = self.fmtRun(p, +p.getAttribute('data-b'));
+    self.swapAB(p, 'b');
+    p.querySelector('.rn-btn').innerHTML = '<span class="pl">↺</span> Run again';
+  });
+}
+sweep(c) {
+  var r = c.querySelector('.hk-cmp-range');
+  c.classList.remove('anim'); c.style.setProperty('--cut', '96%'); if (r) r.value = 96;
+  void c.offsetWidth; c.classList.add('anim');
+  setTimeout(function () { c.style.setProperty('--cut', '50%'); if (r) r.value = 50; }, 60);
+  setTimeout(function () { c.classList.remove('anim'); }, 1000);
+}
+handleInput(e) {
+  var t = e.target;
+  if (t && t.name === 'path') { this.pathUI(t.value); return; }
+  if (!t || !t.classList || !t.classList.contains('hk-cmp-range')) return;
+  var c = t.closest('.hk-cmp'); if (!c) return;
+  c.classList.remove('anim'); c.style.setProperty('--cut', t.value + '%');
+}
+handleSubmit(e) {
+var f = e.target;
+if (!f || f.id !== 'hk-form') return;
+e.preventDefault();
+this.sendReport(f);
+}
+sendReport(f) {
+var d = document;
+var v = function (n) { var el = f.elements[n]; return el ? (el.value || '').trim() : ''; };
+var path = (f.querySelector('input[name=path]:checked') || {}).value || '';
+var chips = Array.prototype.slice.call(f.querySelectorAll('.tk-chip.on'));
+var em = f.elements['email'], err = f.querySelector('.tk-err');
+var okEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('email'));
+if (em) em.classList.toggle('bad', !okEmail);
+if (!okEmail) { if (err) err.textContent = '↑ Add your work email so Himal can reply.'; f.classList.remove('shake'); void f.offsetWidth; f.classList.add('shake'); if (em) em.focus(); return; }
+if (!chips.length && !v('msg').replace(/•[^\n]*\n?/g, '').trim()) { if (err) err.textContent = '↑ Pick at least one thing that looks wrong.'; f.classList.remove('shake'); void f.offsetWidth; f.classList.add('shake'); return; }
+if (err) err.textContent = '';
+var first = (v('name').split(' ')[0] || 'there');
+var r = d.getElementById('hk-reply');
+var esc = function (x) { return String(x).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+r.querySelector('.rp-hi').textContent = 'Hi ' + first + ', thanks for the report' + (v('company') ? ' on ' + v('company') : '') + '.';
+var ul = r.querySelector('.rp-list'); ul.innerHTML = '';
+var count = {}, lines = [], nt = 0, nc = 0, groups = {}, order = [];
+chips.forEach(function (c) {
+  var p = c.getAttribute('data-pain'), pr = c.getAttribute('data-prod'), co = c.getAttribute('data-co');
+  count[pr] = (count[pr] || 0) + 1;
+  if (co === 't') nt++; else nc++;
+  if (!groups[pr]) { groups[pr] = { co: co, pains: [], fix: c.getAttribute('data-fix'), step: c.getAttribute('data-step') || '' }; order.push(pr); }
+  groups[pr].pains.push(p);
+  lines.push('- ' + p + '  ->  ' + pr);
+});
+var own = v('msg').split('\n').filter(function (l) { return l.trim() && l.trim().charAt(0) !== '•'; }).join(' ').trim();
+var RULES = [
+  [/\bstock[- ]?outs?\b|\bout[- ]of[- ]stock\b|\brun(?:ning|s)? out\b|\bran out\b|\bsold out\b|\bsell(?:s|ing)? out\b|\boos\b|\bback[- ]?orders?\b|\blost sales?\b|\bmissed sales?\b|\bempty shel(?:f|ves)\b/i, 'AccuPlan', 't', 'Stockouts'],
+  [/\bforecast(?:s|ing|ed)?\b|\bdemand plan(?:ning)?\b|\bdemand\b|\bpredict(?:ion|ions|ing)?\b|\bspreadsheets?\b|\bexcel\b|\bgoogle sheets?\b|\bseasonal(?:ity)?\b|\bpromo(?:tion)?s?\b|\bblack friday\b|\bprime day\b|\bq4\b/i, 'AccuPlan', 't', 'Forecasting'],
+  [/\bover[- ]?stock(?:ed|ing)?\b|\bslow[- ]?mov(?:ing|ers?)\b|\bdead stock\b|\bexcess (?:stock|inventory)\b|\btoo much (?:stock|inventory)\b|\baged inventory\b|\bliquidat\w*|\bclearance\b|\bwrite[- ]?offs?\b/i, 'AccuPlan', 't', 'Excess stock'],
+  [/\bpos?\b|\bpurchase orders?\b|\breorder(?:s|ing)?\b|\bwhen to order\b|\bhow much to order\b|\breplenish\w*|\bmoqs?\b|\border (?:quantit\w+|plan\w*)\b|\bopen[- ]to[- ]buy\b/i, 'AccuPlan', 't', 'Ordering'],
+  [/\bstock counts?\b|\binventory counts?\b|\bcycle counts?\b|\bphantom\b|\bmismatch\w*|\bdoes(?:n.t| not) match\b|\bdo(?:n.t| not) match\b|\binventory accuracy\b|\bshrinkage\b|\bmissing (?:units|stock|inventory)\b|\bdiscrepanc\w+|\breconcil\w+|\bwms\b/i, 'AccuStock', 't', 'Stock accuracy'],
+  [/\bamazon\b|\bfba\b|\bwalmart\b|\bmulti[- ]?channel\b|\b3pl stock\b|\b(?:multiple|several|many) warehouses\b|\bwarehouse stock\b|\bone stock number\b/i, 'AccuStock', 't', 'Stock across channels'],
+  [/\blate\b|\bdelay(?:s|ed)?\b|\bcontainers?\b|\bvessels?\b|\bshipments?\b|\beta\b|\betd\b|\brolled\b|\bports?\b|\bcongestion\b|\bocean freight\b|\bsea freight\b|\bair freight\b|\btransit\b|\btracking\b|\bmilestones?\b|\bcustoms\b|\bbill of lading\b|\binbound\b/i, 'AccuShipments', 't', 'Shipments'],
+  [/\blanded cost\w*|\bdut(?:y|ies)\b|\btariffs?\b|\bunit econom\w*|\bmargins?\b|\bcogs\b|\bcost per unit\b|\bfreight cost\w*/i, 'AccuShipments', 't', 'Landed cost'],
+  [/\bcash(?: ?flow)?\b|\bpayment terms\b|\bsupplier payments?\b|\bnet[- ]?\d+\b|\bcredit (?:line|limit)\b|\bworking capital\b|\bloans?\b|\bbudget(?:s|ing)?\b|\bp&l\b|\bpnl\b|\bdeposits?\b|\bquickbooks\b|\bcash crunch\b/i, 'AccuFinance', 't', 'Cash planning'],
+  [/\b3pl invoices?\b|\binvoices?\b|\bovercharg\w*|\bbill(?:s|ed|ing)?\b|\bfees?\b|\brate (?:card|agreement)s?\b|\bstorage (?:cost|fee|charge)s?\b|\bpick(?:ing)? (?:and|&) pack\b|\bfulfil+ment (?:cost|fee|charge)s?\b|\bhidden (?:fee|charge|cost)s?\b|\bsurcharges?\b|\bchargebacks?\b|\baudit\w*|\bdisputes?\b/i, 'Checkmate', 'c', 'Invoices'],
+  [/\bcarriers?\b|\bups\b|\bfedex\b|\busps\b|\bdhl\b|\bfreight (?:bill|invoice)s?\b|\bparcel\b|\bshipping (?:cost|rate|label)s?\b|\bdim(?:ensional)? weight\b|\baccessorials?\b/i, 'Checkmate', 'c', 'Carrier bills'],
+  [/\bhir(?:e|ing)\b|\bheadcount\b|\bplanners?\b|\bno time\b|\bnot enough time\b|\bbandwidth\b|\boutsourc\w*|\bshort[- ]?staffed\b|\bno ?one owns\b|\bnobody owns\b|\bsmall team\b|\bi do (?:it|everything) myself\b|\bmanual(?:ly)?\b/i, 'Managed planning', 'c', 'Planning capacity'],
+  [/\bsuppliers?\b(?! payments?| terms)|\bvendors?\b(?! payments?)|\bfactor(?:y|ies)\b|\bmanufacturers?\b|\bforwarders?\b|\bfollow[- ]?ups?\b|\bchas(?:e|ing)\b|\bsourcing\b|\bproduction delays?\b|\bquality (?:issue|problem)s?\b/i, 'Imports team', 'c', 'Supplier follow-ups']
+];
+var NEG = /\b(?:no|not|never|don.t|dont|didn.t|without|zero|rarely|hardly)\b(?:\W+\w+){0,2}\W*$/i;
+var DEF = {
+  'AccuPlan': 'We plug in your sales history and flag every SKU at risk before its next PO.',
+  'AccuStock': 'We reconcile last month\'s scans against the system and list every gap.',
+  'AccuShipments': 'We load your open POs and track every milestone from booking to shelf.',
+  'AccuFinance': 'We rebuild next quarter\'s cash plan from open POs, freight and duty.',
+  'Checkmate': 'Send one invoice and your rate agreement. We audit every line.',
+  'Managed planning': 'A planner from our team takes over your weekly forecast and POs.',
+  'Imports team': 'Our imports team takes over supplier and forwarder follow-ups.'
+};
+var heard = [];
+if (own) {
+  RULES.forEach(function (ru) {
+    var re = new RegExp(ru[0].source, 'gi'), m, hit = null;
+    while ((m = re.exec(own))) { if (!NEG.test(own.slice(Math.max(0, m.index - 40), m.index))) { hit = m; break; } }
+    if (!hit) return;
+    var pr = ru[1], co = ru[2], tag = 'You wrote: “' + hit[0] + '”';
+    if (!groups[pr]) { groups[pr] = { co: co, pains: [], fix: '', step: DEF[pr] }; order.push(pr); count[pr] = 0; if (co === 't') nt++; else nc++; }
+    if (groups[pr].pains.indexOf(tag) < 0) { groups[pr].pains.push(tag); count[pr]++; }
+    if (heard.indexOf(ru[3]) < 0) heard.push(ru[3]);
+  });
+}
+var qb = r.querySelector('.rp-quote');
+if (own) {
+  qb.style.display = '';
+  qb.querySelector('q').textContent = own.length > 220 ? own.slice(0, 217) + '…' : own;
+  qb.querySelector('.rp-ans').textContent = heard.length ? 'Got it. I hear ' + heard.slice(0, 3).join(', ').toLowerCase() + (heard.length > 3 ? ' and more' : '') + '. I have added it to your diagnosis below.' : 'Thanks for writing this out. I will read it myself and bring a first read to our call.';
+} else { qb.style.display = 'none'; }
+order.sort(function (a, b) { return groups[b].pains.length - groups[a].pains.length; });
+order.forEach(function (pr, idx) {
+  var g = groups[pr];
+  var li = d.createElement('li');
+  if (idx >= 3) li.className = 'more';
+  li.innerHTML = '<div class="gh"><span class="pr"><i class="mk ' + g.co + '"></i>' + esc(pr) + '</span><span class="cnt">fixes ' + g.pains.length + '</span></div>' +
+    '<div class="ps">' + g.pains.map(function (p) { return '<s>' + esc(p) + '</s>'; }).join('') + '</div>' +
+    '<span class="s"><b>Week 1:</b> ' + esc(g.step) + '</span>';
+  ul.appendChild(li);
+});
+var mb = r.querySelector('.rp-more');
+if (order.length > 3) { mb.style.display = ''; mb.textContent = '+ ' + (order.length - 3) + ' more'; ul.classList.remove('all'); } else { mb.style.display = 'none'; }
+var n = 0; order.forEach(function (k) { n += groups[k].pains.length; });
+r.querySelector('.rp-n').textContent = n ? n + (n === 1 ? ' error found' : ' errors found') : 'Report received';
+r.querySelector('.rp-list').style.display = order.length ? '' : 'none';
+var sp = [];
+if (nt) sp.push(nt + ' fixed by software ■ Accurest Technologies');
+if (nc) sp.push(nc + ' by our team □ Accurest Consulting');
+r.querySelector('.rp-split').textContent = sp.join(' · ');
+var pathNote = '';
+if (/Software/.test(path) && nc > nt) pathNote = 'You picked software, but most of what you ticked is fixed fastest by our team. We can start with people and add software later.';
+else if (/Consulting/.test(path) && nt > nc) pathNote = 'You picked consulting, and our team can run it. Most of what you ticked is also covered by our software, so you can take it over later.';
+else if (/Not sure/.test(path)) pathNote = 'You were not sure where to start, so I picked one for you below based on your report.';
+else if (nt && nc) pathNote = 'Your report needs both: software for the planning, and our team for the hands-on work.';
+var pn = r.querySelector('.rp-path'); pn.textContent = pathNote; pn.style.display = pathNote ? '' : 'none';
+var best = null; Object.keys(count).forEach(function (k) { if (!best || count[k] > count[best]) best = k; });
+if (count['AccuPlan'] && nt >= nc) best = 'AccuPlan';
+var st = r.querySelector('.rp-start');
+if (best) {
+  st.style.display = '';
+  r.querySelector('.rp-prod').textContent = best;
+  var why = { 'AccuPlan': 'Our flagship bundle: forecast, ordering, shipments and stock in one plan.', 'AccuStock': 'Get one true stock number first; everything else builds on it.', 'AccuShipments': 'Track every PO and container so delays never reach the shelf.', 'AccuFinance': 'Plan cash from your real orders, freight and duty.', 'Checkmate': 'An invoice audit usually pays for itself in the first month.', 'Managed planning': 'Our planners take planning off your plate from week one.', 'Imports team': 'Our team chases suppliers and forwarders for you.' };
+  r.querySelector('.rp-why').textContent = why[best] || '';
+} else { st.style.display = 'none'; }
+r.querySelector('.rp-next').textContent = "Send this to me and I'll come back to " + v('email') + ' with next steps and a time for a 20-minute call.';
+var subj = 'Error report' + (v('company') ? ' · ' + v('company') : '') + ' · ' + path;
+var body = 'Name: ' + v('name') + '\nEmail: ' + v('email') + '\nCompany: ' + v('company') + '\nInterested in: ' + path + '\n\nWhat looks wrong:\n' + (lines.join('\n') || '-') + (v('msg') ? '\n\nNotes:\n' + v('msg') : '');
+r.querySelector('.rp-mail').setAttribute('href', 'mailto:himal.goyal@accurest.co?subject=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(body));
+f.classList.add('sent');
+r.classList.remove('done'); r.classList.add('show');
+var when = r.querySelector('.rp-when'); when.childNodes[0].nodeValue = 'typing';
+var hi = r.querySelector('.rp-hi'), full = hi.textContent; hi.textContent = '';
+setTimeout(function () {
+  r.classList.add('done'); when.childNodes[0].nodeValue = 'replied just now';
+  var k = 0; var tw = setInterval(function () { k += 2; hi.textContent = full.slice(0, k); if (k >= full.length) clearInterval(tw); }, 18);
+  Array.prototype.forEach.call(ul.children, function (li, k) { setTimeout(function () { li.classList.add('in'); }, 150 + k * 160); });
+}, 1400);
+if (r.getBoundingClientRect().top < 0) r.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+renderVals() {
+var self = this;
+return { onClick: function (e) { self.handleClick(e); }, onSubmit: function (e) { self.handleSubmit(e); }, onMove: function (e) { self.handleMove(e); }, onInput: function (e) { self.handleInput(e); } };
+}
+}
+
+var hk = new Component();
+var root = document.getElementById('hk-root');
+root.addEventListener('click', function (e) { hk.handleClick(e); });
+root.addEventListener('submit', function (e) { hk.handleSubmit(e); });
+root.addEventListener('input', function (e) { hk.handleInput(e); });
+root.addEventListener('change', function (e) { hk.handleInput(e); });
+hk.componentDidMount();
+</script>
+</body>
+</html>
