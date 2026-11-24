@@ -985,6 +985,16 @@ img{max-width:100%}
  .cw-foot{position:sticky;bottom:0;z-index:2;background:var(--navy);box-shadow:0 -10px 24px rgba(0,21,53,.55)}
 }
 @media (max-width:380px){ .rp-tag{display:none} }
+@media (max-width:860px){
+ .hk-line{padding-left:22px !important}
+ .hk-line .ok{left:4px !important;font-size:18px !important}
+ .hk-line.checked{background:rgba(31,169,113,.07)}
+ .hk-toast{position:fixed;left:12px;right:12px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:45;background:#fff;color:var(--navy);border:2px solid var(--navy);box-shadow:4px 4px 0 var(--navy);border-radius:12px;padding:12px 14px;font-size:14px;line-height:1.45;display:flex;gap:10px;align-items:flex-start;transform:translateY(140%);transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+ .hk-toast.on{transform:none}
+ .hk-toast b{color:#1FA971}
+ .hk-toast .ic{font-family:Caveat,cursive;font-size:26px;line-height:.9;color:#1FA971}
+}
+@media (min-width:861px){.hk-toast{display:none}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.hk-js .hk-rv{opacity:1;transform:none}}
 </style>
 </head>
@@ -1284,8 +1294,22 @@ setupGameMobile() {
   var mq = window.matchMedia('(max-width:860px)');
   var game = document.querySelector('.hk-game'), sec = document.getElementById('game'), top = document.querySelector('.hk-top');
   if (!game || !sec) return;
+  var misses = 0, toast = document.createElement('div'); toast.className = 'hk-toast'; toast.setAttribute('role', 'status'); document.body.appendChild(toast);
   document.addEventListener('click', function (e) {
     if (!mq.matches) return;
+    var ln = e.target.closest && e.target.closest('.hk-line');
+    var cd = document.querySelector('.hk-stage .hk-doc.on');
+    if (ln && cd && cd.contains(ln) && ln.getAttribute('data-line') !== 'bad' && !cd.classList.contains('found')) {
+      misses++;
+      var rule = (cd.querySelector('.hk-dh > small') || {}).textContent || '';
+      var msg = misses === 1 ? '<b>Not this one.</b> This line checks out.' :
+        misses === 2 ? '<b>Still fine.</b> ' + (rule ? 'Check each line against the rule at the top: <i style="font-style:normal;font-family:JetBrains Mono,monospace;font-size:12.5px;font-weight:700">' + rule.trim() + '</i>' : 'Look for a number that breaks the rule at the top.') :
+        '<b>Hint:</b> one line breaks the rule. Stuck? Tap <b>Show me the error</b> above.';
+      toast.innerHTML = '<span class="ic">✓</span><span>' + msg + '</span>';
+      toast.classList.add('on'); clearTimeout(toast._t); toast._t = setTimeout(function () { toast.classList.remove('on'); }, misses === 1 ? 1800 : 3600);
+      return;
+    }
+    if (ln || (e.target.closest && e.target.closest('[data-act="next"],[data-act="reveal"],[data-act="restart"]'))) { toast.classList.remove('on'); if (!ln) misses = 0; }
     var u = e.target.closest && e.target.closest('.hk-pi,[data-act="run"],[data-act="week"]');
     if (u) {
       setTimeout(function () {
