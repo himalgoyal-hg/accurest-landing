@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Accurest catches the supply chain errors that cost US ecommerce brands money: stockouts, phantom stock, late containers and cash surprises. Accurest Technologies (software) and Accurest Consulting (managed operations).">
 <meta property="og:title" content="Accurest · Spot the error">
 <meta property="og:description" content="Five documents. Five costly mistakes. Can you spot them? Supply chain software and managed operations for ecommerce brands.">
@@ -475,7 +475,7 @@ i.mk.t{background:var(--bright)} i.mk.c{border:1.8px solid currentColor}
 .c3-front{justify-content:space-between;background:#fff;color:var(--ink);padding:18px 18px 38px 28px;display:flex;flex-direction:column}
 .c3-strip{position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(var(--bright),var(--blue))}
 .c3-top{display:flex;justify-content:space-between;align-items:center}
-.c3-top img{height:40px;width:auto;display:block}
+.c3-top img,.c3-btop img{height:46px;width:auto;display:block}
 .c3-top span,.c3-btop span{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:800;letter-spacing:.14em;color:var(--blue)}
 .c3-tag{margin-top:14px;font-size:11.5px;font-weight:600;color:#5A6577;letter-spacing:.02em}
 .c3-name{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
@@ -488,7 +488,7 @@ i.mk.t{background:var(--bright)} i.mk.c{border:1.8px solid currentColor}
 @keyframes c3-nudge{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg) translateY(-2px)}}
 .c3-back{transform:rotateY(180deg);background:radial-gradient(400px 200px at 90% 0,#036FDA 0,transparent 60%),linear-gradient(150deg,#004AB4,#001E4D);color:#fff;padding:16px 20px 14px 34px;display:flex;flex-direction:column;gap:2px}
 .c3-btop{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
-.c3-btop img{height:36px;width:auto;display:block}
+.c3-btop img{height:46px;width:auto;display:block}
 .c3-btop span{color:#5BF0A8}
 .c3-row{display:grid;grid-template-columns:70px minmax(0,1fr) 30px;align-items:center;gap:8px;padding:9px 10px;margin:0 -10px;color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.16);transition:background .15s}
 .c3-row:last-of-type{border-bottom:0}
@@ -903,8 +903,8 @@ i.mk.t{background:var(--bright)} i.mk.c{border:1.8px solid currentColor}
  .c3-tag{display:none}
  .hk-c3:before{inset:6px -4px -8px 6px}
  .c3-co2 .p{display:none}
- .c3-top img{height:32px}
- .c3-btop img{height:28px}
+ .c3-top img,.c3-btop img{height:38px}
+ .c3-btop img{height:38px}
  .c3-tiles{grid-template-columns:1fr;gap:6px}
  .c3-tile.main .v{font-size:13px}
  .c3-band a b{white-space:normal}
@@ -925,11 +925,40 @@ i.mk.t{background:var(--bright)} i.mk.c{border:1.8px solid currentColor}
  .hk-bc-rows .k{font-size:9px}
  .hk-bc-rows .go{padding:4px 7px;font-size:11px}
 }
+
+/* ---- phones: iOS + Android ---- */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+a,button,[data-act],label{touch-action:manipulation;-webkit-tap-highlight-color:rgba(0,74,180,.12)}
+img{max-width:100%}
+.hk-top{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+.hk-foot{padding-bottom:calc(24px + env(safe-area-inset-bottom))}
+@media (max-width:860px){
+ .hk-form input,.hk-form textarea,.tk-f input,.tk-f textarea{font-size:16px !important}
+ .tk-f input{min-height:40px;padding:8px 0 6px}
+ .tk-chip{font-size:13px;min-height:36px;padding:7px 12px}
+ .c3-quick a{width:42px;height:42px;flex:0 0 42px}
+ .hk-foot a{display:inline-block;padding:10px 2px}
+ .hk-pi .t{flex-wrap:wrap;row-gap:2px}
+ .hk-plist{grid-auto-columns:86% !important}
+ .hk-pi{grid-template-columns:46px 1fr !important;grid-template-areas:"n t" "n c" "n s" !important}
+ .hk-pi .ar{display:none}
+}
+@media (max-width:380px){
+ .hk-toplogo{height:38px !important}
+ .hk-talk{padding:3px 12px 3px 3px;gap:7px;font-size:13px}
+ .hk-talk .tv img{width:32px;height:32px}
+ .c3-id{display:none}
+ .c3-top img,.c3-btop img{height:34px}
+ .hk-pi .t b{font-size:21px}
+}
+@media (hover:none){
+ .hk-talk:hover,.c3-tile:hover,.c3-co2:hover,.c3-quick a:hover{transform:none}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.hk-js .hk-rv{opacity:1;transform:none}}
 </style>
 </head>
 <body>
-<div id="hk-root" onMouseMove="{{onMove}}" onInput="{{onInput}}">
+<div id="hk-root">
 <header class="hk-top"><div class="hk-wrap">
 <img class="hk-toplogo" src="assets/accurest-logo.png" alt="Accurest — Precision Delivered" width="182" height="58" style="display:block;height:58px;width:auto">
 <nav class="hk-co hk-seg" aria-label="Choose a company">
@@ -1109,7 +1138,7 @@ i.mk.t{background:var(--bright)} i.mk.c{border:1.8px solid currentColor}
 <div class="c3-face c3-front">
 <div class="c3-strip"></div>
 <i class="c3-crop tl"></i><i class="c3-crop tr"></i><i class="c3-crop bl"></i><i class="c3-crop br"></i>
-<div class="c3-top"><img src="assets/accurest-logo.png" alt="Accurest — Precision Delivered" width="151" height="48" style="height:48px;width:auto"><span class="c3-id">NO. 0001 · HG</span></div>
+<div class="c3-top"><img src="assets/accurest-logo.png" alt="Accurest — Precision Delivered" width="151" height="48"><span class="c3-id">NO. 0001 · HG</span></div>
 <div class="c3-who">
 <span class="c3-av"><img src="assets/himal.jpg" alt="Himal Goyal" width="74" height="74"><i></i></span>
 <div><div class="c3-name"><b>Himal Goyal</b><span class="hk-pen">Himal</span></div>
@@ -1129,7 +1158,7 @@ i.mk.t{background:var(--bright)} i.mk.c{border:1.8px solid currentColor}
 <i class="c3-sheen"></i>
 </div>
 <div class="c3-face c3-back">
-<div class="c3-btop"><img src="assets/accurest-logo-white.png" alt="Accurest — Precision Delivered" width="151" height="48" style="height:48px;width:auto"><span class="hk-pen">Let's find your errors.</span></div>
+<div class="c3-btop"><img src="assets/accurest-logo-white.png" alt="Accurest — Precision Delivered" width="151" height="48"><span class="hk-pen">Let's find your errors.</span></div>
 <div class="c3-tiles">
 <a class="c3-tile main" href="mailto:himal.goyal@accurest.co?subject=Hello%20Himal" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg></span><span class="k">EMAIL HIMAL</span><span class="v">himal.goyal@accurest.co</span><span class="ar">→</span></a>
 <a class="c3-tile" href="https://www.linkedin.com/in/himalgoyal/" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"></path></svg></span><span class="k">LINKEDIN</span><span class="v">in/himalgoyal</span><span class="ar">↗</span></a>
@@ -1215,7 +1244,7 @@ setupHk() {
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   var els = d.querySelectorAll('.hk-rv');
   d.documentElement.classList.add('hk-js');
-  var io = new IntersectionObserver(function (en) { en.forEach(function (x) { if (x.isIntersecting || x.boundingClientRect.top < 0) { x.target.classList.add('in'); io.unobserve(x.target); } }); }, { threshold: 0.12 });
+  var io = new IntersectionObserver(function (en) { en.forEach(function (x) { if (x.isIntersecting || x.boundingClientRect.top < 0) { x.target.classList.add('in'); io.unobserve(x.target); } }); }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
   els.forEach(function (el) { io.observe(el); });
   window.__hkIO = io;
   setTimeout(function () { els.forEach(function (el) { if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('in'); }); }, 1200);
@@ -1667,6 +1696,7 @@ root.addEventListener('click', function (e) { hk.handleClick(e); });
 root.addEventListener('submit', function (e) { hk.handleSubmit(e); });
 root.addEventListener('input', function (e) { hk.handleInput(e); });
 root.addEventListener('change', function (e) { hk.handleInput(e); });
+root.addEventListener('mousemove', function (e) { if (hk.handleMove) hk.handleMove(e); });
 hk.componentDidMount();
 </script>
 </body>
