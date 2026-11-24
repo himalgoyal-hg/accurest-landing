@@ -980,6 +980,11 @@ img{max-width:100%}
  .hk-result .hk-next{min-height:40px;margin-top:2px}
 }
 @keyframes hk-sheet{from{transform:translateY(110%)}to{transform:none}}
+@media (max-width:860px){
+ .cs-week,.hk-cons{overflow:clip}
+ .cw-foot{position:sticky;bottom:0;z-index:2;background:var(--navy);box-shadow:0 -10px 24px rgba(0,21,53,.55)}
+}
+@media (max-width:380px){ .rp-tag{display:none} }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.hk-js .hk-rv{opacity:1;transform:none}}
 </style>
 </head>
@@ -1281,6 +1286,16 @@ setupGameMobile() {
   if (!game || !sec) return;
   document.addEventListener('click', function (e) {
     if (!mq.matches) return;
+    var u = e.target.closest && e.target.closest('.hk-pi,[data-act="run"],[data-act="week"]');
+    if (u) {
+      setTimeout(function () {
+        var el = u.matches('[data-act="week"]') ? document.getElementById('cs-week') : [].slice.call(document.querySelectorAll('.hk-win')).find(function (x) { return x.getBoundingClientRect().height > 0; });
+        if (!el) return;
+        var r = el.getBoundingClientRect(), h = (top ? top.offsetHeight : 64) + 10;
+        if (r.top < h || r.top > window.innerHeight * 0.45) window.scrollTo({ top: window.scrollY + r.top - h, behavior: 'smooth' });
+      }, 120);
+      return;
+    }
     var t = e.target.closest && e.target.closest('[data-act="reveal"],[data-act="next"],[data-act="restart"],.hk-line');
     if (!t) return;
     var hdr = (top ? top.offsetHeight : 64) + 6;
