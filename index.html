@@ -9,7 +9,7 @@
 <meta property="og:type" content="website">
 <meta property="og:image" content="assets/accurest-logo.png">
 <meta name="theme-color" content="#001535">
-<link rel="icon" type="image/png" href="assets/favicon.png"><link rel="apple-touch-icon" href="assets/favicon.png">
+<link rel="icon" type="image/png" href="assets/favicon.png">
 <title>Accurest — Spot the error</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=DM+Serif+Display&amp;family=JetBrains+Mono:wght@400;700;800&amp;family=Montserrat:wght@400;500;700;800&amp;display=swap" rel="stylesheet">
 <style>
@@ -464,8 +464,12 @@ i.mk.t{background:var(--bright)} i.mk.c{border:1.8px solid currentColor}
 
 /* 3D business card */
 .hk-c3{position:relative;z-index:1;flex:1;min-width:0;margin-left:-22px;perspective:1100px;cursor:pointer;outline:none;--rx:0deg;--ry:0deg;--mx:50%;--my:50%}
-.c3-in{position:relative;width:100%;display:grid;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.2,.8,.2,1);transform:rotateX(var(--rx)) rotateY(calc(var(--ry) + 1.5deg))}
-.hk-c3.flipped .c3-in{transform:rotateX(var(--rx)) rotateY(calc(180deg + var(--ry)))}
+.c3-in{position:relative;width:100%;display:grid;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.2,.8,.2,1);transform:none}
+.hk-c3.tilt:not(.flipped) .c3-in{transform:rotateX(var(--rx)) rotateY(var(--ry))}
+.hk-c3.flipped .c3-in{transform:rotateY(180deg)}
+.hk-c3.flipped.tilt .c3-in{transform:rotateX(var(--rx)) rotateY(calc(180deg + var(--ry)))}
+.c3-front,.c3-back{-webkit-font-smoothing:antialiased}
+.hk-c3 img{image-rendering:auto}
 .hk-c3.tilt .c3-in{transition:transform .12s linear}
 .c3-face{grid-area:1/1;position:relative;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;box-shadow:0 26px 50px -20px rgba(0,0,0,.75)}
 .c3-front{justify-content:space-between;background:#fff;color:var(--ink);padding:18px 18px 38px 28px;display:flex;flex-direction:column}
