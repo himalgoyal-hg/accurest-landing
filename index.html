@@ -954,6 +954,32 @@ img{max-width:100%}
 @media (hover:none){
  .hk-talk:hover,.c3-tile:hover,.c3-co2:hover,.c3-quick a:hover{transform:none}
 }
+
+/* ---- game on phones: whole document on one screen, result as bottom sheet ---- */
+@media (max-width:860px){
+ .hk-game{scroll-margin-top:76px}
+ .hk-levels{margin-bottom:8px}
+ .hk-doc{padding:12px 10px 10px !important}
+ .hk-dh{padding-bottom:8px;margin-bottom:2px}
+ .hk-dh small{font-size:10.5px;line-height:1.45}
+ .hk-cols{padding:6px 6px}
+ .hk-line{padding:8px 6px !important;min-height:44px}
+ .hk-tot{padding:8px 6px 0;font-size:13px}
+ .hk-contract{display:none}
+ .hk-result.show{position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:40;margin:0;transform:none;padding:14px 14px 12px;max-height:52vh;overflow:auto;box-shadow:0 -10px 40px rgba(0,21,53,.45),0 0 0 2px #5BF0A8;border-radius:14px;animation:hk-sheet .35s cubic-bezier(.2,.8,.2,1) both}
+ .hk-result p{font-size:14px;line-height:1.5}
+ .hk-result .hk-next{width:100%;margin-top:6px;min-height:46px}
+ .hk-rfoot{flex-wrap:wrap;gap:8px}
+ body.hk-gaway .hk-result.show{display:none}
+}
+@media (max-width:860px) and (max-height:700px){
+ .hk-result.show{padding:10px 12px;gap:10px;max-height:44vh}
+ .hk-result .st{font-size:10px;padding:4px 6px}
+ .hk-result p{font-size:13px;line-height:1.45;margin-bottom:6px}
+ .hk-result .who{font-size:11.5px}
+ .hk-result .hk-next{min-height:40px;margin-top:2px}
+}
+@keyframes hk-sheet{from{transform:translateY(110%)}to{transform:none}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.hk-js .hk-rv{opacity:1;transform:none}}
 </style>
 </head>
@@ -1249,7 +1275,40 @@ setupHk() {
   window.__hkIO = io;
   setTimeout(function () { els.forEach(function (el) { if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('in'); }); }, 1200);
 }
-componentDidMount() { this.pathUI('Software (Accurest Technologies)'); this.setupHk(); this.resetGame(); this.setupRoute(); this.setupSweep(); this.setupCard(); this.setupWeek(); this.setupNav(); }
+setupGameMobile() {
+  var mq = window.matchMedia('(max-width:860px)');
+  var game = document.querySelector('.hk-game'), sec = document.getElementById('game'), top = document.querySelector('.hk-top');
+  if (!game || !sec) return;
+  document.addEventListener('click', function (e) {
+    if (!mq.matches) return;
+    var t = e.target.closest && e.target.closest('[data-act="reveal"],[data-act="next"],[data-act="restart"],.hk-line');
+    if (!t) return;
+    var hdr = (top ? top.offsetHeight : 64) + 6;
+    var isFind = t.matches('[data-act="reveal"],.hk-line');
+    var tries = 0;
+    var go = function () {
+      if (isFind && !document.querySelector('.hk-result.show') && tries++ < 20) { setTimeout(go, 100); return; }
+      var y = game.getBoundingClientRect().top + window.scrollY - hdr;
+      if (isFind) {
+        document.body.classList.remove('hk-gaway');
+        var sheet = document.querySelector('.hk-result.show'), bad = document.querySelector('.hk-doc.on .hk-bad');
+        if (sheet && bad) {
+          var room = window.innerHeight - sheet.offsetHeight - 26;
+          var b = bad.getBoundingClientRect();
+          var need = window.scrollY + b.bottom - room;
+          y = Math.max(y, need);
+          if (window.scrollY + b.top - y < hdr) y = window.scrollY + b.top - hdr;
+        }
+      }
+      if (Math.abs(window.scrollY - y) > 8) window.scrollTo({ top: y, behavior: 'smooth' });
+    };
+    setTimeout(go, isFind ? 150 : 80);
+  }, true);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (en) { en.forEach(function (x) { document.body.classList.toggle('hk-gaway', !x.isIntersecting); }); }, { threshold: 0.15 }).observe(game);
+  }
+}
+componentDidMount() { this.pathUI('Software (Accurest Technologies)'); this.setupHk(); this.resetGame(); this.setupRoute(); this.setupSweep(); this.setupCard(); this.setupWeek(); this.setupNav(); this.setupGameMobile(); }
 setTxt(sel, v) { var el = document.querySelector(sel); if (el) el.textContent = v; }
 resetGame(full) {
   var d = document;
