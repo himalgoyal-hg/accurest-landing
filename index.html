@@ -995,6 +995,35 @@ img{max-width:100%}
  .hk-toast .ic{font-family:Caveat,cursive;font-size:26px;line-height:.9;color:#1FA971}
 }
 @media (min-width:861px){.hk-toast{display:none}}
+
+/* ---- free error check ---- */
+.fc-sec{background:#FBFAF6 !important}
+.fc-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:start}
+.fc-u{color:var(--blue);font-style:italic}
+.fc-steps{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:16px}
+.fc-steps li{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start;font-size:15.5px;line-height:1.5;color:#1F2A3D}
+.fc-steps i{font:800 15px 'JetBrains Mono',monospace;font-style:normal;width:40px;height:40px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center}
+.fc-steps b{display:block;font-size:16px;color:var(--navy)}
+.fc-tray{background:#fff;border:2px solid var(--navy);border-radius:18px;box-shadow:10px 10px 0 #5BF0A8;padding:24px}
+.fc-h{font:800 12px 'JetBrains Mono',monospace;letter-spacing:.14em;color:#5A6577;text-transform:uppercase}
+.fc-docs{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:12px 0 16px}
+.fc-doc{all:unset;box-sizing:border-box;cursor:pointer;border:2px solid #D3DCEB;border-radius:12px;padding:12px;display:grid;gap:2px;min-height:44px;touch-action:manipulation}
+.fc-doc b{font-size:15px;color:var(--navy)}.fc-doc small{font-size:12.5px;color:#3B475C;line-height:1.35}
+.fc-doc .p{font:800 11px 'JetBrains Mono',monospace;color:var(--c)}
+.fc-doc.on{border-color:var(--c);background:color-mix(in srgb,var(--c) 8%,#fff);box-shadow:0 0 0 2px var(--c)}
+.fc-get{background:var(--navy);color:#fff;border-radius:12px;padding:16px 18px;margin-bottom:18px}
+.fc-get .t{font:800 11px 'JetBrains Mono',monospace;letter-spacing:.14em;color:#5BF0A8}
+.fc-get ul{margin:8px 0 0;padding-left:18px;line-height:1.6;font-size:14.5px}
+.fc-go{border-radius:999px;margin-left:0 !important;justify-content:center;width:100%;box-sizing:border-box;font-size:16px;min-height:52px}
+.fc-safe{font-size:12.5px;color:#3B475C;margin:12px 0 0;line-height:1.45}
+@media (max-width:860px){.fc-grid{grid-template-columns:1fr;gap:28px}.fc-tray{box-shadow:6px 6px 0 #5BF0A8;padding:18px}}
+/* week: shorter on phones */
+@media (max-width:860px){
+ .cw-list:not(.all) li:nth-child(n+4){display:none}
+ .cw-more{all:unset;box-sizing:border-box;cursor:pointer;display:block;width:100%;text-align:center;padding:12px;font-weight:700;font-size:14px;color:#9FC3FF;border-top:1px solid rgba(255,255,255,.12)}
+ .cw-list.all + .cw-more{display:none}
+}
+@media (min-width:861px){.cw-more{display:none}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.hk-js .hk-rv{opacity:1;transform:none}}
 </style>
 </head>
@@ -1017,7 +1046,7 @@ img{max-width:100%}
 <h1 class="hk-serif hk-h1">Five documents. <mark>Five costly mistakes.</mark> Can you spot them?</h1>
 <p class="hk-lead">US e-commerce brands lose money in reorder plans, invoices, stock counts, shipment trackers and cash plans that nobody checks line by line. We check every line, for you or with our software.</p>
 <div class="hk-hint"><span class="hk-pen" style="font-size:26px">→</span><span><b>Tap the line</b> you think is wrong.</span></div>
-<div class="hk-ctas"><button type="button" class="hk-btn pri" data-act="reveal">Show me the error</button><a class="hk-btn ghost" href="#journey">Skip, show me how ↓</a></div>
+<div class="hk-ctas"><button type="button" class="hk-btn pri" data-act="reveal">Show me the error</button><a class="hk-btn ghost" href="#tech">Skip the game · see what we do ↓</a></div>
 <div class="hk-score" aria-live="polite"><div class="sc"><span>LEVEL</span><b><b class="hk-lvl">1</b>/5</b></div><div class="sc"><span>LINES CHECKED</span><b class="hk-count">0</b></div><div class="sc tm"><span>TIME</span><b class="hk-time">0s</b></div><div class="hk-prog"><i style="width:0%"></i></div></div>
 </div>
 <div class="hk-game">
@@ -1029,7 +1058,7 @@ img{max-width:100%}
 <div class="hk-card-top"><span class="stamp">ERROR HUNTER</span><span class="hk-pen" style="font-size:24px">5 of 5. Sharp eyes.</span></div>
 <div class="hk-card-big"><div><b class="hk-ftime">0s</b><small>total time</small></div><div><b class="hk-fchecks">0</b><small>lines checked</small></div><div><b>12 days</b><small>of stockout avoided on your best seller</small></div></div>
 <p>You just did in seconds what most teams never do: check every line. Accurest does it on every reorder plan, invoice, stock count, shipment and cash plan, every day.</p>
-<div class="hk-ctas"><a class="hk-btn pri" href="#talk">Book a 20-min call</a><button type="button" class="hk-btn ghost" data-act="restart">Play again ↻</button></div>
+<div class="hk-ctas"><a class="hk-btn pri" href="#check">Check my documents free →</a><a class="hk-btn ghost" href="#talk">Talk to Himal</a><button type="button" class="hk-btn ghost" data-act="restart">Play again ↻</button></div>
 </div>
 </div>
 <div class="hk-result" data-res="1" role="status"><span class="st">CAUGHT</span><div><p><b class="hk-verdict"></b> TM-16 has 18 days of stock and a 30-day lead time, but the plan says “None needed”. Your best seller sells out 12 days before the next container lands.</p><div class="hk-rfoot"><span class="who"><i class="mk t"></i>Caught by AccuPlan · <a href="#tech">See AccuPlan</a></span><button type="button" class="hk-next" data-act="next">Next document →</button></div></div></div><div class="hk-result" data-res="2" role="status"><span class="st">CAUGHT</span><div><p><b class="hk-verdict"></b> Storage was billed at $24, not $18. That is $6,240 a month, $74,880 a year.</p><div class="hk-rfoot"><span class="who"><i class="mk c"></i>Caught by Checkmate · <a href="#consult">See Accurest Consulting</a></span><button type="button" class="hk-next" data-act="next">Next document →</button></div></div></div><div class="hk-result" data-res="3" role="status"><span class="st">CAUGHT</span><div><p><b class="hk-verdict"></b> TM-16 shows variance 0, but the scan is 200 short. The system still thinks it is above the reorder point, so the reorder never fires.</p><div class="hk-rfoot"><span class="who"><i class="mk t"></i>Caught by AccuStock · <a href="#tech">See Accurest Technologies</a></span><button type="button" class="hk-next" data-act="next">Next document →</button></div></div></div><div class="hk-result" data-res="4" role="status"><span class="st">CAUGHT</span><div><p><b class="hk-verdict"></b> PO-1042 still says “On schedule”, but the carrier rolled it to Apr 16. Your best seller sells out on Apr 8.</p><div class="hk-rfoot"><span class="who"><i class="mk t"></i>Caught by AccuShipments · <a href="#tech">See Accurest Technologies</a></span><button type="button" class="hk-next" data-act="next">Next document →</button></div></div></div><div class="hk-result" data-res="5" role="status"><span class="st">CAUGHT</span><div><p><b class="hk-verdict"></b> Freight and duty are committed at $140K but planned at $0, and the gap still shows $0. May really needs $660K, and your credit line stops at $560K.</p><div class="hk-rfoot"><span class="who"><i class="mk t"></i>Caught by AccuFinance · <a href="#tech">See AccuFinance</a></span><button type="button" class="hk-next" data-act="score">See your score →</button></div></div></div>
@@ -1152,19 +1181,31 @@ img{max-width:100%}
 <div class="cs-team"><div class="cs-m" style="--m:#036FDA"><span class="av">PL</span><div><b>Planner</b><em>Planning &amp; ordering</em><p>Runs your forecast, POs and container plan every week.</p></div></div><div class="cs-m" style="--m:#12B76A"><span class="av">IM</span><div><b>Imports specialist</b><em>Imports &amp; shipments</em><p>Chases suppliers and forwarders, tracks every milestone.</p></div></div><div class="cs-m" style="--m:#D92D20"><span class="av">AU</span><div><b>Auditor</b><em>Checkmate · invoice audit</em><p>Checks every 3PL and carrier line against your rates.</p></div></div><div class="cs-m" style="--m:#B7791F"><span class="av">AN</span><div><b>Analyst</b><em>Reporting &amp; finance</em><p>Unit economics, landed cost and cash-flow reports.</p></div></div></div>
 <div class="cs-week" id="cs-week">
 <div class="cw-head"><div><b>This week at Your Brand</b><span>Run by Accurest Consulting</span></div><button type="button" class="cw-play" data-act="week">▶ Play the week</button></div>
-<ol class="cw-list"><li data-s="0" data-h="3"><span class="d">MON</span><span class="av" style="--m:#036FDA">PL</span><span class="t">Forecast refreshed: 3 best sellers will run out</span><span class="r">PO raised early</span></li><li data-s="6240" data-h="4"><span class="d">TUE</span><span class="av" style="--m:#D92D20">AU</span><span class="t">3PL invoice: storage billed $24, contract says $18</span><span class="r">+$6,240 credit</span></li><li data-s="0" data-h="2"><span class="d">WED</span><span class="av" style="--m:#12B76A">IM</span><span class="t">Forwarder: PO-1042 rolled to next vessel</span><span class="r">300 units to air</span></li><li data-s="0" data-h="3"><span class="d">THU</span><span class="av" style="--m:#B7791F">AN</span><span class="t">New duty rate not in landed cost</span><span class="r">Margins re-priced</span></li><li data-s="1120" data-h="2"><span class="d">FRI</span><span class="av" style="--m:#D92D20">AU</span><span class="t">Carrier bills: 14 duplicate surcharges</span><span class="r">+$1,120 credit</span></li></ol>
+<ol class="cw-list"><li data-s="0" data-h="3"><span class="d">MON</span><span class="av" style="--m:#036FDA">PL</span><span class="t">Forecast refreshed: 3 best sellers will run out</span><span class="r">PO raised early</span></li><li data-s="6240" data-h="4"><span class="d">TUE</span><span class="av" style="--m:#D92D20">AU</span><span class="t">3PL invoice: storage billed $24, contract says $18</span><span class="r">+$6,240 credit</span></li><li data-s="0" data-h="2"><span class="d">WED</span><span class="av" style="--m:#12B76A">IM</span><span class="t">Forwarder: PO-1042 rolled to next vessel</span><span class="r">300 units to air</span></li><li data-s="0" data-h="3"><span class="d">THU</span><span class="av" style="--m:#B7791F">AN</span><span class="t">New duty rate not in landed cost</span><span class="r">Margins re-priced</span></li><li data-s="1120" data-h="2"><span class="d">FRI</span><span class="av" style="--m:#D92D20">AU</span><span class="t">Carrier bills: 14 duplicate surcharges</span><span class="r">+$1,120 credit</span></li></ol><button type="button" class="cw-more">Show the whole week ↓</button>
 <div class="cw-foot"><div><b class="cw-n">0</b><span>errors caught</span></div><div><b class="cw-s">$0</b><span>credits claimed</span></div><div><b class="cw-h">0 h</b><span>of your team's time saved</span></div></div>
 </div>
 </div>
 </div></section>
 
-<section class="hk-sec" style="background:#fff"><div class="hk-wrap">
-<div class="hk-eyebrow" style="color:var(--blue)">How it starts</div>
-<h2 class="hk-serif hk-h2 hk-rv">Send us one real document.</h2>
-<div class="hk-steps hk-rv">
-<div class="hk-step"><span class="k">STEP 1</span><h3>20-minute call</h3><p>Tell Himal how you plan, order and ship today, and where it hurts.</p></div>
-<div class="hk-step"><span class="k">STEP 2</span><h3>We find your error</h3><p>Share one invoice, PO or stock report. We come back with what is wrong and what it costs.</p></div>
-<div class="hk-step"><span class="k">STEP 3</span><h3>You pick the path</h3><p>Run it yourself on Accurest software, or let the Accurest Consulting team run it for you.</p></div>
+<section class="hk-sec fc-sec" id="check"><div class="hk-wrap">
+<div class="fc-grid">
+<div>
+<div class="hk-eyebrow" style="color:var(--blue)">Free error check · nothing to install</div>
+<h2 class="hk-serif hk-h2 hk-rv">You found our errors. <span class="fc-u">Let us find yours.</span></h2>
+<p class="hk-sub">Send Himal one real document. His team checks every line against your own rules and sends back what is wrong and what it costs you. Free, and no call needed.</p>
+<ol class="fc-steps">
+<li><i>1</i><span><b>Pick a document</b>A 3PL invoice, reorder plan, stock count, shipment tracker or cash plan.</span></li>
+<li><i>2</i><span><b>Email it to Himal</b>We fill in the email for you. Attach the file, or share a link. Hide anything you'd rather we didn't see.</span></li>
+<li><i>3</i><span><b>Get your error report</b>Every line marked ✓ or ✕, the dollar impact, and the one fix worth doing first.</span></li>
+</ol>
+</div>
+<div class="fc-tray hk-rv">
+<div class="fc-h">01 · Which document?</div>
+<div class="fc-docs" id="fc-docs"><button type="button" class="fc-doc on" data-fc="cm" style="--c:#C2410C" data-get="Every line checked against your rate card|Overcharges in dollars, with the line to claim|A ready-to-send credit request"><span class="p">CM</span><b>3PL invoice</b><small>Fees vs your contract</small></button><button type="button" class="fc-doc" data-fc="plan" style="--c:#1D5FD1" data-get="Every SKU checked against lead time and safety days|SKUs that run out before the next PO lands|What to order this week"><span class="p">AP</span><b>Reorder plan</b><small>What to order and when</small></button><button type="button" class="fc-doc" data-fc="stock" style="--c:#6D4AD6" data-get="System vs last scan, SKU by SKU|Phantom units that block your reorders|Which counts to redo first"><span class="p">AS</span><b>Stock count</b><small>System vs shelf</small></button><button type="button" class="fc-doc" data-fc="ship" style="--c:#0B7D70" data-get="Every PO checked for silent delays|Containers that miss your sell-out date|Where air freight pays off"><span class="p">ASh</span><b>Shipment tracker</b><small>POs, containers, ETAs</small></button><button type="button" class="fc-doc" data-fc="fin" style="--c:#A15C00" data-get="Every PO, freight and duty bill against your plan|Cash gaps by week|What to move to stay inside your credit line"><span class="p">AF</span><b>Cash plan</b><small>POs, freight, duty</small></button></div>
+<div class="fc-get" id="fc-get"></div>
+<a class="hk-btn pri fc-go" id="fc-go" href="mailto:himal.goyal@accurest.co" target="_blank" rel="noopener">Email my document to Himal →</a>
+<p class="fc-safe">🔒 Only Himal's team sees your file. We delete it after the check unless you ask us to keep it.</p>
+</div>
 </div>
 <div style="margin-top:72px;text-align:center"><div class="hk-eyebrow" style="color:#5A6577">Brands we work with</div><div class="hk-marq"><div class="hk-marq-in"><span class="hk-lg" style="--d:0.00s"><img src="assets/client-miracle-made.png" alt="Miracle Made" style="max-height:36px"></span><span class="hk-lg" style="--d:0.45s"><img src="assets/client-maubrands.png" alt="MauBrands" style="max-height:44px"></span><span class="hk-lg" style="--d:0.90s"><img src="assets/client-halo-life.png" alt="Halo Life" style="max-height:56px"></span><span class="hk-lg" style="--d:1.35s"><img src="assets/client-soil.png" alt="Soil" style="max-height:60px"></span><span class="hk-lg" style="--d:1.80s"><img src="assets/client-tomo.png" alt="Tomo" style="max-height:56px"></span><span class="hk-lg" style="--d:2.25s"><img src="assets/client-european-bartender-school.png" alt="European Bartender School" style="max-height:52px"></span><span class="hk-lg" aria-hidden="true" style="--d:2.70s"><img src="assets/client-miracle-made.png" alt="" style="max-height:36px"></span><span class="hk-lg" aria-hidden="true" style="--d:3.15s"><img src="assets/client-maubrands.png" alt="" style="max-height:44px"></span><span class="hk-lg" aria-hidden="true" style="--d:3.60s"><img src="assets/client-halo-life.png" alt="" style="max-height:56px"></span><span class="hk-lg" aria-hidden="true" style="--d:4.05s"><img src="assets/client-soil.png" alt="" style="max-height:60px"></span><span class="hk-lg" aria-hidden="true" style="--d:4.50s"><img src="assets/client-tomo.png" alt="" style="max-height:56px"></span><span class="hk-lg" aria-hidden="true" style="--d:4.95s"><img src="assets/client-european-bartender-school.png" alt="" style="max-height:52px"></span></div></div></div>
 </div></section>
@@ -1290,6 +1331,23 @@ setupHk() {
   window.__hkIO = io;
   setTimeout(function () { els.forEach(function (el) { if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('in'); }); }, 1200);
 }
+setupCheck() {
+  var box = document.getElementById('fc-docs'); if (!box) return;
+  var go = document.getElementById('fc-go'), get = document.getElementById('fc-get');
+  var pick = function (b) {
+    box.querySelectorAll('.fc-doc').forEach(function (x) { x.classList.toggle('on', x === b); });
+    var name = b.querySelector('b').textContent, items = b.getAttribute('data-get').split('|');
+    get.innerHTML = '<div class="t">You get back · ' + name + '</div><ul>' + items.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul>';
+    go.textContent = 'Email my ' + name.toLowerCase() + ' to Himal \u2192';
+    var subj = 'Free error check: ' + name;
+    var body = 'Hi Himal,\n\nPlease run a free error check on the attached ' + name.toLowerCase() + '.\n\nCompany:\nWhere we sell (own site / Amazon / Walmart):\nOur rules (e.g. lead time, safety days, contract rates):\n\nThanks,\n';
+    go.setAttribute('href', 'mailto:himal.goyal@accurest.co?subject=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(body));
+  };
+  box.addEventListener('click', function (e) { var b = e.target.closest('.fc-doc'); if (b) pick(b); });
+  var first = box.querySelector('.fc-doc.on') || box.querySelector('.fc-doc'); if (first) pick(first);
+  var more = document.querySelector('.cw-more');
+  if (more) more.addEventListener('click', function () { var l = document.querySelector('.cw-list'); if (l) l.classList.add('all'); });
+}
 setupGameMobile() {
   var mq = window.matchMedia('(max-width:860px)');
   var game = document.querySelector('.hk-game'), sec = document.getElementById('game'), top = document.querySelector('.hk-top');
@@ -1347,7 +1405,7 @@ setupGameMobile() {
     new IntersectionObserver(function (en) { en.forEach(function (x) { document.body.classList.toggle('hk-gaway', !x.isIntersecting); }); }, { threshold: 0.15 }).observe(game);
   }
 }
-componentDidMount() { this.pathUI('Software (Accurest Technologies)'); this.setupHk(); this.resetGame(); this.setupRoute(); this.setupSweep(); this.setupCard(); this.setupWeek(); this.setupNav(); this.setupGameMobile(); }
+componentDidMount() { this.pathUI('Software (Accurest Technologies)'); this.setupHk(); this.resetGame(); this.setupRoute(); this.setupSweep(); this.setupCard(); this.setupWeek(); this.setupNav(); this.setupGameMobile(); this.setupCheck(); }
 setTxt(sel, v) { var el = document.querySelector(sel); if (el) el.textContent = v; }
 resetGame(full) {
   var d = document;
