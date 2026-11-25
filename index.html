@@ -1018,6 +1018,8 @@ img{max-width:100%}
 .fc-go{border-radius:999px;margin-left:0 !important;justify-content:center;width:100%;box-sizing:border-box;font-size:16px;min-height:52px}
 .fc-safe{font-size:12.5px;color:#3B475C;margin:12px 0 0;line-height:1.45}
 @media (max-width:860px){.fc-grid{grid-template-columns:1fr;gap:28px}.fc-tray{box-shadow:6px 6px 0 #5BF0A8;padding:18px}}
+.fc-copy{all:unset;box-sizing:border-box;cursor:pointer;display:block;width:100%;text-align:center;margin-top:10px;padding:12px;border:1.5px dashed #9AA6BA;border-radius:999px;font-size:14px;color:#1F2A3D;touch-action:manipulation}
+.fc-copy b{color:var(--blue)}.fc-copy.ok{border-style:solid;border-color:#1FA971;background:#E7F7EF;color:#0B5137}
 /* week: shorter on phones */
 @media (max-width:860px){
  .cw-list:not(.all) li:nth-child(n+4){display:none}
@@ -1205,6 +1207,7 @@ img{max-width:100%}
 <div class="fc-docs" id="fc-docs"><button type="button" class="fc-doc on" data-fc="cm" style="--c:#C2410C" data-get="Every line checked against your rate card|Overcharges in dollars, with the line to claim|A ready-to-send credit request"><span class="p">CM</span><b>3PL invoice</b><small>Fees vs your contract</small></button><button type="button" class="fc-doc" data-fc="plan" style="--c:#1D5FD1" data-get="Every SKU checked against lead time and safety days|SKUs that run out before the next PO lands|What to order this week"><span class="p">AP</span><b>Reorder plan</b><small>What to order and when</small></button><button type="button" class="fc-doc" data-fc="stock" style="--c:#6D4AD6" data-get="System vs last scan, SKU by SKU|Phantom units that block your reorders|Which counts to redo first"><span class="p">AS</span><b>Stock count</b><small>System vs shelf</small></button><button type="button" class="fc-doc" data-fc="ship" style="--c:#0B7D70" data-get="Every PO checked for silent delays|Containers that miss your sell-out date|Where air freight pays off"><span class="p">ASh</span><b>Shipment tracker</b><small>POs, containers, ETAs</small></button><button type="button" class="fc-doc" data-fc="fin" style="--c:#A15C00" data-get="Every PO, freight and duty bill against your plan|Cash gaps by week|What to move to stay inside your credit line"><span class="p">AF</span><b>Cash plan</b><small>POs, freight, duty</small></button></div>
 <div class="fc-get" id="fc-get"></div>
 <a class="hk-btn pri fc-go" id="fc-go" data-umami-event="free-check-email" href="mailto:himal.goyal@accurest.co" target="_blank" rel="noopener">Email my document to Himal →</a>
+<button type="button" class="fc-copy" id="fc-copy" data-umami-event="free-check-copy-email">No email app? <b>Copy Himal's email address</b></button>
 <p class="fc-safe">🔒 Only Himal's team sees your file. We delete it after the check unless you ask us to keep it.</p>
 </div>
 </div>
@@ -1340,13 +1343,22 @@ setupCheck() {
     box.querySelectorAll('.fc-doc').forEach(function (x) { x.classList.toggle('on', x === b); });
     var name = b.querySelector('b').textContent, items = b.getAttribute('data-get').split('|');
     get.innerHTML = '<div class="t">You get back · ' + name + '</div><ul>' + items.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul>';
-    go.textContent = 'Email my ' + name.toLowerCase() + ' to Himal \u2192';
+    var low = /^[A-Z][a-z]/.test(name) ? name.charAt(0).toLowerCase() + name.slice(1) : name;
+    go.textContent = 'Email my ' + low + ' to Himal \u2192';
     var subj = 'Free error check: ' + name;
-    var body = 'Hi Himal,\n\nPlease run a free error check on the attached ' + name.toLowerCase() + '.\n\nCompany:\nWhere we sell (own site / Amazon / Walmart):\nOur rules (e.g. lead time, safety days, contract rates):\n\nThanks,\n';
+    var body = 'Hi Himal,\n\nPlease run a free error check on the attached ' + low + '.\n\nCompany:\nWhere we sell (own site / Amazon / Walmart):\nOur rules (e.g. lead time, safety days, contract rates):\n\nThanks,\n';
     go.setAttribute('href', 'mailto:himal.goyal@accurest.co?subject=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(body));
   };
   box.addEventListener('click', function (e) { var b = e.target.closest('.fc-doc'); if (b) pick(b); });
   var first = box.querySelector('.fc-doc.on') || box.querySelector('.fc-doc'); if (first) pick(first);
+  var cp = document.getElementById('fc-copy');
+  if (cp) cp.addEventListener('click', function () {
+    var em = (go.getAttribute('href') || '').replace(/^mailto:/, '').split('?')[0];
+    var label = cp.innerHTML;
+    var done = function () { cp.classList.add('ok'); cp.innerHTML = '✓ Copied ' + em + '. Paste it into your email and attach the file.'; setTimeout(function () { cp.classList.remove('ok'); cp.innerHTML = label; }, 4000); };
+    var fallback = function () { var t = document.createElement('textarea'); t.value = em; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0'; document.body.appendChild(t); t.select(); t.setSelectionRange(0, 99); try { document.execCommand('copy'); } catch (e) {} document.body.removeChild(t); done(); };
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(em).then(done, fallback); else fallback();
+  });
   var more = document.querySelector('.cw-more');
   if (more) more.addEventListener('click', function () { var l = document.querySelector('.cw-list'); if (l) l.classList.add('all'); });
 }
